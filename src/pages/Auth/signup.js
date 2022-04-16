@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import CssBaseline from "@mui/material/CssBaseline"
@@ -12,7 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
-
+import { useSignUp } from "../../hooks/useSignUp"
+import { auth } from "../../firebase"
+import { useHistory } from "react-router-dom"
+import { useAuthUser } from "@react-query-firebase/auth"
 function Copyright(props) {
   return (
     <Typography
@@ -33,15 +36,24 @@ function Copyright(props) {
 
 const theme = createTheme()
 
-export default function SignIn() {
+const Register = () => {
+  const { signup } = useSignUp()
+  const history = useHistory()
+  const user = useAuthUser("user", auth)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
+    signup.mutate({
       email: data.get("email"),
+      displayName: data.get("name"),
       password: data.get("password"),
     })
   }
+
+  useEffect(() => {
+    user.data && history.push("/")
+  }, [user])
 
   return (
     <ThemeProvider theme={theme}>
@@ -59,7 +71,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Register
           </Typography>
           <Box
             component="form"
@@ -75,6 +87,16 @@ export default function SignIn() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              autoComplete="name"
               autoFocus
             />
             <TextField
@@ -118,3 +140,5 @@ export default function SignIn() {
     </ThemeProvider>
   )
 }
+
+export default Register

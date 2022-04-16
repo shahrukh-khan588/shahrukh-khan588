@@ -1,7 +1,7 @@
-import * as React from "react"
-import { Button, CircularProgress } from "@mui/material"
-import { makeStyles } from "@mui/styles"
-import { motion } from "framer-motion"
+import * as React from "react";
+import { Button, CircularProgress } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { motion } from "framer-motion";
 
 const buttonVariants = {
   hover: {
@@ -11,13 +11,13 @@ const buttonVariants = {
       yoyo: Infinity,
     },
   },
-}
+};
 const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Raleway",
     textTransform: "uppercase",
     color: `${theme.palette.secondary.contrastText} !important`,
-    background: `${theme.palette.primary.main} !important`,
+    background:`${theme.palette.primary.main} !important`,
     padding: "12px 34px !important",
     letterSpacing: "1px",
     margin: 0,
@@ -34,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.white,
     },
   },
-}))
+}));
 
 export default function BasicButtons(props) {
-  const { type, onChange, isLoading, title, disabled, variant } = props
-  const classes = useStyles()
+  const { type, onChange, isLoading, title, disabled, variant } = props;
+  const classes = useStyles();
   return (
     <Button
       component={motion.button}
@@ -48,11 +48,10 @@ export default function BasicButtons(props) {
       className={classes.root}
       variant={variant}
       type={type}
-      // fullWidth
       disabled={disabled}
       {...props}
     >
       {isLoading ? <CircularProgress size={"22px"} color={"grey"} /> : title}
     </Button>
-  )
+  );
 }

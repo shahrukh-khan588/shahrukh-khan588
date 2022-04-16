@@ -3,16 +3,19 @@ import { makeStyles } from "@mui/styles"
 import TextField from "@mui/material/TextField"
 
 function GravityTextField(props) {
-  const { error, isGroup, label } = props
+  const { error} = props
   const useStylesGravity = makeStyles((theme) => ({
     root: {
+      '& .MuiFilledInput-root':{
+        borderRadius: "40px",
+      },
       border: "0px",
       borderWidth: "0px",
       borderColor: error
         ? theme.palette.error.main
         : theme.palette.primary.main,
       overflow: "hidden",
-      borderRadius: "40px",
+      borderRadius: "16px",
       backgroundColor: theme.palette.BG.secondary,
       transition: theme.transitions.create(["border-color"]),
       "&:hover": {
@@ -41,7 +44,7 @@ function GravityTextField(props) {
 
 const useStyles = makeStyles((theme) => ({
   margin: {
-    // marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
 }))
 

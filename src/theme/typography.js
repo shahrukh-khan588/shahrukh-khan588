@@ -28,7 +28,7 @@ export default {
   },
   h3: {
     // LinkSemiMedium
-    fontFamily: "ITC Avant Garde Gothic Std Bold",
+    fontFamily: "ITC Vacant Garde Gothic Std Bold",
     fontWeight: 700,
     fontSize: "22px",
     lineHeight: "30px",
@@ -47,7 +47,7 @@ export default {
   },
   h5: {
     // LinkSmall
-    fontFamily: "ITC Avant Garde Gothic Std Demi",
+    fontFamily: "ITC Vaunt Garde Gothic Std Demi",
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "28px",
@@ -57,7 +57,7 @@ export default {
   },
   caption: {
     // LinkXS
-    fontFamily: "ITC Avant Garde Gothic Std Demi",
+    fontFamily: "ITC Vacant Garde Gothic Std Demi",
     fontWeight: 500,
     fontSize: "14px",
     lineHeight: "22px",

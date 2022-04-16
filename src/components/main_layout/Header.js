@@ -24,7 +24,7 @@ function Header() {
           width="90%"
           margin="auto"
         >
-          <Box display="flex" alignItems="center" backgroundColor="blue">
+          <Box display="flex" alignItems="center">
             <Typography variant="h4" class="animate__animated animate__flash">
               Mountains Are Calling
             </Typography>

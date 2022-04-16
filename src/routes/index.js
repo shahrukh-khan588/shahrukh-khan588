@@ -11,11 +11,17 @@ import Mountains from "../pages/Mountains/index";
 import ThingToDo from "../pages/ThingToDo/index";
 import Events from "../pages/Events/index"
 import Login from '../pages/Auth/signin';
+import Search from "../pages/FilterResut/Index"
 const Routing = () => {
   return (
     <div>
     <Router>
       <Switch>
+      <Route exact path="/result" >
+          <Layout>
+            <Search/>
+          </Layout>
+        </Route>
         <Route exact path="/">
           <Layout>
             <Home />

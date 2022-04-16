@@ -2,18 +2,18 @@ import React from "react";
 import { Paper, Typography, Box } from "@material-ui/core";
 import useStyles from "./styles";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import {motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function Header() {
-  const staggerContainer={
-    initial:{},
-    animate:{
-      transition:{
-        staggerChildren:0.5
-      }
-    }
-  }
+  const staggerContainer = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
   const classes = useStyles();
   return (
     <div>
@@ -29,13 +29,14 @@ function Header() {
               Mountains Are Calling
             </Typography>
           </Box>
-          <Box display="flex" width="60%" justifyContent="space-between"
-              >
-            <Box width="80%"
-            component={motion.div}
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate">
+          <Box display="flex" width="60%" justifyContent="space-between">
+            <Box
+              width="80%"
+              component={motion.div}
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
               <ul className={classes.links}>
                 <motion.li
                   whileTap={{
@@ -55,7 +56,7 @@ function Header() {
                     rotate: -10,
                   }}
                 >
-                     <Link
+                  <Link
                     to="/thingstodo"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
@@ -67,7 +68,12 @@ function Header() {
                     rotate: -10,
                   }}
                 >
-                  Events
+                  <Link
+                    to="/events"
+                    style={{ textDecoration: "none", color: "#333" }}
+                  >
+                    Events
+                  </Link>
                 </motion.li>
                 <motion.li
                   whileTap={{
@@ -86,7 +92,18 @@ function Header() {
               </ul>
             </Box>
             <Box alignItems="center" display="flex">
-              <Typography variant="h5">Sign Up</Typography>
+            <motion.li
+                  whileTap={{
+                    rotate: -10,
+                  }}
+                >
+                  <Link
+                    to="/login"
+                    style={{ textDecoration: "none", color: "#333" }}
+                  >
+                    Login
+                  </Link>
+                </motion.li>
               <motion.span
                 whileTap={{
                   rotate: -360,

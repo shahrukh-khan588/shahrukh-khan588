@@ -8,7 +8,9 @@ import {
 import Layout from "../components/main_layout/Layout";
 import Home from "../pages/HomePage/index.js";
 import Mountains from "../pages/Mountains/index";
-import ThingToDo from "../pages/ThingToDo/index"
+import ThingToDo from "../pages/ThingToDo/index";
+import Events from "../pages/Events/index"
+import Login from '../pages/Auth/signin';
 const Routing = () => {
   return (
     <div>
@@ -27,6 +29,16 @@ const Routing = () => {
         <Route exact path="/thingstodo" >
           <Layout>
             <ThingToDo/>
+          </Layout>
+        </Route>
+        <Route exact path="/events" >
+          <Layout>
+            <Events/>
+          </Layout>
+        </Route>
+        <Route exact path="/login" >
+          <Layout>
+            <Login/>
           </Layout>
         </Route>
         <Route>

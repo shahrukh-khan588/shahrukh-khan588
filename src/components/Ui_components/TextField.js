@@ -16,7 +16,6 @@ function GravityTextField(props) {
       transition: theme.transitions.create(["border-color"]),
       "&:hover": {
         backgroundColor: theme.palette.BG.secondary,
-       
       },
       "&$focused": {
         backgroundColor: theme.palette.BG.secondary,

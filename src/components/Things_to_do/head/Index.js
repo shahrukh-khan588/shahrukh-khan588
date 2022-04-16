@@ -3,6 +3,7 @@ import useStyles from "../styles";
 import { Box, Grid, Typography } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import dance from "../../../assets/thingstodo/dance.png";
+import { motion } from "framer-motion";
 
 function Index() {
   const classes = useStyles();
@@ -35,7 +36,17 @@ function Index() {
                   <Box margin="16px 0px" display="flex">
                     {" "}
                     <DoneIcon sx={{ color: "#fcc465", marginRight: "16px" }} />
-                    <Typography>{things}</Typography>
+                    <Typography  
+                    component={motion.p}
+                    whileHover={{
+                      scale: 1.3,
+                      originX: 0,
+                      fontWeight: 700,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                    }}>{things}</Typography>
                   </Box>
                 ))}
               </Box>

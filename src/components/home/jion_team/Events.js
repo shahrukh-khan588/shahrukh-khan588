@@ -1,24 +1,24 @@
-import React,{useEffect} from "react";
-import { Box, Typography, Button, Paper } from "@mui/material";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import Avatar from "@mui/material/Avatar";
-import AvatarGroup from "@mui/material/AvatarGroup";
-import img from "../../../assets/images/hunza.jpg";
-import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import useStyles from "./styles";
+import React, { useEffect } from "react"
+import { Box, Typography, Button, Paper } from "@mui/material"
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined"
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
+import Avatar from "@mui/material/Avatar"
+import AvatarGroup from "@mui/material/AvatarGroup"
+import img from "../../../assets/images/hunza.jpg"
+import { motion } from "framer-motion"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import useStyles from "./styles"
 
 export default function Events(props) {
-  const classes = useStyles();
+  const classes = useStyles()
   useEffect(() => {
     console.log(props)
     AOS.init({
       duration: 2000,
-    });
-    AOS.refresh();
-  }, []);
+    })
+    AOS.refresh()
+  }, [])
   return (
     <div>
       <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
@@ -32,9 +32,7 @@ export default function Events(props) {
             <Box display="flex" justifyContent="space-between">
               <img src={img} alt="img" className={classes.squreimg} />
               <Box margin="0px 16px" textAlign="left">
-                <Typography variant="h6">
-                  {props.with}
-                </Typography>{" "}
+                <Typography variant="h6">{props.with}</Typography>{" "}
                 <Box
                   display="flex"
                   width="100%"
@@ -50,7 +48,7 @@ export default function Events(props) {
                   </Box>
                   <Box display="flex" margin="0px 12px">
                     <CalendarTodayIcon
-                      sx={{ margin: "0px 3px 0px 0px" ,fontSize:16 }}
+                      sx={{ margin: "0px 3px 0px 0px", fontSize: 16 }}
                     />
                     <Typography variant="caption">Date: 10-Jan-22</Typography>
                   </Box>
@@ -97,5 +95,5 @@ export default function Events(props) {
         </Paper>
       </Box>
     </div>
-  );
+  )
 }

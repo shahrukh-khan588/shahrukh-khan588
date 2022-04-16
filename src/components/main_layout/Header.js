@@ -1,9 +1,9 @@
-import React from "react";
-import { Paper, Typography, Box } from "@material-ui/core";
-import useStyles from "./styles";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Paper, Typography, Box } from "@mui/material"
+import useStyles from "./styles"
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 function Header() {
   const staggerContainer = {
@@ -13,8 +13,8 @@ function Header() {
         staggerChildren: 0.5,
       },
     },
-  };
-  const classes = useStyles();
+  }
+  const classes = useStyles()
   return (
     <div>
       <Paper elevation={6} className={classes.header}>
@@ -92,18 +92,18 @@ function Header() {
               </ul>
             </Box>
             <Box alignItems="center" display="flex">
-            <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
+              <motion.li
+                whileTap={{
+                  rotate: -10,
+                }}
+              >
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", color: "#333" }}
                 >
-                  <Link
-                    to="/login"
-                    style={{ textDecoration: "none", color: "#333" }}
-                  >
-                    Login
-                  </Link>
-                </motion.li>
+                  Login
+                </Link>
+              </motion.li>
               <motion.span
                 whileTap={{
                   rotate: -360,
@@ -116,7 +116,7 @@ function Header() {
         </Box>
       </Paper>
     </div>
-  );
+  )
 }
 
-export default Header;
+export default Header

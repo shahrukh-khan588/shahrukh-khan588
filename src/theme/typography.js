@@ -1,5 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-import palette from "./palette";
+import palette from "./palette"
 
 export default {
   fontFamily: '"Montserrat", sans-serif',
@@ -7,17 +6,18 @@ export default {
   fontWeight: "normal",
   color: palette.primary.label,
 
-  h1: { // Display Small Bold (32px, Bold)
-    fontFamily:"Volkhov",
+  h1: {
+    // Display Small Bold (32px, Bold)
+    fontFamily: "Volkhov",
     fontWeight: 700,
     fontSize: "32px",
-    lineHeight: "38px", 
+    lineHeight: "38px",
     letterSpacing: "0.75px",
     color: palette.primary.label,
     fontStyle: "bold",
-
   },
-  h2: { // LinkLargeMedium: {
+  h2: {
+    // LinkLargeMedium: {
     fontFamily: "ITC Avant Garde Gothic Std Demi",
     fontWeight: 500,
     fontSize: "24px",
@@ -26,7 +26,8 @@ export default {
     color: palette.primary.label,
     fontStyle: "Demi",
   },
-  h3: { // LinkSemiMedium
+  h3: {
+    // LinkSemiMedium
     fontFamily: "ITC Avant Garde Gothic Std Bold",
     fontWeight: 700,
     fontSize: "22px",
@@ -35,7 +36,8 @@ export default {
     color: palette.primary.label,
     fontStyle: "Bold",
   },
-  h4: { // LinkMedium
+  h4: {
+    // LinkMedium
     fontWeight: 700,
     fontSize: "18px",
     lineHeight: "30px",
@@ -43,7 +45,8 @@ export default {
     color: palette.primary.label,
     fontStyle: "Bold",
   },
-  h5: { // LinkSmall
+  h5: {
+    // LinkSmall
     fontFamily: "ITC Avant Garde Gothic Std Demi",
     fontWeight: 500,
     fontSize: "16px",
@@ -52,7 +55,8 @@ export default {
     color: palette.primary.label,
     fontStyle: "Demi",
   },
-  caption: { // LinkXS
+  caption: {
+    // LinkXS
     fontFamily: "ITC Avant Garde Gothic Std Demi",
     fontWeight: 500,
     fontSize: "14px",
@@ -62,7 +66,8 @@ export default {
     fontStyle: "Demi",
   },
 
-  h6: { // TextL
+  h6: {
+    // TextL
     fontWeight: 400,
     fontSize: "24px",
     lineHeight: "38px",
@@ -71,7 +76,7 @@ export default {
     fontStyle: "Regular",
   },
   body1: {
-    fontWeight:400,
+    fontWeight: 400,
     fontSize: "18px",
     lineHeight: "26px",
     letterSpacing: "0.75px",
@@ -87,7 +92,8 @@ export default {
     color: palette.white,
     fontStyle: "normal",
   },
-  subtitle1: { // text small
+  subtitle1: {
+    // text small
     fontFamily: "ITC Avant Garde Gothic Std Book",
     fontWeight: 500,
     fontSize: "16px",
@@ -96,7 +102,8 @@ export default {
     color: palette.primary.label,
     fontStyle: "Book",
   },
-  subtitle2: { // text extra small
+  subtitle2: {
+    // text extra small
     fontFamily: "ITC Avant Garde Gothic Std Book",
     fontWeight: 500,
     fontSize: "14px",
@@ -104,10 +111,10 @@ export default {
     letterSpacing: "0.75px",
     color: palette.primary.label,
     fontStyle: "Book",
-    display: "inline"
+    display: "inline",
   },
   variantMapping: {
-    subtitle1: 'p',
-    subtitle2: 'p',
+    subtitle1: "p",
+    subtitle2: "p",
   },
-};
+}

@@ -1,26 +1,21 @@
-import React, { useEffect } from "react";
-import { Paper, Box, Typography, Button } from "@mui/material";
-import useStyles from "./styles";
-import Event from "./Events";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useEffect } from "react"
+import { Paper, Box, Typography, Button } from "@mui/material"
+import useStyles from "./styles"
+import Event from "./Events"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function Index() {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-    });
-    AOS.refresh();
-  }, []);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const classes = useStyles();
+    })
+    AOS.refresh()
+  }, [])
+  const classes = useStyles()
   return (
     <div>
-      <Box
-        className={classes.dicount_root}
-        display="grid"
-        alignItems="center"
-      >
+      <Box className={classes.dicount_root} display="grid" alignItems="center">
         <Box className={classes.content_main}>
           <Box className={classes.content_sub}>
             {" "}
@@ -32,7 +27,7 @@ function Index() {
         </Box>
       </Box>
     </div>
-  );
+  )
 }
 
-export default Index;
+export default Index

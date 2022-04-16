@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import { Paper } from "@material-ui/core";
+import React from "react"
+import PropTypes from "prop-types"
+import { makeStyles } from "@mui/styles"
+import { Paper } from "@mui/material/"
 import All from "./All"
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import useStyles from "../styles";
+import Tabs from "@mui/material/Tabs"
+import Tab from "@mui/material/Tab"
+import Typography from "@mui/material/Typography"
+import Box from "@mui/material/Box"
+import useStyles from "../styles"
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <div
@@ -26,29 +26,29 @@ function TabPanel(props) {
         </Box>
       )}
     </div>
-  );
+  )
 }
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
-};
+}
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
-  };
+  }
 }
 
 export default function SimpleTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const classes = useStyles()
+  const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <div className={classes.tabRoot}>
@@ -71,7 +71,7 @@ export default function SimpleTabs() {
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
-      <All/>
+        <All />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -83,5 +83,5 @@ export default function SimpleTabs() {
         Item 4
       </TabPanel>
     </div>
-  );
+  )
 }

@@ -1,28 +1,30 @@
-import  React,{useEffect} from "react";
-import ImageListItem from "@mui/material/ImageListItem";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react"
+import ImageListItem from "@mui/material/ImageListItem"
+import { motion } from "framer-motion"
 import {
   ImageListItemBar,
   Grid,
   Box,
   Checkbox,
   Typography,
-} from "@mui/material";
-import AOS from 'aos';
-import "aos/dist/aos.css";
-import IconButton from "@mui/material/IconButton";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import useStyles from "./style";
+} from "@mui/material"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import IconButton from "@mui/material/IconButton"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import useStyles from "./style"
 
 export default function TitlebarImageList() {
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const classes = useStyles();
-  
+  const label = { inputProps: { "aria-label": "Checkbox demo" } }
+  const classes = useStyles()
+
   return (
     <div className={classes.root}>
       <Box key="Subheader" padding="30px 0px" textAlign="center">
-        <Typography variant="h4" data-aos="fade-up" sx={{margin:"50px 0px"}}>Things To Do</Typography>
+        <Typography variant="h4" data-aos="fade-up" sx={{ margin: "50px 0px" }}>
+          Things To Do
+        </Typography>
       </Box>
       <Grid
         container
@@ -30,8 +32,8 @@ export default function TitlebarImageList() {
         columns={{ xs: 2, sm: 8, md: 12 }}
       >
         {itemData.map((item, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index} >
-            <ImageListItem key={item.img} className={classes.img} >
+          <Grid item xs={2} sm={4} md={4} key={index}>
+            <ImageListItem key={item.img} className={classes.img}>
               <motion.img
                 style={{ width: "100%" }}
                 initial={{ opacity: "0.8" }}
@@ -64,7 +66,7 @@ export default function TitlebarImageList() {
         ))}
       </Grid>
     </div>
-  );
+  )
 }
 
 const itemData = [
@@ -100,4 +102,4 @@ const itemData = [
     author: "@hjrc33",
     cols: 2,
   },
-];
+]

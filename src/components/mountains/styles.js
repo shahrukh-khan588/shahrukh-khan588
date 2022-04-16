@@ -1,5 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
-import Image from "../../assets/mountains/backg.jpg";
+import { makeStyles } from "@mui/styles"
+import Image from "../../assets/mountains/backg.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     margin: "0px auto",
   },
-  galleryImg:{
-    width:"300px",
-    height:"400px",
-    objectFit:"cover",
-    borderRadius:"10px",
-  }
-}));
-export default useStyles;
+  galleryImg: {
+    width: "300px",
+    height: "400px",
+    objectFit: "cover",
+    borderRadius: "10px",
+  },
+}))
+export default useStyles

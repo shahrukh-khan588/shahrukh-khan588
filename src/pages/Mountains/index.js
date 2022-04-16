@@ -1,9 +1,9 @@
-import React from "react";
-import HeroSection from "../../components/mountains/Hero_Section";
-import Story from "../../components/mountains/story";
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react"
+import HeroSection from "../../components/mountains/Hero_Section"
+import Story from "../../components/mountains/story"
+import { makeStyles } from "@mui/styles"
 import Gallery from "../../components/mountains/mountainGallery"
-import Img from "../../assets/mountains/backg.jpg";
+import Img from "../../assets/mountains/backg.jpg"
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -11,15 +11,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-}));
+}))
 function index() {
   return (
     <div>
       <HeroSection />
-      <Story/>
-      <Gallery/>
+      <Story />
+      <Gallery />
     </div>
-  );
+  )
 }
 
-export default index;
+export default index

@@ -1,12 +1,12 @@
-import * as React from "react";
-import ImageGrid from "./ImgGrid";
-import { styled } from "@mui/system";
-import TabsUnstyled from "@mui/base/TabsUnstyled";
-import TabsListUnstyled from "@mui/base/TabsListUnstyled";
-import TabPanelUnstyled from "@mui/base/TabPanelUnstyled";
-import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled";
-import { Box, Typography } from "@mui/material/";
-import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled";
+import * as React from "react"
+import ImageGrid from "./ImgGrid"
+import { styled } from "@mui/system"
+import TabsUnstyled from "@mui/base/TabsUnstyled"
+import TabsListUnstyled from "@mui/base/TabsListUnstyled"
+import TabPanelUnstyled from "@mui/base/TabPanelUnstyled"
+import { buttonUnstyledClasses } from "@mui/base/ButtonUnstyled"
+import { Box, Typography } from "@mui/material/"
+import TabUnstyled, { tabUnstyledClasses } from "@mui/base/TabUnstyled"
 
 const blue = {
   50: "#F0F7FF",
@@ -19,7 +19,7 @@ const blue = {
   700: "#0059B2",
   800: "#004C99",
   900: "#003A75",
-};
+}
 
 const Tab = styled(TabUnstyled)`
   font-family: IBM Plex Sans, sans-serif;
@@ -56,14 +56,14 @@ const Tab = styled(TabUnstyled)`
     opacity: 0.5;
     cursor: not-allowed;
   }
-`;
+`
 
 const TabPanel = styled(TabPanelUnstyled)`
   width: 100%;
   display: "flex";
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
-`;
+`
 
 const TabsList = styled(TabsListUnstyled)`
   min-width: 320px;
@@ -74,7 +74,7 @@ const TabsList = styled(TabsListUnstyled)`
   align-items: center;
   justify-content: center;
   align-content: space-between;
-`;
+`
 
 export default function UnstyledTabsCustomized() {
   return (
@@ -96,5 +96,5 @@ export default function UnstyledTabsCustomized() {
         </TabPanel>
       </TabsUnstyled>
     </Box>
-  );
+  )
 }

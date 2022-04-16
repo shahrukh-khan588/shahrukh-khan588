@@ -1,13 +1,12 @@
-import React from "react";
-import Svg from "../svg/svg";
-import useStyles from "../styles";
-import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+import React from "react"
+import Svg from "../svg/svg"
+import useStyles from "../styles"
+import { Typography, Box } from "@mui/material"
 // import Navroz from "../../../assets/thingstodo/";
-import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
-import Rating from "@mui/material/Rating";
+import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded"
+import Rating from "@mui/material/Rating"
 function Hero_Section() {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <div>
       <Box position="relative">
@@ -99,7 +98,7 @@ function Hero_Section() {
         />
       </Box>
     </div>
-  );
+  )
 }
 
-export default Hero_Section;
+export default Hero_Section

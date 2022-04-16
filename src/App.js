@@ -1,6 +1,6 @@
-import React from "react";
-import { ThemeProvider } from "@material-ui/core";
-import theme from "./theme/index";
+import React from "react"
+import { ThemeProvider } from "@mui/material"
+import theme from "./theme/index"
 import Routes from "./routes"
 
 function App() {
@@ -10,8 +10,7 @@ function App() {
         <Routes />
       </div>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
-    
+export default App

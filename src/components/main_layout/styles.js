@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -68,6 +68,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     margin: " 0px 0px 0px 39px",
   },
-}));
+}))
 
-export default useStyles;
+export default useStyles

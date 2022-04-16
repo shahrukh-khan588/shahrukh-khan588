@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 import {
   Paper,
   Box,
@@ -6,20 +6,20 @@ import {
   Grid,
   ImageListItemBar,
   Button,
-} from "@mui/material";
-import Discount from "./discountWithUs";
-import useStyles from "./styles";
-import Event from "./Events";
-import AOS from "aos";
-import "aos/dist/aos.css";
+} from "@mui/material"
+import Discount from "./discountWithUs"
+import useStyles from "./styles"
+import Event from "./Events"
+import AOS from "aos"
+import "aos/dist/aos.css"
 function Index() {
-  const classes = useStyles();
+  const classes = useStyles()
   useEffect(() => {
     AOS.init({
       duration: 2000,
-    });
-    AOS.refresh();
-  }, []);
+    })
+    AOS.refresh()
+  }, [])
   return (
     <div>
       <Box width="90%" margin="20px auto" textAlign="center">
@@ -35,7 +35,7 @@ function Index() {
           alignItems="center"
         >
           <Grid item xs={6}>
-            <Paper >
+            <Paper>
               <Box padding="20px">
                 <Event to="hunza" with="travllers" />
                 <Event to="sikardu" with="chal sajna" />
@@ -45,12 +45,12 @@ function Index() {
             </Paper>
           </Grid>
           <Grid item xs={4}>
-            <Discount/>
+            <Discount />
           </Grid>
         </Grid>
       </Box>
     </div>
-  );
+  )
 }
 
-export default Index;
+export default Index

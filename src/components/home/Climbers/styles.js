@@ -1,5 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { borderRadius } from "@mui/system";
+import { makeStyles } from "@mui/styles"
 // import Discount from "../../assets/mountains/discount.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,13 +59,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "6px 6px 0px 0px",
     backgroundColor: theme.palette.primary.main,
   },
-  links:{
-    height:"59px",
-    cursor:"pointer",
-    backgroundColor:" rgba(255, 255, 255, .15)",
-    backdropFilter:" blur(5px)",
-    width:"100%",
-    borderRadius:"0px 0px 6px 6px"
-  }
-}));
-export default useStyles;
+  links: {
+    height: "59px",
+    cursor: "pointer",
+    backgroundColor: " rgba(255, 255, 255, .15)",
+    backdropFilter: " blur(5px)",
+    width: "100%",
+    borderRadius: "0px 0px 6px 6px",
+  },
+}))
+export default useStyles

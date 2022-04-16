@@ -1,23 +1,21 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { Paper, Box, Typography, Grid, Button } from "@mui/material";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined";
-import useStyles from "./styles";
+import React, { useEffect } from "react"
+import { motion } from "framer-motion"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { Paper, Box, Typography, Grid, Button } from "@mui/material"
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined"
+import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined"
+import useStyles from "./styles"
 
-function index() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+function Index() {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-    });
-    AOS.refresh();
-  }, []);
+    })
+    AOS.refresh()
+  }, [])
 
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <Box width="90%" margin="auto" data-aos="fade-up">
       <Box padding="50px 0px" textAlign="center">
@@ -106,10 +104,10 @@ function index() {
         ))}
       </Grid>
     </Box>
-  );
+  )
 }
 
-export default index;
+export default Index
 
 const itemData = [
   {
@@ -132,4 +130,4 @@ const itemData = [
     location: "hunza",
     name: "boating",
   },
-];
+]

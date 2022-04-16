@@ -1,11 +1,11 @@
-import * as React from "react";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { Box, Typography, ImageList, ImageListItem } from "@mui/material/";
-import { motion } from "framer-motion";
-import useStyles from "../styles";
+import * as React from "react"
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined"
+import { Box, Typography, ImageList, ImageListItem } from "@mui/material/"
+import { motion } from "framer-motion"
+import useStyles from "../styles"
 
 export default function StandardImageList() {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <Box display="flex" flexWrap="wrap">
       <Box position="relative">
@@ -17,7 +17,7 @@ export default function StandardImageList() {
           {itemData.map((item) => (
             <ImageListItem key={item.img}>
               <img
-              className={classes.Gallery_img}
+                className={classes.Gallery_img}
                 src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
@@ -71,7 +71,7 @@ export default function StandardImageList() {
         </ImageList>
       </Box>
     </Box>
-  );
+  )
 }
 
 const itemData = [
@@ -103,4 +103,4 @@ const itemData = [
     img: "https://2.bp.blogspot.com/-60H1mhW85x8/VvPOwJFkzHI/AAAAAAAAAns/eS8U0s003_087J5uexIzKNaMUK4l-k7OQ/s640/11334238_882063165192767_2969380281667604204_o.jpg",
     title: "Basketball",
   },
-];
+]

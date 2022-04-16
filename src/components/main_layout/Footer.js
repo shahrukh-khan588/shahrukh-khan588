@@ -1,15 +1,15 @@
-import React from "react";
-import useStyles from "./styles";
-import { Paper, Typography, Box, Divider } from "@material-ui/core";
-import footerimg from "../../assets/thingstodo/skies.webp";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import WhatsappOutlinedIcon from "@mui/icons-material/WhatsappOutlined";
-import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import Input from "../Ui_components/TextField";
+import React from "react"
+import useStyles from "./styles"
+import { Paper, Typography, Box, Divider } from "@mui/material"
+import footerimg from "../../assets/thingstodo/skies.webp"
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined"
+import WhatsappOutlinedIcon from "@mui/icons-material/WhatsappOutlined"
+import WhatsAppIcon from "@mui/icons-material/WhatsApp"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import Input from "../Ui_components/TextField"
 import Button from "../Ui_components/Button"
 function Footer() {
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <div>
       <Box className={classes.root} display="flex">
@@ -26,12 +26,15 @@ function Footer() {
           ></img>
         </div>
         <Box width="100%" alignItems="center">
-            <Box width="100%" margin='auto'>
-                <Box width="60%"  padding="10px" margin="auto">
-                <Input label={"Your Email"} style={{width:"60%"}}/>
-                <Button title="SUBSCRIBE" style={{height:"63px" ,marginLeft:"12px"}}/>
-                </Box>
+          <Box width="100%" margin="auto">
+            <Box width="60%" padding="10px" margin="auto">
+              <Input label={"Your Email"} style={{ width: "60%" }} />
+              <Button
+                title="SUBSCRIBE"
+                style={{ height: "63px", marginLeft: "12px" }}
+              />
             </Box>
+          </Box>
           <Box
             padding="10px 30px"
             display="flex"
@@ -73,22 +76,27 @@ function Footer() {
           </Box>
           <Divider variant="middle" />
           <Box display="flex" width="94%" justifyContent="right">
-              <Box width="15%" justifyContent="space-between" display="flex" marginTop="30px" >
-            <div>
-              <FacebookOutlinedIcon style={{color:"#fff"}}/>
-            </div>
-            <div>
-              <WhatsappOutlinedIcon style={{color:"#fff"}}/>
-            </div>
-            <div>
-              <InstagramIcon style={{color:"#fff"}}/>
-            </div>
+            <Box
+              width="15%"
+              justifyContent="space-between"
+              display="flex"
+              marginTop="30px"
+            >
+              <div>
+                <FacebookOutlinedIcon style={{ color: "#fff" }} />
+              </div>
+              <div>
+                <WhatsappOutlinedIcon style={{ color: "#fff" }} />
+              </div>
+              <div>
+                <InstagramIcon style={{ color: "#fff" }} />
+              </div>
             </Box>
           </Box>
         </Box>
       </Box>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

@@ -1,10 +1,10 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import ImageList from "@material-ui/core/ImageList";
-import ImageListItem from "@material-ui/core/ImageListItem";
-import ImageListItemBar from "@material-ui/core/ImageListItemBar";
-import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
+import React from "react"
+import { makeStyles } from "@mui/styles"
+import ImageList from "@mui/material/ImageList"
+import ImageListItem from "@mui/material/ImageListItem"
+import ImageListItemBar from "@mui/material/ImageListItemBar"
+import IconButton from "@mui/material/IconButton"
+import StarBorderIcon from "@mui/icons-material/StarBorder"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     color: "white",
   },
-}));
+}))
 
 /**
  * The example data is structured as follows:
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
  * ];
  */
 export default function AdvancedImageList() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
@@ -82,7 +82,7 @@ export default function AdvancedImageList() {
         ))}
       </ImageList>
     </div>
-  );
+  )
 }
 
 const itemData = [
@@ -118,4 +118,4 @@ const itemData = [
     name: "boating",
     featured: true,
   },
-];
+]

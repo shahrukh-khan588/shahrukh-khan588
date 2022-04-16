@@ -1,28 +1,26 @@
-import React,{useEffect} from "react";
-import { motion } from "framer-motion";
-import AOS from 'aos';
-import "aos/dist/aos.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import useStyles from "./styles";
-import hunzaimg from "../../../assets/images/hunza.jpg";
-import sikardu from "../../../assets/images/sikardu.jpg";
-import astore from "../../../assets/images/astore.jpg";
-import chilas from "../../../assets/images/chilas.jpg";
-import phunder from "../../../assets/images/phunder.jpg";
-import Rating from "@mui/material/Rating";
-import { Typography, Box } from "@mui/material";
+import React, { useEffect } from "react"
+import { motion } from "framer-motion"
+import AOS from "aos"
+import "aos/dist/aos.css"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
+import useStyles from "./styles"
+import hunzaimg from "../../../assets/images/hunza.jpg"
+import sikardu from "../../../assets/images/sikardu.jpg"
+import astore from "../../../assets/images/astore.jpg"
+import chilas from "../../../assets/images/chilas.jpg"
+import phunder from "../../../assets/images/phunder.jpg"
+import Rating from "@mui/material/Rating"
+import { Typography, Box } from "@mui/material"
 
-export default function index() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function Index() {
   useEffect(() => {
     AOS.init({
-      duration : 2000
-    });
-    AOS.refresh();
-  }, []);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const classes = useStyles();
+      duration: 2000,
+    })
+    AOS.refresh()
+  }, [])
+  const classes = useStyles()
 
   const responsive = {
     superLargeDesktop: {
@@ -41,17 +39,21 @@ export default function index() {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
-  };
+  }
 
   return (
     <div className={classes.main}>
-      <Box padding="50px 0px" 
-      data-aos="fade-up"
-      data-aos-duration="3000"
-      textAlign="center" color="#333" ><Typography variant="h4" >Famous Cities</Typography>
+      <Box
+        padding="50px 0px"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        textAlign="center"
+        color="#333"
+      >
+        <Typography variant="h4">Famous Cities</Typography>
       </Box>
       <Carousel
-      style={{height:"500px"}}
+        style={{ height: "500px" }}
         swipeable={false}
         draggable={true}
         showDots={true}
@@ -68,7 +70,7 @@ export default function index() {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div className={classes.sub_container}   data-aos="fade-up">
+        <div className={classes.sub_container} data-aos="fade-up">
           <img src={hunzaimg} alt="hnz" className={classes.img} />
           <Box className={classes.detail}>
             <Box
@@ -82,7 +84,7 @@ export default function index() {
             </Box>
           </Box>
         </div>
-        <div   data-aos="fade-up" className={classes.sub_container}>
+        <div data-aos="fade-up" className={classes.sub_container}>
           <img src={sikardu} alt="hnz" className={classes.img} />
           <Box className={classes.detail}>
             <Box
@@ -96,7 +98,7 @@ export default function index() {
             </Box>
           </Box>
         </div>
-        <div   data-aos="fade-up" className={classes.sub_container}>
+        <div data-aos="fade-up" className={classes.sub_container}>
           <img src={astore} alt="hnz" className={classes.img} />
           <Box className={classes.detail}>
             <Box
@@ -140,5 +142,5 @@ export default function index() {
         </div>
       </Carousel>
     </div>
-  );
+  )
 }

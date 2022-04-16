@@ -1,9 +1,7 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { borderRadius } from "@mui/system";
-import Discount from "../../../assets/mountains/discount.jpg";
+import { makeStyles } from "@mui/styles"
+import Discount from "../../../assets/mountains/discount.jpg"
 
 const useStyles = makeStyles((theme) => ({
-
   paper: {
     width: "50%",
     padding: "10px",
@@ -52,17 +50,16 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     zIndex: "2",
   },
-  avatar:{
-    position:"relative",
+  avatar: {
+    position: "relative",
     top: "-37px",
     left: "-23px",
-    width:"100%"
+    width: "100%",
   },
-  btnHire:{
-    position:"relative",
+  btnHire: {
+    position: "relative",
     top: "27px",
     left: "146px",
-
-  }
-}));
-export default useStyles;
+  },
+}))
+export default useStyles

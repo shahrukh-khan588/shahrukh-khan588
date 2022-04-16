@@ -1,14 +1,13 @@
-import { makeStyles } from "@material-ui/core/styles";
-import Side from "../../assets/thingstodo/back.svg";
+import { makeStyles } from "@mui/styles"
+import Side from "../../assets/thingstodo/back.svg"
 const useStyles = makeStyles((theme) => ({
   main: {
     backgroundImage: `url(${Side})`,
     width: "100%",
-
   },
   hero_wraper: {
     margin: "200px auto",
-    width:"80%"
+    width: "80%",
   },
   back: {
     top: "-158px",
@@ -31,19 +30,18 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-13px",
     textTransform: "uppercase",
   },
-  Gallery_img:{
-    borderRadius:"10px",
-    objectFit:"cover",
-    height:"auto",
-    maxWidth:"500px",
-    cursor:"pointer",
-    
+  Gallery_img: {
+    borderRadius: "10px",
+    objectFit: "cover",
+    height: "auto",
+    maxWidth: "500px",
+    cursor: "pointer",
   },
-  img_content:{
-    position:"absolute",
-    padding:"16px",
+  img_content: {
+    position: "absolute",
+    padding: "16px",
     top: 0,
-  }
-}));
+  },
+}))
 
-export default useStyles;
+export default useStyles

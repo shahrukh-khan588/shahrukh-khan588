@@ -1,9 +1,6 @@
 import * as React from "react"
 import Box from "@mui/material/Box"
-import InputLabel from "@mui/material/InputLabel"
-import MenuItem from "@mui/material/MenuItem"
-import FormControl from "@mui/material/FormControl"
-import Select from "@mui/material/Select"
+import {InputLabel,FormControl,Select,MenuItem,FormHelperText} from "@mui/material/"
 import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles((theme) => ({
@@ -32,41 +29,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function BasicSelect() {
+export default function BasicSelect({items,handleChange,label,error, value}) {
   const classes = useStyles()
-  const [age, setAge] = React.useState("")
-
-  const handleChange = (event) => {
-    setAge(event.target.value)
-  }
 
   return (
-    <Box sx={{ minWidth: 200 }}>
-      <FormControl fullWidth>
+    <Box sx={{ minWidth: 200 }} mt="1rem" fullWidth>
+      <FormControl fullWidth error={!!error}>
         <InputLabel
           shrink={false}
           id="demo-simple-select-label"
           className={classes.select}
         >
-          {age ? "" : "Destination"}
+          {value ?'':label}
         </InputLabel>
         <Select
+          fullWidth
           className={classes.root}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
-          label="Destination"
+          label={label}
           onChange={handleChange}
           displayEmpty
         >
-          <MenuItem value={"Hunza"}>Hunza</MenuItem>
-          <MenuItem value={"Gigit"}>Gigit</MenuItem>
-          <MenuItem value={"Sikardu"}>Sikardu</MenuItem>
-          <MenuItem value={"Nager"}>Nager</MenuItem>
-          <MenuItem value={"Chilas"}>Chilas</MenuItem>
-          <MenuItem value={"Yaseen"}>Yaseen</MenuItem>
-          <MenuItem value={"Gaizer"}>Gaizer</MenuItem>
+          {items?.map((item)=>
+            <MenuItem value={item}>{item||''}</MenuItem>
+          )}
         </Select>
+        <FormHelperText>{error}</FormHelperText>
       </FormControl>
     </Box>
   )

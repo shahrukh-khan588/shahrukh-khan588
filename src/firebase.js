@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
-
+import {getStorage} from 'firebase/storage'
 const firebaseConfig = initializeApp({
   apiKey: `AIzaSyDgScbkQJ_78Oe4PrJ3xNrvIChre1aXJc0`,
   authDomain: "travel-recommendation-sy-e9a27.firebaseapp.com",
@@ -13,3 +13,4 @@ const firebaseConfig = initializeApp({
 
 export const auth = getAuth(firebaseConfig)
 export const firestore = getFirestore(firebaseConfig)
+export const firebaseStorage = getStorage(firebaseConfig)

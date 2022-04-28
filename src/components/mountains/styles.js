@@ -5,19 +5,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundImage: `url(${Image})`,
     width: "100%",
-    position: "absoulte",
+    position: "relatives",
     background: "#333",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    height: "600px",
+    height: "70vh",
     display: "grid",
     placeItems: "center",
   },
   main: {
     width: "80%",
     margin: "0px auto",
-    position: "relative",
-    top: "-377px",
   },
   svg: {
     position: "relative",
@@ -27,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     color: " #fcc465",
     fontSize: "16px",
     fontWeight: 800,
-    marginBottom: "-36px",
-    marginTop: "-13px",
+    position:'absolute',
+    bottom: "0",
     textTransform: "uppercase",
   },
   mainHeading: {

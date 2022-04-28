@@ -7,11 +7,23 @@ import ThingToDo from "../pages/ThingToDo/index"
 import Events from "../pages/Events/index"
 import Login from "../pages/Auth/signin"
 import SignUp from "../pages/Auth/signup"
+import ServiceProvider from "../components/serviceProvider/Form "
+import AddTrip from "../components/serviceProvider/AddGroup/Index"
 const Routing = () => {
   return (
     <div>
       <Router>
         <Switch>
+        <Route exact path="/service">
+            <Layout>
+              <ServiceProvider />
+            </Layout>
+          </Route>
+          <Route exact path="/addtrip">
+            <Layout>
+              <AddTrip />
+            </Layout>
+          </Route>
           <Route exact path="/">
             <Layout>
               <Home />

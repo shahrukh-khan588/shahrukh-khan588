@@ -11,8 +11,24 @@ import astore from "../../../assets/images/astore.jpg"
 import chilas from "../../../assets/images/chilas.jpg"
 import phunder from "../../../assets/images/phunder.jpg"
 import Rating from "@mui/material/Rating"
-import { Typography, Box } from "@mui/material"
+import { Typography, Box ,styled} from "@mui/material"
 
+const CursorWrapper=styled(Box)({
+  '& .react-multi-carousel-item':{
+    display:'grid',
+    justifyContent:'center'
+  },
+  '& .react-multi-carousel-list':{
+height:"36rem"
+  },
+'& .react-multi-carousel-track':{
+  margin:"1rem 0",
+},
+'& .react-multi-carousel-dot-list':{
+  margin:'.5rem 0'
+}
+
+})
 export default function Index() {
   useEffect(() => {
     AOS.init({
@@ -25,18 +41,18 @@ export default function Index() {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 3,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1448},
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1448, min: 960},
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 960, min: 0 },
       items: 1,
     },
   }
@@ -44,7 +60,6 @@ export default function Index() {
   return (
     <div className={classes.main}>
       <Box
-        padding="50px 0px"
         data-aos="fade-up"
         data-aos-duration="3000"
         textAlign="center"
@@ -52,15 +67,15 @@ export default function Index() {
       >
         <Typography variant="h4">Famous Cities</Typography>
       </Box>
+      <CursorWrapper>
       <Carousel
-        style={{ height: "500px" }}
         swipeable={false}
         draggable={true}
         showDots={true}
         responsive={responsive}
         infinite={true}
         //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-        autoPlaySpeed={1000}
+        // autoPlaySpeed={1000}
         keyBoardControl={true}
         //   customTransition="all .5"
         transitionDuration={500}
@@ -70,7 +85,7 @@ export default function Index() {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div className={classes.sub_container} data-aos="fade-up">
+        <div className={classes.sub_container} >
           <img src={hunzaimg} alt="hnz" className={classes.img} />
           <Box className={classes.detail}>
             <Box
@@ -98,7 +113,7 @@ export default function Index() {
             </Box>
           </Box>
         </div>
-        <div data-aos="fade-up" className={classes.sub_container}>
+        <div className={classes.sub_container}>
           <img src={astore} alt="hnz" className={classes.img} />
           <Box className={classes.detail}>
             <Box
@@ -141,6 +156,7 @@ export default function Index() {
           </Box>
         </div>
       </Carousel>
+      </CursorWrapper>
     </div>
   )
 }

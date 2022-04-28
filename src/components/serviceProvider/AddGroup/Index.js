@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import { useFormik } from 'formik';
 import { Paper,Box } from '@mui/material';
 import * as Yup from "yup";
-import Button from '../Ui_components/TextField';
-import TextField from '../Ui_components/TextField';
-import Select from '../Ui_components/Select'
-import { useAddHotels } from '../../hooks/useHotel'
-import { grid } from "@mui/system";
+import Button from '../../Ui_components/TextField';
+import TextField from '../../Ui_components/TextField';
+import Select from '../../Ui_components/Select'
+import { useAddHotels } from '../../../hooks/useAddTrip'
 const validationSchema = Yup.object({
-  hotelName: Yup.string("Enter your hotelName")
-        .required("hotelName is required"),
-        roomPrice: Yup.string("Enter your password")
-        .required("Please enter the roomPrice"),
-        address: Yup.string("Enter your address")
-        .required("Please enter the address"),
+  TripName: Yup.string("Enter your TripName")
+        .required("TripName is required"),
+        ChargesPerPerson: Yup.string("Enter your ChargesPerPerson")
+        .required("Please enter the ChargesPerPerson"),
+        location: Yup.string("Enter your location")
+        .required("Please enter the location"),
         image: Yup.string("Enter your image")
         .required("Please Select the image"),
-        district: Yup.string("Enter your district")
-        .required("Please Select the district")
+        date: Yup.string("Enter date")
+        .required("Date is required")
 });
 
 function Register() {
@@ -25,19 +24,17 @@ function Register() {
     const [image , setImage] = useState('')
     const formik = useFormik({
         initialValues: {
-            hotelName: '',
-            roomPrice: '',
-            address:'',
+            TripName: '',
+            ChargesPerPerson: '',
+            location:'',
             image:'',
-            district:''
+            date:''
         },
         validationSchema: validationSchema,
         onSubmit: async(values) => {
-            console.log(values)
             handleHotels(values , image )
         },
     });
-    console.log('values', formik.values)
     return (
         <Box m="12rem auto" maxWidth="30%">
             <Paper elevation={6} >
@@ -45,25 +42,25 @@ function Register() {
                 style={{display:"flex" ,flexDirection:"column" ,justifyContent:'space-around',padding:"1rem"}}>
                     <TextField
                     sx={{marginTop:"1rem"}}
-                        id="hotelName"
-                        name="hotelName"
-                        label="hotelName"
+                        id="TripName"
+                        name="TripName"
+                        label="TripName"
                         type="text"
-                        value={formik.values.hotelName}
+                        value={formik.values.TripName}
                         onChange={formik.handleChange}
-                        error={formik.touched.hotelName && Boolean(formik.errors.hotelName)}
-                        helperText={formik.touched.hotelName && formik.errors.hotelName}
+                        error={formik.touched.TripName && Boolean(formik.errors.TripName)}
+                        helperText={formik.touched.TripName && formik.errors.TripName}
                     />
                     <TextField
                      sx={{marginTop:"1rem"}}
-                        id="roomPrice"
-                        name="roomPrice"
-                        label="roomPrice"
+                        id="ChargesPerPerson"
+                        name="ChargesPerPerson"
+                        label="ChargesPerPerson"
                         type="number"
-                        value={formik.values.roomPrice}
+                        value={formik.values.ChargesPerPerson}
                         onChange={formik.handleChange}
-                        error={formik.touched.roomPrice && Boolean(formik.errors.roomPrice)}
-                        helperText={formik.touched.roomPrice && formik.errors.roomPrice}
+                        error={formik.touched.ChargesPerPerson && Boolean(formik.errors.ChargesPerPerson)}
+                        helperText={formik.touched.ChargesPerPerson && formik.errors.ChargesPerPerson}
                     />
                        <TextField
                         sx={{marginTop:"1rem"}}
@@ -90,15 +87,25 @@ function Register() {
                         error={formik.touched.image && Boolean(formik.errors.image)}
                         helperText={formik.touched.image && formik.errors.image}
                     />
+                     <TextField
+                        sx={{marginTop:"1rem"}}
+                        id="date"
+                        name="date"
+                        label="date"
+                        type="date"
+                        value={formik.values.date}
+                        onChange={formik.handleChange}
+                        error={formik.touched.date && Boolean(formik.errors.date)}
+                        helperText={formik.touched.date && formik.errors.date}
+                    />
                     <Select
-                    value={formik.values.district}
-                    error={formik.errors.district}
-                    sx={{marginTop:"1rem",display:grid,gridTemplateColumn:'1fr'}}
-                    handleChange={(e)=> formik.setFieldValue('district' , e.target.value)}
+                    value={formik.values.location}
+                    handleChange={(e)=> formik.setFieldValue('location' , e.target.value)}
+                    // error={formik.touched.location}
+                    sx={{marginTop:"1rem"}}
                     label='Select District'
-                    placeholder='Select district'
-                    name='district'
-                    id='district'
+                    id='location'
+                    name='location'
                     items={['Hunza','Sikardu','Gilgit','Gaizer','Chilas',]}
                     />
                     <Button

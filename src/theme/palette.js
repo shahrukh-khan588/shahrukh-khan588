@@ -1,7 +1,8 @@
-// import { colors } from '@mui/material';
+import { colors } from '@mui/material';
 
 const white = "#fff"
 const black = "#e8ebe5"
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   primary: {
     contrastText: white,

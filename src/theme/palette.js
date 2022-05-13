@@ -6,15 +6,15 @@ const black = "#e8ebe5"
 export default {
   primary: {
     contrastText: white,
-    main: "#637bfd",
-    hover: "#5da2fb",
-    focus: "#280FA5",
+    main: "#1890FF",
+    hover: "#D0F2FF",
+    focus: "#04297A",
     disable: "#6367E7",
   },
   secondary: {
     contrastText: white,
-    main: "#DF6951",
-    label: "#4E4B66",
+    main: "#09A391",
+    hover: "#9EFAEF",
   },
   placeholder: {
     label: "#A0A3BD",
@@ -24,10 +24,10 @@ export default {
     secondary: "#EFF0F7",
   },
   error: {
-    main: "#ff4c57",
+    main: "#FF4842",
   },
   success: {
-    main: "#818453",
+    main: "#54D62C",
   },
   white: "#FFFFFF",
 }

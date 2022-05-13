@@ -30,7 +30,7 @@ export default {
     // LinkSemiMedium
     fontFamily: "ITC Vacant Garde Gothic Std Bold",
     fontWeight: 700,
-    fontSize: "22px",
+    fontSize: "28px",
     lineHeight: "30px",
     letterSpacing: "0.75px",
     color: palette.primary.label,

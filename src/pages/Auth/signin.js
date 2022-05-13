@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import {ReactComponent as SideImage } from "../../assets/images/LoginSide.svg"
 import {
   useAuthSignInWithEmailAndPassword,
   useAuthUser,
@@ -54,7 +55,10 @@ const SignIn = () => {
   useEffect(() => {
     user.data && history.push("/")
   }, [user])
-  return (
+  return (<>
+  <Box sx={{display:"grid" , gridTemplateColumns:"1fr 1fr"}}>
+   
+
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -127,6 +131,11 @@ const SignIn = () => {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    <Box bgcolor='primary' mt={8}>
+    <SideImage style={{ width:"80%",height:"100%", marginRight:"auto"}}/>
+    </Box>
+    </Box>
+    </>
   )
 }
 export default SignIn

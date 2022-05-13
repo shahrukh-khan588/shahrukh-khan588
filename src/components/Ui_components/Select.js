@@ -33,7 +33,7 @@ export default function BasicSelect({items,handleChange,label,error, value}) {
   const classes = useStyles()
 
   return (
-    <Box sx={{ minWidth: 200 }} mt="1rem" fullWidth>
+    <Box sx={{ minWidth: 200 }} fullWidth>
       <FormControl fullWidth error={!!error}>
         <InputLabel
           shrink={false}

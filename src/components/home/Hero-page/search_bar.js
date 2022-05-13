@@ -9,9 +9,10 @@ export default function Searchbar() {
   const classes = useStyles()
   return (
     <>
-      <Paper elevation={3} className={classes.paper}>
+      <Paper elevation={3} className={classes.paper} sx={{borderRadius:'67px'}}>
         <Box
           display="flex"
+          alignItems='center'
           justifyContent="space-around"
           className={classes.box}
         >

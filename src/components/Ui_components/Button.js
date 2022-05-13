@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { motion } from "framer-motion";
 
@@ -41,6 +41,7 @@ export default function BasicButtons(props) {
   const classes = useStyles();
   return (
     <Button
+    sx={{textTransform:'none'}}
       component={motion.button}
       variants={buttonVariants}
       whileHover="hover"
@@ -51,7 +52,7 @@ export default function BasicButtons(props) {
       disabled={disabled}
       {...props}
     >
-      {isLoading ? <CircularProgress size={"22px"} color={"grey"} /> : title}
+      {isLoading ? <CircularProgress size={"22px"} color={"grey"} /> : <Typography fontWeight={700}>{title}</Typography>}
     </Button>
   );
 }

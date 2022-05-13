@@ -1,62 +1,70 @@
-import React from "react"
-import { makeStyles } from "@mui/styles"
-import TextField from "@mui/material/TextField"
-
-function GravityTextField(props) {
-  const { error} = props
-  const useStylesGravity = makeStyles((theme) => ({
-    root: {
-      '& .MuiFilledInput-root':{
-        borderRadius: "40px",
-      },
-      border: "0px",
-      borderWidth: "0px",
-      borderColor: error
-        ? theme.palette.error.main
-        : theme.palette.primary.main,
-      overflow: "hidden",
-      borderRadius: "16px",
-      backgroundColor: theme.palette.BG.secondary,
-      transition: theme.transitions.create(["border-color"]),
-      "&:hover": {
-        backgroundColor: theme.palette.BG.secondary,
-      },
-      "&$focused": {
-        backgroundColor: theme.palette.BG.secondary,
-        // border: "1px solid",
-        borderColor: error
-          ? theme.palette.error.main
-          : theme.palette.primary.main,
-      },
-    },
-    focused: {},
-  }))
-
-  const classes = useStylesGravity()
-
-  return (
-    <TextField
-      {...props}
-      InputProps={{ ...props.InputProps, classes, disableUnderline: true }}
-    />
-  )
-}
-
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    marginBottom: theme.spacing(1),
-  },
+import React, { useEffect, useMemo, useState } from 'react'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { IconButton, InputAdornment, styled, TextField as MUITextField, useTheme } from '@mui/material'
+const CustomTextField = styled(MUITextField)((props) => ({
+	'& .MuiOutlinedInput-root': {
+		'& fieldset': {
+			borderColor:'rgba(145, 158, 171, 0.32)',
+			borderRadius: '0.5rem',
+			'& legend': {
+				width: props.label ? 'auto' : 'unset'
+			}
+		},
+	},
+	'& .MuiInput-underline:before': {
+		borderWidth: 0,
+		borderBottom: 'none',
+	}
 }))
 
-export default function CustomizedInputs(props) {
-  const classes = useStyles()
+const TextField = (props) => {
+	const [showPassword, setShowPassword] = useState(false)
+	const theme = useTheme()
+	const type = useMemo(() => {
+		if(props.type === 'password') {
+			if(showPassword) {
+				return 'text'
+			} else {
+				return 'password'
+			}
+		} else {
+			return props.type
+		}
+	}, [props.type, showPassword])
 
-  return (
-    <GravityTextField
-      className={classes.margin}
-      variant="filled"
-      autoComplete="off"
-      {...props}
-    />
-  )
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault()
+	}
+
+
+	useEffect(() => {
+		props.type === 'password' && setShowPassword(false)
+	}, [props.type])
+	return (
+			<CustomTextField
+				{...props}
+				variant={props.fieldVarient ? props.fieldVarient : 'outlined'}
+				type={type}
+				autoComplete={props.type === 'password' ? 'password' : undefined}
+				InputProps={
+					{
+						startAdornment: props.startIcon,
+						endAdornment: props.type === 'password' ? (
+							<InputAdornment position="end">
+								<IconButton
+									aria-label="toggle password visibility"
+									onClick={() => setShowPassword(!showPassword)}
+									onMouseDown={handleMouseDownPassword}
+									edge="end"
+								>
+									{showPassword ? <VisibilityOff /> : <Visibility />}
+								</IconButton>
+							</InputAdornment>
+						) : props.endIcon || null
+					}
+				}
+			/>
+	)
 }
+
+export default TextField

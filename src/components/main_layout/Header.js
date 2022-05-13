@@ -87,7 +87,12 @@ function Header() {
                     rotate: -10,
                   }}
                 >
-                  Forts
+                    <Link
+                    to="/services"
+                    style={{ textDecoration: "none", color: "#333" }}
+                  >
+                    services
+                  </Link>
                 </motion.li>
               </ul>
             </Box>

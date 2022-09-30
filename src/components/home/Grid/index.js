@@ -1,25 +1,27 @@
-import React, { useEffect } from "react"
-import { motion } from "framer-motion"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { Paper, Box, Typography, Grid, Button } from "@mui/material"
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined"
-import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined"
-import useStyles from "./styles"
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Paper, Box, Typography, Grid, Button } from "@mui/material";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined";
+import useStyles from "./styles";
+import { themeShadows } from "../../../theme/shadows";
 
 function Index() {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-    })
-    AOS.refresh()
-  }, [])
+    });
+    AOS.refresh();
+  }, []);
 
-  const classes = useStyles()
+  const classes = useStyles();
+  const shadow = themeShadows();
   return (
     <Box width="90%" margin="auto" data-aos="fade-up">
       <Box padding="50px 0px" textAlign="center">
-        <Typography variant="h4">Famous Things In GilGit Baltistan</Typography>
+        <Typography variant="h4">Famous Places GilGit Baltistan</Typography>
       </Box>
       <Grid
         container
@@ -30,6 +32,9 @@ function Index() {
           <Grid item xs={12} sm={12} md={6} key={index}>
             <Box display="flex">
               <Paper
+                sx={{
+                  boxShadow: shadow.warning,
+                }}
                 key={item.img}
                 className={classes.imgwrapper}
                 component={motion.div}
@@ -80,23 +85,29 @@ function Index() {
               </Paper>
               <Box
                 margin="0px 16px"
-                height="100%"
                 justifyContent="spacebetween"
                 display="flex"
+                textAlign="left"
                 flexDirection="column"
               >
-                <Typography variant="h5" sx={{ margin: "12px 0px" }}>
+                <Typography
+                  variant="h6"
+                  sx={{ margin: "12px 0px" }}
+                  textTransform="capitalize"
+                >
                   {item.name}
                 </Typography>
-                <Typography variant="body1" sx={{ lineHeight: "36px" }}>
+                <Typography
+                  variant="body2"
+                  sx={{ lineHeight: "36px", letterSpacing: "2px" }}
+                >
                   This is located in sikardu and its famous for highest mountain
                   in pakistan people from all over the world come to visit. in
                   pakistan people from all over the world come to visit in
                   pakistan people from all over the world come to visit
                 </Typography>
-                <Box margin="10px auto" width="60%">
-                  {" "}
-                  <Button varient="outlined">Explore More</Button>
+                <Box mt={"1rem"}>
+                  <Button variant="outlined">Explore More</Button>
                 </Box>
               </Box>
             </Box>
@@ -104,10 +115,10 @@ function Index() {
         ))}
       </Grid>
     </Box>
-  )
+  );
 }
 
-export default Index
+export default Index;
 
 const itemData = [
   {
@@ -130,4 +141,4 @@ const itemData = [
     location: "hunza",
     name: "boating",
   },
-]
+];

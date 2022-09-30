@@ -37,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function BasicButtons(props) {
-  const { type, onChange, isLoading, title, disabled, variant } = props;
+  const { type, onChange, isLoading, title, disabled, variant ,sx} = props;
   const classes = useStyles();
   return (
     <Button
-    sx={{textTransform:'none'}}
+    sx={{textTransform:'none',...sx}}
       component={motion.button}
       variants={buttonVariants}
       whileHover="hover"

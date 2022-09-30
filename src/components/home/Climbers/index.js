@@ -4,6 +4,8 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 import Card from "./card"
 
+
+
 function Index() {
   useEffect(() => {
     AOS.init({
@@ -11,6 +13,7 @@ function Index() {
     })
     AOS.refresh()
   }, [])
+
   return (
     <Box minWidth="90%" margin="150px auto">
       <Box textAlign="center" data-aos="fade-up">
@@ -28,7 +31,8 @@ function Index() {
           component="p"
           sx={{ top: "-62px", position: "relative" }}
         >
-          if you want to explore GilGit Balitistan. these professional guider
+          
+          If you want to explore GilGit Balitistan. these professional guider
           can guide you to unexplored places in gilgit baltistan.
         </Typography>
       </Box>
@@ -38,7 +42,7 @@ function Index() {
         spacing={{ xs: 2, md: 3, sm: 2 }}
         columns={{ xs: 2, sm: 12, md: 12 }}
       >
-        <Grid item xs={2} sm={4} md={2}>
+        <Grid item xs={12} sm={8} md={4}>
           {" "}
           <Card />
         </Grid>

@@ -1,33 +1,41 @@
-import { colors } from '@mui/material';
-
-const white = "#fff"
-const black = "#e8ebe5"
-// eslint-disable-next-line import/no-anonymous-default-export
+/* eslint-disable import/no-anonymous-default-export */
+const mode = "light"
 export default {
   primary: {
-    contrastText: white,
-    main: "#1890FF",
-    hover: "#D0F2FF",
-    focus: "#04297A",
-    disable: "#6367E7",
-  },
-  secondary: {
-    contrastText: white,
     main: "#09A391",
-    hover: "#9EFAEF",
+    contrastText: "#fff",
   },
-  placeholder: {
-    label: "#A0A3BD",
-  },
-  BG: {
-    main: "#E5E5E5",
-    secondary: "#EFF0F7",
-  },
-  error: {
-    main: "#FF4842",
+  grey: {
+    100: "#F9FAFB",
+    200: "#F4F6F8",
+    300: "#DFE3E8",
+    400: "#C4CDD5",
+    500: "#919EAB",
+    600: "#637381",
+    700: "#454F5B",
+    800: "#212B36",
+    900: "#161C24",
+    1000: "#919eab52",
   },
   success: {
     main: "#54D62C",
+    contrastText: "#212B36",
   },
-  white: "#FFFFFF",
+  error: {
+    main: "#FF4842",
+    contrastText: "#fff",
+  },
+  info: {
+    main: "#1890FF",
+    light: "#D0F2FF",
+    contrastText: "#fff",
+  },
+  warning: {
+    main: "#FFC107",
+    contrastText: "#212B36",
+  },
+  background: {
+    default: "rgb(255 255 255)",
+    paper: "#fff",
+  },
 }

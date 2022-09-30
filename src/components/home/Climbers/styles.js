@@ -1,5 +1,6 @@
 import { makeStyles } from "@mui/styles"
-// import Discount from "../../assets/mountains/discount.jpg";
+import AvImage from "../../../assets/images/sikardu.jpg"
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "auto",
     borderRadius: "6px 6px 0px 0px",
-    backgroundColor: theme.palette.primary.main,
+    backgroundImage:`url${AvImage}`,
   },
   links: {
     height: "59px",

@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles"
+import {themeShadows} from '../../../theme/shadows'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "300px",
     height: "400px",
     borderRadius: "24px 24px 0px 0px",
+    boxShadow:themeShadows().z8
   },
   squreimg: {
     height: "100px",

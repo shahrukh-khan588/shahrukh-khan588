@@ -1,120 +1,68 @@
-import palette from "./palette"
-
-export default {
-  fontFamily: '"Montserrat", sans-serif',
-  fontStyle: "normal",
-  fontWeight: "normal",
-  color: palette.primary.label,
-
-  h1: {
-    // Display Small Bold (32px, Bold)
-    fontFamily: "Volkhov",
-    fontWeight: 700,
-    fontSize: "32px",
-    lineHeight: "38px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "bold",
-  },
-  h2: {
-    // LinkLargeMedium: {
-    fontFamily: "ITC Avant Garde Gothic Std Demi",
-    fontWeight: 500,
-    fontSize: "24px",
-    lineHeight: "38px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Demi",
-  },
-  h3: {
-    // LinkSemiMedium
-    fontFamily: "ITC Vacant Garde Gothic Std Bold",
-    fontWeight: 700,
-    fontSize: "28px",
-    lineHeight: "30px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Bold",
-  },
-  h4: {
-    // LinkMedium
-    fontWeight: 700,
-    fontSize: "18px",
-    lineHeight: "30px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Bold",
-  },
-  h5: {
-    // LinkSmall
-    fontFamily: "ITC Vaunt Garde Gothic Std Demi",
-    fontWeight: 500,
-    fontSize: "16px",
-    lineHeight: "28px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Demi",
-  },
-  caption: {
-    // LinkXS
-    fontFamily: "ITC Vacant Garde Gothic Std Demi",
-    fontWeight: 500,
-    fontSize: "14px",
-    lineHeight: "22px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Demi",
-  },
-
-  h6: {
-    // TextL
-    fontWeight: 400,
-    fontSize: "24px",
-    lineHeight: "38px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Regular",
-  },
-  body1: {
-    fontWeight: 400,
-    fontSize: "18px",
-    lineHeight: "26px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Regular",
-  },
-  body2: {
-    fontFamily: '"Poppins", sans-serif',
-    fontWeight: 500,
-    fontSize: "12px",
-    lineHeight: "28px",
-    letterSpacing: "0.75px",
-    color: palette.white,
-    fontStyle: "normal",
-  },
-  subtitle1: {
-    // text small
-    fontFamily: "ITC Avant Garde Gothic Std Book",
-    fontWeight: 500,
-    fontSize: "16px",
-    lineHeight: "24px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Book",
-  },
-  subtitle2: {
-    // text extra small
-    fontFamily: "ITC Avant Garde Gothic Std Book",
-    fontWeight: 500,
-    fontSize: "14px",
-    lineHeight: "24px",
-    letterSpacing: "0.75px",
-    color: palette.primary.label,
-    fontStyle: "Book",
-    display: "inline",
-  },
-  variantMapping: {
-    subtitle1: "p",
-    subtitle2: "p",
-  },
+export const typography=()=>{
+  return{
+    typography: {
+      fontFamily:'Public Sans',
+      h1: {
+        fontSize: 64,
+        fontWeight: 600,
+        lineHeight: '80px'
+      },
+      h2: {
+        fontSize: 48,
+        fontWeight: 600,
+        lineHeight: '64px'
+      },
+      h3: {
+        fontSize: 32,
+        fontWeight: 600,
+        lineHeight: '48px'
+      },
+      h4: {
+        fontSize: 24,
+        fontWeight: 600,
+        lineHeight: '36px'
+      },
+      h5: {
+        fontSize: 20,
+        fontWeight: 600,
+        lineHeight: '30px'
+      },
+      h6: {
+        fontSize: 18,
+        fontWeight: 600,
+        lineHeight: '28px'
+      },
+      subtitle1: {
+        fontSize: 16,
+        fontWeight: 600,
+        lineHeight: '24px'
+      },
+      subtitle2: {
+        fontSize: 14,
+        fontWeight: 700,
+        lineHeight: '22px'
+      },
+      body1: {
+        fontSize: 16,
+        fontWeight: 400,
+        lineHeight: '24px'
+      },
+      body2: {
+        fontSize: 14,
+        fontWeight: 400,
+        lineHeight: '22px'
+      },
+      caption: {
+        fontSize: 12,
+        fontWeight: 400,
+        lineHeight: '18px'
+      },
+      overline: {
+        fontSize: 12,
+        fontWeight: 700,
+        lineHeight: '18px',
+        letterSpacing: 1.2
+      },
+    },
+  }
 }

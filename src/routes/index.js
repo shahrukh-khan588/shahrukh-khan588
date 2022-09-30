@@ -14,16 +14,16 @@ const Routing = () => {
     <div>
       <Router>
         <Switch>
-        <Route exact path="/services">
+         <Route exact path="/services">
             <Layout>
               <ServiceProvider />
-            </Layout>
+            </Layout> 
           </Route>
           <Route exact path="/addtrip">
             <Layout>
               <AddTrip />
             </Layout>
-          </Route>
+          </Route> 
           <Route exact path="/">
             <Layout>
               <Home />

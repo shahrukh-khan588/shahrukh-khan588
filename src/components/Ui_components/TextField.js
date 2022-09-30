@@ -1,14 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { themeShadows } from "../../theme/shadows";
+import { opacityColors } from "../../theme/opacityColors";
 import { IconButton, InputAdornment, styled, TextField as MUITextField, useTheme } from '@mui/material'
 const CustomTextField = styled(MUITextField)((props) => ({
 	'& .MuiOutlinedInput-root': {
 		'& fieldset': {
-			borderColor:'rgba(145, 158, 171, 0.32)',
-			borderRadius: '0.5rem',
+			border:`1px solid ${opacityColors().borderColor}`,
+			borderRadius: "34px !important",
 			'& legend': {
 				width: props.label ? 'auto' : 'unset'
-			}
+			},
+			"&:hover": {
+				border:`1px solid ${opacityColors().borderColor}`,
+			  },
 		},
 	},
 	'& .MuiInput-underline:before': {

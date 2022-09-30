@@ -14,19 +14,19 @@ function Index() {
   const quickLink=['Add Hotels','Add Places','Add Groups','Add Restaurants']
   return (
     <Services>
-      <Box bgcolor={theme.palette.secondary.main} sx={{height:"100vh"}} minWidth="350px">
+      <Box bgcolor={theme.palette.grey[300]} sx={{height:"100vh"}} minWidth="350px">
        {quickLink.map((item)=>(
          <Box key={item} p=".5rem 1rem"
           m='1rem auto' 
-         sx={{ cursor:"pointer" ,'&:hover':{background:theme.palette.secondary.hover}}}
+         sx={{ cursor:"pointer" ,'&:hover':{background:theme.palette.primary.main}}}
           borderRadius=".5rem"
           width="85%" 
-          bgcolor={active===item?theme.palette.BG.secondary:theme.palette.secondary.light}
+          bgcolor={active===item?theme.palette.background.paper:theme.palette.primary.main}
           onClick={()=>setActive(item)}>
             <Typography variant="body1"> {item} </Typography></Box>
        )) }
       </Box>
-      <Box  bgcolor={theme.palette.BG.secondary}>
+      <Box  bgcolor={theme.palette.grey[200]}>
       {console.log(active)}
      { active==='Add Hotels' ? <AddHotels/>:'' }
      { active==='Add Groups' ? <AddGroup/>:'' }

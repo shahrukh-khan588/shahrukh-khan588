@@ -1,18 +1,20 @@
-import { createTheme } from "@mui/material/styles"
 import palette from "./palette"
-import typography from "./typography"
+import { opacityColors } from './opacityColors'
+import { themeShadows } from "./shadows"
+import { createTheme } from "@mui/material"
 
-const theme = createTheme({
+export default createTheme({
   palette,
-  typography,
+  opacityColors,
+  //@ts-ignore
+  shadows: themeShadows,
   breakpoints: {
     values: {
       xs: 0,
       sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
+      md: 850,
+      lg: 1200,
+      xl: 1536,
     },
   },
 })
-export default theme

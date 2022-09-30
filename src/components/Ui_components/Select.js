@@ -9,23 +9,23 @@ const useStyles = makeStyles((theme) => ({
     fontsize: "12px",
     border: "none",
     fontWeight: "500",
-    backgroundColor: theme.palette.BG.secondary,
+    backgroundColor: theme.palette.background.default,
     borderRadius: "34px !important",
     "&:hover": {
       border: "none",
-      backgroundColor: theme.palette.BG.secondary,
+          backgroundColor: theme.palette.background.default,
     },
-    "&:focus": {
-      border: "none",
-      backgroundColor: theme.palette.BG.secondary,
-    },
-    "&:disabled": {
-      background: theme.palette.primary.disable,
-      color: theme.palette.white,
-    },
-    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      border: "none",
-    },
+    // "&:focus": {
+    //   border: "none",
+    //       backgroundColor: theme.palette.background.default,
+    // },
+    // "&:disabled": {
+    //   background: theme.palette.grey[300],
+    //   color: theme.palette.grey[300],
+    // },
+    // "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    //   border: "none",
+    // },
   },
 }))
 

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button, CircularProgress, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { motion } from "framer-motion";
+import {themeShadows} from '../../theme/shadows'
 
 const buttonVariants = {
   hover: {
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Raleway",
     textTransform: "uppercase",
+    boxShadow:`${themeShadows().primary} !important`,
     color: `${theme.palette.secondary.contrastText} !important`,
     background:`${theme.palette.primary.main} !important`,
     padding: "12px 34px !important",

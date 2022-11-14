@@ -1,29 +1,30 @@
-import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Layout from "../components/main_layout/Layout"
-import Home from "../pages/HomePage/index.js"
-import Mountains from "../pages/Mountains/index"
-import ThingToDo from "../pages/ThingToDo/index"
-import Events from "../pages/Events/index"
-import Login from "../pages/Auth/signin"
-import SignUp from "../pages/Auth/signup"
-import ServiceProvider from "../pages/services/Index"
-import AddTrip from "../components/serviceProvider/AddGroup/Index"
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Layout from "../components/main_layout/Layout";
+import Home from "../pages/HomePage/index.js";
+import Mountains from "../pages/Mountains/index";
+import ThingToDo from "../pages/ThingToDo/index";
+import Events from "../pages/Events/index";
+import Login from "../pages/Auth/signin";
+import SignUp from "../pages/Auth/signup";
+import ServiceProvider from "../pages/services/Index";
+import AddTrip from "../components/serviceProvider/AddGroup/Index";
+import Hotels from "../pages/FilterResut/Index";
 const Routing = () => {
   return (
     <div>
       <Router>
         <Switch>
-         <Route exact path="/services">
+          <Route exact path="/services">
             <Layout>
               <ServiceProvider />
-            </Layout> 
+            </Layout>
           </Route>
           <Route exact path="/addtrip">
             <Layout>
               <AddTrip />
             </Layout>
-          </Route> 
+          </Route>
           <Route exact path="/">
             <Layout>
               <Home />
@@ -54,13 +55,18 @@ const Routing = () => {
               <SignUp />
             </Layout>
           </Route>
+          <Route exact path="/result">
+            <Layout>
+              <Hotels />
+            </Layout>
+          </Route>
           <Route>
             <h4> Not Found </h4>
           </Route>
         </Switch>
       </Router>
     </div>
-  )
-}
+  );
+};
 
-export default Routing
+export default Routing;

@@ -7,12 +7,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "200px",
     fontsize: "12px",
-    border: "none",
+    // border: "none",
     fontWeight: "500",
     backgroundColor: theme.palette.background.default,
     borderRadius: "34px !important",
     "&:hover": {
-      border: "none",
+      // border: "none",
           backgroundColor: theme.palette.background.default,
     },
     // "&:focus": {
@@ -35,12 +35,8 @@ export default function BasicSelect({items,handleChange,label,error, value}) {
   return (
     <Box sx={{ minWidth: 200 }} fullWidth>
       <FormControl fullWidth error={!!error}>
-        <InputLabel
-          shrink={false}
-          id="demo-simple-select-label"
-          className={classes.select}
-        >
-          {value ?'':label}
+        <InputLabel>
+          {label}
         </InputLabel>
         <Select
           fullWidth
@@ -49,7 +45,6 @@ export default function BasicSelect({items,handleChange,label,error, value}) {
           id="demo-simple-select"
           label={label}
           onChange={handleChange}
-          displayEmpty
         >
           {items?.map((item)=>
             <MenuItem value={item}>{item||''}</MenuItem>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography,useTheme } from "@mui/material";
 import useStyles from "./styles";
 import Typical from "react-typical";
 import Hunza from "../../../assets/hunza.mp4";
@@ -9,6 +9,7 @@ import Searchbar from "./search_bar";
 
 function Hero_page() {
   const classes = useStyles();
+  const theme=useTheme()
   return (
     <div>
       <section style={{ height: "100vh", position: "relative" }}>
@@ -28,7 +29,7 @@ function Hero_page() {
         </Box>
         <Box
           sx={{
-            background: "black",
+            background:theme.palette.grey[300],
             position: "absolute",
             bottom: "-39px",
             width: "100%",
@@ -66,39 +67,6 @@ function Hero_page() {
           </Box>
         </Box>
       </section>
-      {/* <div className={classes.warper}> */}
-      {/* <div className={classes.content}> */}
-      {/* 
-            <Box
-              marginTop="90px"
-              width="90%"
-              display="flex"
-              justifyContent="space-between"
-            >
-              <Box width="60%">
-                <Typography variant="subtitle1">
-                  We provide complete information about famous tourist places,
-                  and provides complete descriptions of (hotels, restaurants,
-                  tourist attractions, historical attractions, hilly areas,
-                  lakes, green areas, festivals, basic necessities such as food
-                  Markets) according to you Budget..
-                </Typography>
-              </Box>
-              <Typography variant="h5"></Typography>
-            </Box>
-          </div>
-          <div className={classes.img}>
-            <img
-              src={hero_image}
-              alt={"hero"}
-              className={`${classes.hero_image}`}
-            />
-          </div>
-        </div>
-        <Box>
-          {" "}
-          
-        </Box> */}
     </div>
   );
 }

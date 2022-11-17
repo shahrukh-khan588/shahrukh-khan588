@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import { createPortal } from "react-dom";
-import Toast from '../components/Ui_components/Toaster';
+import Toast from "../components/Ui_components/Toaster";
 export const ToastContext = createContext();
 const initialState = [];
 export const ADD = "ADD";

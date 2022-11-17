@@ -4,6 +4,7 @@ import { ToastProvider } from "./store/responseMessage";
 import Routes from "./routes";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { ThemeProvider } from "@mui/material/styles";
+
 const queryClient = new QueryClient();
 function App() {
   return (

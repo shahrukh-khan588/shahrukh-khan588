@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles"
-import Back from "../../assets/images/background.svg"
+import { makeStyles } from "@mui/styles";
+import Back from "../../assets/images/background.svg";
 const useStyles = makeStyles((theme) => ({
   main: {
     backgroundImage: `url(${Back})`,
@@ -28,6 +28,6 @@ const useStyles = makeStyles((theme) => ({
     height: "200px",
     borderRadius: "1.5rem",
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

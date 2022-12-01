@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles"
-import Discount from "../../../assets/mountains/discount.jpg"
+import { makeStyles } from "@mui/styles";
+import Discount from "../../../assets/mountains/discount.jpg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   },
   subheading: {
     margin: "20px",
+  },
+  main: {
+    background: "red",
   },
   img: {
     width: "100%",
@@ -61,5 +64,5 @@ const useStyles = makeStyles((theme) => ({
     top: "27px",
     left: "146px",
   },
-}))
-export default useStyles
+}));
+export default useStyles;

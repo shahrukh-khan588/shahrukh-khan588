@@ -3,25 +3,16 @@ import { useHistory } from "react-router-dom";
 import { Box, Rating, Divider, Typography, useTheme } from "@mui/material/";
 import { themeShadows } from "../../theme/shadows";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { ClassNames } from "@emotion/react";
+import useStyles from "./styles";
 
 export default function Hotels({ hotel }) {
   const theme = useTheme();
+  const classes = useStyles();
 
   return (
     <>
-      <Box
-        sx={{
-          justifyContent: "space-between",
-          display: "flex",
-          width: "80%",
-          borderRadius: "12px",
-          margin: "1rem auto",
-          border: `1px solid ${theme.palette.primary.main}`,
-          minHeight: "7vh",
-          padding: "20px 10px",
-          boxShadow: themeShadows().primary,
-        }}
-      >
+      <Box className={classes.hotelContainer}>
         <img
           style={{
             borderRadius: "1rem",

@@ -22,7 +22,7 @@ export const useAddHotels = () => {
         hotelName: values.hotelName,
         roomPrice: values.roomPrice,
         address: values.address,
-        userId: user.data.uid,
+        // userId: user.data.uid,
         image: url,
         averageRating: 0,
       });

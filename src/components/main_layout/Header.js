@@ -1,9 +1,9 @@
-import React from "react"
-import { Paper, Typography, Box } from "@mui/material"
-import useStyles from "./styles"
-import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Paper, Typography, Box } from "@mui/material";
+import useStyles from "./styles";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 function Header() {
   const staggerContainer = {
@@ -13,8 +13,8 @@ function Header() {
         staggerChildren: 0.5,
       },
     },
-  }
-  const classes = useStyles()
+  };
+  const classes = useStyles();
   return (
     <div>
       <Paper elevation={6} className={classes.header}>
@@ -75,19 +75,13 @@ function Header() {
                     Events
                   </Link>
                 </motion.li>
+
                 <motion.li
                   whileTap={{
                     rotate: -10,
                   }}
                 >
-                  Lakes
-                </motion.li>
-                <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
-                >
-                    <Link
+                  <Link
                     to="/services"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
@@ -121,7 +115,7 @@ function Header() {
         </Box>
       </Paper>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

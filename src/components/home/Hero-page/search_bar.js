@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Paper, Box, CircularProgress } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Paper, Box, Radio, FormControlLabel } from "@mui/material";
 import useStyles from "./styles";
 import Button from "../../Ui_components/Button";
 import TextField from "../../Ui_components/TextField";
@@ -8,6 +8,7 @@ import { themeShadows } from "../../../theme/shadows";
 import SearchIcon from "@mui/icons-material/Search";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
+import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 import { useFormik } from "formik";
 import { useGetHotelsMutation } from "../../../store/services/appServices";
 
@@ -19,7 +20,7 @@ const validationSchema = Yup.object({
     .required("Please enter the Number Of Persons")
     .max(20, "Please Enter Persons less then 20"),
   Days: Yup.number("Enter Visting days").required("Please enter the location"),
-  Destination: Yup.string("Enter your Destination").required(
+  district: Yup.string("Enter your Destination").required(
     "Please Select the Destination"
   ),
 });
@@ -32,10 +33,11 @@ export default function Searchbar() {
 
   const formik = useFormik({
     initialValues: {
-      Budget: 30000,
-      Persons: 2,
-      Days: 3,
-      Destination: "hunza",
+      Budget: "",
+      Persons: "",
+      Days: "",
+      district: "",
+      vachiels: false,
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
@@ -73,7 +75,7 @@ export default function Searchbar() {
               type="number"
               value={formik.values.Budget}
               onChange={formik.handleChange}
-              error={formik.touched.Budget && Boolean(formik.errors.Budget)}
+              error={formik.touched.Budget}
               helperText={formik.touched.Budget && formik.errors.Budget}
               label={"Your Budget"}
             />
@@ -100,17 +102,24 @@ export default function Searchbar() {
               label={"Number Of Days"}
             />
             <Select
-              value={formik.values.Destination}
+              value={formik.values.district}
               handleChange={(e) =>
-                formik.setFieldValue("Destination", e.target.value)
+                formik.setFieldValue("district", e.target.value)
               }
-              error={
-                formik.touched.Destination && Boolean(formik.errors.Destination)
-              }
+              error={formik.touched.district && Boolean(formik.errors.district)}
               label="Select Destination"
-              id="Destination"
-              name="Destination"
+              id="district"
+              name="district"
               items={["Hunza", "Skardu", "Gaizer", "Phunder"]}
+            />
+            <FormControlLabel
+              checked={formik.values.vachiels}
+              onChange={(e) =>
+                formik.setFieldValue("vachiels", !formik.values.vachiels)
+              }
+              value="Ownvahicles"
+              control={<Radio checkedIcon={<DirectionsCarFilledIcon />} />}
+              label="Own vahicles"
             />
             <Button
               title={<SearchIcon />}

@@ -4,50 +4,25 @@ import {
   updateEvents,
   updatePlaces,
 } from "../slices/filter";
-import {
-  query,
-  collection,
-  limit,
-  where,
-  onSnapshot,
-  QuerySnapshot,
-  DocumentData,
-  getDocs,
-} from "firebase/firestore";
-import { useFirestoreQuery } from "@react-query-firebase/firestore";
-// import { useToastContext, ADD } from "../store/responseMessage";
+import { collection, where, query, getDocs } from "firebase/firestore";
 import { firestore } from "../../firebase";
-
-// export const markAsUnRead = (build) => {
-//   return build.mutation({
-//     query: (id) => ({
-//       url: `${conversationsUrl}/conversations/${id}/mark-as-unread`,
-//       method: "PUT",
-//     }),
-//   });
-// };
-
-// export const getAllChannels = (build) => {
-//   return build.query({
-//     query: (payload) => ({
-//       url: `${
-//         payload.userType === "superAdmin" || "Admin" ? "account" : "user"
-//       }-svc/v1/channels`,
-//       method: "GET",
-//     }),
-//   });
-// };
 
 export const getHotels = (build) => {
   return build.mutation({
     async queryFn(payload, { signal, dispatch, getState }) {
+      let hotelBudgets = 0;
+      if (payload.vachiels) {
+        hotelBudgets = ((payload.Budget / 10) * 4) / payload.Days;
+      } else {
+        hotelBudgets = ((payload.Budget / 10) * 3) / payload.Days;
+      }
       try {
         const coll = payload?.destination || "hotels";
-        const hotelsQuery = collection(firestore, coll);
-        const querySnapshot = await getDocs(
-          hotelsQuery,
-          where("roomPrice", "<=", payload.Budget)
+        const q = query(
+          collection(firestore, coll),
+          where("roomPrice", "<=", hotelBudgets)
         );
+        const querySnapshot = await getDocs(q);
         let temp = [];
         querySnapshot?.forEach((doc) => {
           temp.push({ id: doc.id, ...doc.data() });
@@ -61,58 +36,14 @@ export const getHotels = (build) => {
         if (coll === "events") {
           dispatch(updateEvents(temp));
         }
-        if (coll === "events") {
+        if (coll === "trips") {
           dispatch(updateTrips(temp));
         }
         return { data: temp };
-        // return { data: requestRideList };
       } catch (e) {
         return { data: e };
-        // toastDispatch({
-        //   type: ADD,
-        //   payload: {
-        //     content: { sucess: "FAIL", message: e.message },
-        //     type: "danger",
-        //   },
-        // });
       }
     },
     providesTags: ["posts"],
   });
 };
-// const FilterResult = () => {
-//   const [hotels, setHotels] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-//   // const { toastDispatch } = useToastContext();
-//   const hotelsQuery = collection(firestore, "hotels");
-
-//   export const HandleGetResult = async (payload) => {
-//     try {
-//       setIsLoading(true);
-//       const requestRideQuery = await query(
-//         hotelsQuery,
-//         where("roomPrice", "<=", payload.Budget)
-//       );
-//       onSnapshot(requestRideQuery, (querySnapshot) => {
-//         let requestRideList = [];
-//         querySnapshot.forEach(async (doc) => {
-//           requestRideList.push({ ...doc.data(), docId: doc.id });
-//         });
-//         setHotels(requestRideList);
-//       });
-//     } catch (e) {
-//       // toastDispatch({
-//       //   type: ADD,
-//       //   payload: {
-//       //     content: { sucess: "FAIL", message: e.message },
-//       //     type: "danger",
-//       //   },
-//       // });
-//     }
-//   };
-//   return {
-//     isLoading,
-//     hotels,
-//     HandleGetResult,
-//   };
-// };

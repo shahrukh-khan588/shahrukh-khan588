@@ -19,6 +19,7 @@ import { red } from "@mui/material/colors";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import moment from "moment";
+import useStyles from "./styles";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -33,6 +34,7 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard({ setDistrict }) {
   const theme = useTheme();
+  const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -40,14 +42,7 @@ export default function RecipeReviewCard({ setDistrict }) {
   };
 
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-        position: "fixed",
-        border: `1px solid ${theme.palette.grey[300]}`,
-        borderRadius: "12px",
-      }}
-    >
+    <Card className={classes.mainCard}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

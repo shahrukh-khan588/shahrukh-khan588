@@ -4,6 +4,7 @@ const initialState = {
   places: [],
   events: [],
   trips: [],
+  filterVal: null,
 };
 const inboxSlice = createSlice({
   name: "inbox",
@@ -21,8 +22,16 @@ const inboxSlice = createSlice({
     updateTrips(state, action) {
       state.trips = action.payload;
     },
+    updateValues(state, action) {
+      state.filterVal = action.payload;
+    },
   },
 });
-export const { updateHotels, updatePlaces, updateEvents, updateTrips } =
-  inboxSlice.actions;
+export const {
+  updateHotels,
+  updatePlaces,
+  updateEvents,
+  updateTrips,
+  updateValues,
+} = inboxSlice.actions;
 export default inboxSlice.reducer;

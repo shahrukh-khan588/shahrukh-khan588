@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Paper, Box, Typography, Grid, Button } from "@mui/material";
@@ -37,7 +36,6 @@ function Index() {
                 }}
                 key={item.img}
                 className={classes.imgwrapper}
-                component={motion.div}
                 whileHover={{ y: 3 }}
               >
                 <img className={classes.img} src={item.img} alt={item.title} />
@@ -50,7 +48,6 @@ function Index() {
                     />{" "}
                     <Typography
                       variant="caption"
-                      component={motion.p}
                       whileHover={{
                         scale: 1.3,
                         originX: 0,
@@ -69,17 +66,7 @@ function Index() {
                       fontSize="small"
                       sx={{ margin: "0px 10px 0px 0px" }}
                     />
-                    <Typography
-                      variant="caption"
-                      component={motion.p}
-                      whileHover={{
-                        scale: 1.3,
-                        originX: 0,
-                        color: "",
-                      }}
-                    >
-                      4.5
-                    </Typography>
+                    <Typography variant="caption">4.5</Typography>
                   </Box>
                 </Box>
               </Paper>

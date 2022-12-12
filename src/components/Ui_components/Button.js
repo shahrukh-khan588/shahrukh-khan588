@@ -1,8 +1,7 @@
 import * as React from "react";
 import { Button, CircularProgress, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { motion } from "framer-motion";
-import {themeShadows} from '../../theme/shadows'
+import { themeShadows } from "../../theme/shadows";
 
 const buttonVariants = {
   hover: {
@@ -17,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Raleway",
     textTransform: "uppercase",
-    boxShadow:`${themeShadows().primary} !important`,
+    boxShadow: `${themeShadows().primary} !important`,
     color: `${theme.palette.secondary.contrastText} !important`,
-    background:`${theme.palette.primary.main} !important`,
+    background: `${theme.palette.primary.main} !important`,
     padding: "12px 34px !important",
     letterSpacing: "1px",
     margin: 0,
@@ -32,19 +31,18 @@ const useStyles = makeStyles((theme) => ({
       transition: "all 0.3s ease 0s",
     },
     "&:disabled": {
-      background: theme.palette.primary.disable,
+      background: `${theme.palette.grey[300]}!important`,
       color: theme.palette.white,
     },
   },
 }));
 
 export default function BasicButtons(props) {
-  const { type, onChange, isLoading, title, disabled, variant ,sx} = props;
+  const { type, onChange, isLoading, title, disabled, variant, sx } = props;
   const classes = useStyles();
   return (
     <Button
-    sx={{textTransform:'none',...sx}}
-      component={motion.button}
+      sx={{ textTransform: "none", ...sx }}
       variants={buttonVariants}
       whileHover="hover"
       onClick={onChange}
@@ -54,7 +52,11 @@ export default function BasicButtons(props) {
       disabled={disabled}
       {...props}
     >
-      {isLoading ? <CircularProgress size={"22px"} color={"grey"} /> : <Typography fontWeight={700}>{title}</Typography>}
+      {isLoading ? (
+        <CircularProgress size={"22px"} color={"grey"} />
+      ) : (
+        <Typography fontWeight={700}>{title}</Typography>
+      )}
     </Button>
   );
 }

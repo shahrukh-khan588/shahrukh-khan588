@@ -2,7 +2,6 @@ import React from "react";
 import { Paper, Typography, Box } from "@mui/material";
 import useStyles from "./styles";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -32,84 +31,59 @@ function Header() {
           <Box display="flex" width="60%" justifyContent="space-between">
             <Box
               width="80%"
-              component={motion.div}
               variants={staggerContainer}
               initial="initial"
               animate="animate"
             >
               <ul className={classes.links}>
-                <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
-                >
+                <li>
                   <Link
                     to="/mountains"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
                     Mountains
                   </Link>
-                </motion.li>
+                </li>
 
-                <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
-                >
+                <li>
                   <Link
                     to="/thingstodo"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
                     Things To Do
                   </Link>
-                </motion.li>
-                <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
-                >
+                </li>
+                <li>
                   <Link
                     to="/events"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
                     Events
                   </Link>
-                </motion.li>
+                </li>
 
-                <motion.li
-                  whileTap={{
-                    rotate: -10,
-                  }}
-                >
+                <li>
                   <Link
                     to="/services"
                     style={{ textDecoration: "none", color: "#333" }}
                   >
                     services
                   </Link>
-                </motion.li>
+                </li>
               </ul>
             </Box>
             <Box alignItems="center" display="flex">
-              <motion.li
-                whileTap={{
-                  rotate: -10,
-                }}
-              >
+              <li>
                 <Link
                   to="/login"
                   style={{ textDecoration: "none", color: "#333" }}
                 >
                   Login
                 </Link>
-              </motion.li>
-              <motion.span
-                whileTap={{
-                  rotate: -360,
-                }}
-              >
+              </li>
+              <span>
                 <ExitToAppIcon className={classes.icon} />
-              </motion.span>
+              </span>
             </Box>
           </Box>
         </Box>

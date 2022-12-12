@@ -1,11 +1,10 @@
-import * as React from "react"
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined"
-import { Box, Typography, ImageList, ImageListItem } from "@mui/material/"
-import { motion } from "framer-motion"
-import useStyles from "../styles"
+import * as React from "react";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { Box, Typography, ImageList, ImageListItem } from "@mui/material/";
+import useStyles from "../styles";
 
 export default function StandardImageList() {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Box display="flex" flexWrap="wrap">
       <Box position="relative">
@@ -32,7 +31,6 @@ export default function StandardImageList() {
                   />{" "}
                   <Typography
                     variant="body1"
-                    component={motion.p}
                     whileHover={{
                       scale: 1.3,
                       originX: 0,
@@ -47,22 +45,7 @@ export default function StandardImageList() {
                     HUNZA
                   </Typography>
                 </Box>
-                <Typography
-                  color="white"
-                  variant="body1"
-                  component={motion.p}
-                  initial={{ opacity: 0 }}
-                  whileHover={{
-                    opacity: 1,
-                    scale: 1.3,
-                    originX: 0,
-                    color: "",
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                  }}
-                >
+                <Typography color="white" variant="body1">
                   Most Of People Like Cold Desert
                 </Typography>
               </Box>
@@ -71,7 +54,7 @@ export default function StandardImageList() {
         </ImageList>
       </Box>
     </Box>
-  )
+  );
 }
 
 const itemData = [
@@ -103,4 +86,4 @@ const itemData = [
     img: "https://2.bp.blogspot.com/-60H1mhW85x8/VvPOwJFkzHI/AAAAAAAAAns/eS8U0s003_087J5uexIzKNaMUK4l-k7OQ/s640/11334238_882063165192767_2969380281667604204_o.jpg",
     title: "Basketball",
   },
-]
+];

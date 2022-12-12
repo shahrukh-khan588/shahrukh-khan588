@@ -4,8 +4,6 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
-
-import { motion } from "framer-motion";
 import AOS from "aos";
 
 import "aos/dist/aos.css";
@@ -24,12 +22,7 @@ export default function Events({ trip }) {
   return (
     <div>
       <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
-        <Paper
-          elevation={0}
-          variant="outlined"
-          component={motion.div}
-          className={classes.mainPaper}
-        >
+        <Paper elevation={0} variant="outlined" className={classes.mainPaper}>
           <Box display="flex" justifyContent="space-between" width="100%" p={3}>
             <Box display="flex" justifyContent="space-between">
               <img src={trip?.image} alt="img" className={classes.squreimg} />
@@ -57,7 +50,7 @@ export default function Events({ trip }) {
                 </Box>
               </Box>
             </Box>
-            <Box alignSelf="center" height="103px" component={motion.div}>
+            <Box alignSelf="center" height="103px">
               <AvatarGroup max={4}>
                 <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }} />
                 <Avatar alt="Travis Howard" sx={{ width: 28, height: 28 }} />

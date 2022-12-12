@@ -75,7 +75,7 @@ export default function Searchbar() {
               type="number"
               value={formik.values.Budget}
               onChange={formik.handleChange}
-              error={formik.touched.Budget}
+              error={formik.touched.Budget && Boolean(formik.errors.Budget)}
               helperText={formik.touched.Budget && formik.errors.Budget}
               label={"Your Budget"}
             />
@@ -86,8 +86,16 @@ export default function Searchbar() {
               type="number"
               value={formik.values.Persons}
               onChange={formik.handleChange}
-              error={formik.touched.Persons && Boolean(formik.errors.Persons)}
-              helperText={formik.touched.Persons && formik.errors.Persons}
+              error={
+                formik.touched.Persons &&
+                Boolean(formik.errors.Persons) &&
+                !formik.isValid
+              }
+              helperText={
+                formik.touched.Persons &&
+                formik.errors.Persons &&
+                !formik.isValid
+              }
               label={"Number Of Persons"}
             />
 

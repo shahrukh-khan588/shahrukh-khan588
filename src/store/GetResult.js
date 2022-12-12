@@ -10,7 +10,6 @@ const FilterResult = () => {
   const hotelsQuery = collection(firestore, "hotels");
 
   const HandleGetResult = async (payload) => {
-    console.log(hotels);
     try {
       setIsLoading(true);
       const requestRideQuery = await query(

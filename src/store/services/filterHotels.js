@@ -2,6 +2,7 @@ import {
   updateHotels,
   updateTrips,
   updateEvents,
+  updateValues,
   updatePlaces,
 } from "../slices/filter";
 import { collection, where, query, getDocs } from "firebase/firestore";
@@ -17,6 +18,7 @@ export const getHotels = (build) => {
         hotelBudgets = ((payload.Budget / 10) * 3) / payload.Days;
       }
       try {
+        dispatch(updateValues(payload));
         const coll = payload?.destination || "hotels";
         const q = query(
           collection(firestore, coll),
@@ -27,18 +29,18 @@ export const getHotels = (build) => {
         querySnapshot?.forEach((doc) => {
           temp.push({ id: doc.id, ...doc.data() });
         });
-        if (coll === "hotels") {
-          dispatch(updateHotels(temp));
-        }
-        if (coll === "places") {
-          dispatch(updatePlaces(temp));
-        }
-        if (coll === "events") {
-          dispatch(updateEvents(temp));
-        }
-        if (coll === "trips") {
-          dispatch(updateTrips(temp));
-        }
+        // if (coll === "hotels") {
+        dispatch(updateHotels(temp));
+        // }
+        // if (coll === "places") {
+        //   dispatch(updatePlaces(temp));
+        // }
+        // if (coll === "events") {
+        //   dispatch(updateEvents(temp));
+        // }
+        // if (coll === "trips") {
+        //   dispatch(updateTrips(temp));
+        // }
         return { data: temp };
       } catch (e) {
         return { data: e };

@@ -3,14 +3,12 @@ import { Box, Typography, Button, Paper } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Avatar from "@mui/material/Avatar";
-import AvatarGroup from "@mui/material/AvatarGroup";
+import { AvatarGroup, useTheme } from "@mui/material/";
 import img from "../../../assets/images/hunza.jpg";
-import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import useStyles from "./styles";
 import { themeShadows } from "../../../theme/shadows";
-import { useTheme } from "@emotion/react";
 
 export default function Events({ trip }) {
   const classes = useStyles();
@@ -25,12 +23,7 @@ export default function Events({ trip }) {
   return (
     <div>
       <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
-        <Paper
-          elevation={0}
-          variant="outlined"
-          sx={{ padding: "10px" }}
-          component={motion.div}
-        >
+        <Paper elevation={0} variant="outlined" sx={{ padding: "10px" }}>
           <Box display="flex" justifyContent="space-between">
             <Box
               display="flex"
@@ -72,7 +65,7 @@ export default function Events({ trip }) {
                 </Box>
               </Box>
             </Box>
-            <Box alignSelf="center" height="103px" component={motion.div}>
+            <Box alignSelf="center" height="103px">
               <AvatarGroup max={4}>
                 <Avatar
                   alt="Remy Sharp"

@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import { Paper, Box, Avatar,useTheme, Button } from "@mui/material";
+import { Paper, Box, Avatar, useTheme, Button } from "@mui/material";
 import AvImage from "../../../assets/images/sikardu.jpg";
 import { Typography } from "@mui/material";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import WhatsappOutlinedIcon from "@mui/icons-material/WhatsappOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import useStyles from "./styles";
-import { motion } from "framer-motion";
 import AOS from "aos";
 import Discount from "../../../assets/mountains/discount.jpg";
 import "aos/dist/aos.css";
-import { themeShadows} from '../../../theme/shadows'
+import { themeShadows } from "../../../theme/shadows";
 
 export default function Variants() {
   useEffect(() => {
@@ -19,14 +18,14 @@ export default function Variants() {
     });
     AOS.refresh();
   }, []);
-  const theme=useTheme()
+  const theme = useTheme();
   const classes = useStyles();
   return (
     <Box data-aos="fade-up">
       <Paper
         variant="outlined"
         sx={{
-          boxShadow:themeShadows().primary,
+          boxShadow: themeShadows().primary,
           borderRadius: "10px",
           border: "1px solid grey",
           backgroundImage: `url(${Discount})`,
@@ -37,18 +36,26 @@ export default function Variants() {
           style={{ backgroundImage: `url(${Discount})` }}
         >
           <Box className={classes.avatar}>
-            <Avatar src={'https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg'} sx={{ width: "80px", height: "80px" }} />
+            <Avatar
+              src={
+                "https://d5nunyagcicgy.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg"
+              }
+              sx={{ width: "80px", height: "80px" }}
+            />
           </Box>
         </div>
         <Box sx={{ textAlign: "center", marginTop: "45px" }}>
-          <Typography variant="subtitle1" gutterBottom component="p" color={'primary'}>
+          <Typography
+            variant="subtitle1"
+            gutterBottom
+            component="p"
+            color={"primary"}
+          >
             Guider Name
           </Typography>
         </Box>
 
-        <Box
-          className={classes.links}
-        >
+        <Box className={classes.links}>
           <Box
             width="90%"
             margin="0px auto"

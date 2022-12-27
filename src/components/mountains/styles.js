@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles"
-import Image from "../../assets/mountains/backg.jpg"
+import { makeStyles } from "@mui/styles";
+import Image from "../../assets/mountains/backg.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     color: " #fcc465",
     fontSize: "16px",
     fontWeight: 800,
-    position:'absolute',
+    position: "absolute",
     bottom: "0",
     textTransform: "uppercase",
   },
@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   },
   tabRoot: {
     position: "relative",
-    top: "-120px",
     width: "80%",
     margin: "0px auto",
   },
@@ -58,5 +57,5 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
     borderRadius: "10px",
   },
-}))
-export default useStyles
+}));
+export default useStyles;

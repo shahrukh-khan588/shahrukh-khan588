@@ -70,4 +70,13 @@ function Index() {
 
 export default Index;
 
-const things = ["Cultural Dance", "Boating", "Hike", "Cycling", "Swimming"];
+const things = [
+  "Visit the Karakoram Highway",
+  "Cultural Dance",
+  "Boating",
+  "Explore the region's wildlife",
+  "Go hiking or trekking:",
+  "Visit historical and cultural sites",
+  "Enjoy outdoor activities",
+  "Sample local cuisine",
+];

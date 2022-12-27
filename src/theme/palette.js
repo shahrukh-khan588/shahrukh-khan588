@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-const mode = "light"
+const mode = "light";
 export default {
   primary: {
     main: "#09A391",
@@ -38,4 +38,4 @@ export default {
     default: "rgb(255 255 255)",
     paper: "#fff",
   },
-}
+};

@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import { useFormik } from "formik";
-import { Paper, Box, styled, Typography } from "@mui/material";
+import { Paper, Box, styled, useTheme, Grid } from "@mui/material";
 import * as Yup from "yup";
 import Button from "../Ui_components/Button";
 import TextField from "../Ui_components/TextField";
 import Select from "../Ui_components/Select";
 import { useAddHotels } from "../../hooks/useHotel";
 import { grid } from "@mui/system";
-const ImageSelector = styled(TextField)({   
+import SearchBox from "./components/SearchBox";
+const ImageSelector = styled(TextField)({
   "& legend": {
     display: "none",
   },
@@ -20,9 +21,6 @@ const validationSchema = Yup.object({
   ),
   roomPrice: Yup.string("Enter your password").required(
     "Please enter the roomPrice"
-  ),
-  address: Yup.string("Enter your address").required(
-    "Please enter the address"
   ),
   district: Yup.string("Enter your district").required(
     "Please Select the district"
@@ -42,29 +40,46 @@ const validationSchema = Yup.object({
 });
 
 function Register() {
+  const theme = useTheme();
   const { handleHotels } = useAddHotels();
   const [image, setImage] = useState("");
   const hiddenFileInput = useRef(null);
+  const [coordinates, setCoordinates] = useState();
+  const [searchError, setError] = useState("");
+  const [address, setAddress] = useState({
+    label: "",
+    value: "",
+  });
   const formik = useFormik({
     initialValues: {
       hotelName: "",
       roomPrice: "",
-      address: "",
       image: "",
       district: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      console.log(values);
-      handleHotels(values, image);
+      handleHotels(values, image, coordinates, address.label);
     },
   });
   const handleClick = () => {
     hiddenFileInput?.current && hiddenFileInput?.current?.click();
   };
   return (
-    <Box m="12rem auto" maxWidth="30%">
-      <Paper elevation={6}>
+    <Grid container justifyContent="center" alignItems="center">
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={6}
+        lg={6}
+        xl={6}
+        sx={{
+          border: `1px solid ${theme.palette.grey[500]}`,
+          p: "1rem",
+          mt: "5rem",
+        }}
+      >
         <form
           onSubmit={formik.handleSubmit}
           style={{
@@ -96,17 +111,17 @@ function Register() {
             error={formik.touched.roomPrice && Boolean(formik.errors.roomPrice)}
             helperText={formik.touched.roomPrice && formik.errors.roomPrice}
           />
-          <TextField
-            sx={{ marginTop: "1rem" }}
-            id="address"
-            name="address"
-            label="address"
-            type="text"
-            value={formik.values.address}
-            onChange={formik.handleChange}
-            error={formik.touched.address && Boolean(formik.errors.address)}
-            helperText={formik.touched.address && formik.errors.address}
-          />
+
+          <Box sx={{ width: "50%" }} className="input">
+            <SearchBox
+              setCoordinates={setCoordinates}
+              coordinates={coordinates}
+              setAddress={setAddress}
+              address={address}
+              helperText={searchError}
+              error={searchError}
+            />
+          </Box>
           <Box display="grid" m="1rem 0" gridTemplateColumns="1fr 1fr">
             <ImageSelector
               fullWidth
@@ -170,8 +185,8 @@ function Register() {
             disabled={!formik.isValid}
           />
         </form>
-      </Paper>
-    </Box>
+      </Grid>
+    </Grid>
   );
 }
 export default Register;

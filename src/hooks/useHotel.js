@@ -12,7 +12,8 @@ export const useAddHotels = () => {
   const firestoreRef = collection(firestore, "hotels");
   const hotels = useFirestoreCollectionMutation(firestoreRef);
 
-  const handleHotels = async (values, image) => {
+  const handleHotels = async (values, image, coordinates, address) => {
+    console.log(coordinates, "juuuuuu");
     try {
       const storage = getStorage();
       const imageREf = await ref(storage, `images/${uuidv4()}`);
@@ -21,7 +22,8 @@ export const useAddHotels = () => {
       hotels.mutate({
         hotelName: values.hotelName,
         roomPrice: values.roomPrice,
-        address: values.address,
+        address: address,
+        coordinates: coordinates,
         // userId: user.data.uid,
         image: url,
         averageRating: 0,

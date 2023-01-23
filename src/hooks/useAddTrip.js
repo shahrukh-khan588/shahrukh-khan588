@@ -12,7 +12,7 @@ export const useAddHotels = () => {
   const firestoreRef = collection(firestore, "trips");
   const hotels = useFirestoreCollectionMutation(firestoreRef);
 
-  const handleHotels = async (values, image) => {
+  const handleHotels = async (values, image, multiCordinates) => {
     try {
       const storage = getStorage();
       const imageREf = await ref(storage, `images/${uuidv4()}`);
@@ -25,6 +25,7 @@ export const useAddHotels = () => {
         userId: user.data.uid,
         image: url,
         date: values.date,
+        cordinates: multiCordinates
       });
       toastDispatch({
         type: ADD,

@@ -1,10 +1,8 @@
-import { makeStyles } from "@mui/styles"
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    width: "100%",
-    background: "#f5f5f5",
-    color: "#333",
+    color: "#fff",
     justifyContent: " space-between",
   },
   links: {
@@ -14,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       listStyle: "none",
       "&:hover": {
-        borderBottom: "1px solid #333",
+        borderBottom: "1px solid #fff",
         cursor: "pointer",
         color: theme.palette.secondary.main,
       },
@@ -68,6 +66,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     margin: " 0px 0px 0px 39px",
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

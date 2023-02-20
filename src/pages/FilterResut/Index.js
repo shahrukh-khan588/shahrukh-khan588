@@ -25,7 +25,7 @@ function Index() {
   );
   const scrollevents = document.getElementById("events");
   const scrolltrips = document.getElementById("trips");
-  console.log(filterVal, "filterVal");
+
   useEffect(() => {
     handelFilter({ ...filterVal, destination: district });
     handelGetTrips({ location: filterVal.district });

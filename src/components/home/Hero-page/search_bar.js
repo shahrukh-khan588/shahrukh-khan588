@@ -38,6 +38,7 @@ export default function Searchbar() {
       Days: "",
       district: "",
       vachiels: false,
+      intrest: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
@@ -110,6 +111,27 @@ export default function Searchbar() {
               label={"Number Of Days"}
             />
             <Select
+              value={formik.values.intrest}
+              handleChange={(e) =>
+                formik.setFieldValue("intrest", e.target.value)
+              }
+              label="Select Intrest"
+              id="intrest"
+              name="intrest"
+              items={[
+                "Hiking",
+                "Road Trip",
+                "Walking",
+                "Camping",
+                "Fishing",
+                "Boating",
+                "Site Seeing",
+                "Ice Climbing",
+                "Sports",
+                "Culture",
+              ]}
+            />
+            <Select
               value={formik.values.district}
               handleChange={(e) =>
                 formik.setFieldValue("district", e.target.value)
@@ -118,7 +140,17 @@ export default function Searchbar() {
               label="Select Destination"
               id="district"
               name="district"
-              items={["Hunza", "Skardu", "Gaizer", "Phunder"]}
+              items={[
+                "Hunza",
+                "Skardu",
+                "Diamer",
+                "Astore",
+                "Ghanche",
+                "Ghizer",
+                "Kharmang",
+                "Nagar",
+                "Shigar",
+              ]}
             />
             <FormControlLabel
               checked={formik.values.vachiels}

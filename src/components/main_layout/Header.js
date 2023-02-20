@@ -1,9 +1,27 @@
 import React from "react";
-import { Paper, Typography, Box } from "@mui/material";
+import { Paper, AppBar, Typography, Stack, Box } from "@mui/material";
 import useStyles from "./styles";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
 
+const routes = [
+  {
+    Key: "Mountains",
+    link: "/mountains",
+  },
+  {
+    Key: "ThingsToDo",
+    link: "/thingstodo",
+  },
+  {
+    Key: "Evenets",
+    link: "/events",
+  },
+  {
+    Key: "Services",
+    link: "/services",
+  },
+];
 function Header() {
   const staggerContainer = {
     initial: {},
@@ -16,7 +34,7 @@ function Header() {
   const classes = useStyles();
   return (
     <div>
-      <Paper elevation={6} className={classes.header}>
+      <AppBar elevation={6} className={classes.header} >
         <Box
           display="flex"
           justifyContent="space-between"
@@ -28,66 +46,25 @@ function Header() {
               Mountains Are Calling
             </Typography>
           </Box>
-          <Box display="flex" width="60%" justifyContent="space-between">
-            <Box
-              width="80%"
-              variants={staggerContainer}
-              initial="initial"
-              animate="animate"
-            >
-              <ul className={classes.links}>
-                <li>
-                  <Link
-                    to="/mountains"
-                    style={{ textDecoration: "none", color: "#333" }}
-                  >
-                    Mountains
-                  </Link>
-                </li>
 
-                <li>
-                  <Link
-                    to="/thingstodo"
-                    style={{ textDecoration: "none", color: "#333" }}
-                  >
-                    Things To Do
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/events"
-                    style={{ textDecoration: "none", color: "#333" }}
-                  >
-                    Events
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/services"
-                    style={{ textDecoration: "none", color: "#333" }}
-                  >
-                    services
-                  </Link>
-                </li>
-              </ul>
-            </Box>
-            <Box alignItems="center" display="flex">
-              <li>
-                <Link
-                  to="/login"
-                  style={{ textDecoration: "none", color: "#333" }}
-                >
-                  Login
-                </Link>
-              </li>
-              <span>
-                <ExitToAppIcon className={classes.icon} />
-              </span>
-            </Box>
-          </Box>
+          <Stack
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="center"
+            spacing={4}
+          >
+            {routes.map((item, i) => (
+              <Link
+                index={i}
+                to={item.link}
+                style={{ textDecoration: "none", color: "#fff" }}
+              >
+                {item.Key}
+              </Link>
+            ))}
+          </Stack>
         </Box>
-      </Paper>
+      </AppBar>
     </div>
   );
 }

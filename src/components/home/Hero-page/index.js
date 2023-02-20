@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography,useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import useStyles from "./styles";
 import Typical from "react-typical";
 import Hunza from "../../../assets/hunza.mp4";
@@ -9,7 +9,7 @@ import Searchbar from "./search_bar";
 
 function Hero_page() {
   const classes = useStyles();
-  const theme=useTheme()
+  const theme = useTheme();
   return (
     <div>
       <section style={{ height: "100vh", position: "relative" }}>
@@ -29,10 +29,11 @@ function Hero_page() {
         </Box>
         <Box
           sx={{
-            background:theme.palette.grey[300],
+            background: "#c8e6c9",
             position: "absolute",
             bottom: "-39px",
             width: "100%",
+            borderRadius: "65px 65px 65px 0",
           }}
           pt={5}
         >

@@ -8,7 +8,7 @@ import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import StarsIcon from "@mui/icons-material/Stars";
-export default function SimpleDialogDemo({ open, hotel, setOpen }) {
+export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
   const handleClose = (value) => {
     setOpen(false);
   };
@@ -38,7 +38,7 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
                 </Typography>
                 :
                 <Typography sx={{ ml: "1rem" }} variant="body1">
-                  {hotel?.hotelName}
+                  {/* {hotel?.hotelName} */}
                 </Typography>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
@@ -48,7 +48,7 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
                 </Typography>
                 :
                 <Typography sx={{ ml: "1rem" }} variant="body1">
-                  {hotel?.address}
+                  {/* {hotel?.address} */}
                 </Typography>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
@@ -59,7 +59,7 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
                 :
                 <Typography sx={{ ml: "1rem" }} variant="body1">
                   <span>PKR</span>
-                  {hotel?.roomPrice}
+                  {/* {hotel?.roomPrice} */}
                 </Typography>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
@@ -68,7 +68,7 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
                   Rating
                 </Typography>
                 :
-                <Rating name="read-only" value={hotel?.Rating} readOnly />
+                {/* <Rating name="read-only" value={hotel?.Rating} readOnly /> */}
               </Box>
             </Box>
             <img
@@ -77,7 +77,7 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
                 height: "300px",
                 width: "300px",
               }}
-              src={hotel?.image}
+              //   src={hotel?.image}
               alt={"hotels"}
             />
           </Box>
@@ -93,20 +93,20 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
             bootstrapURLKeys={{
               key: "AIzaSyAB_9gv95tthsqqFyrTzsq0ACRnJ2zNlvs",
             }}
-            center={defaultProps.center}
+            // center={defaultProps.center}
             defaultZoom={defaultProps.zoom}
             yesIWantToUseGoogleMapApiInternals
           >
-            {/* {getLocation?.map((locationMarkers) => {
-              return ( */}
-            <RoomIcon
-              fontSize="large"
-              style={{ fontSize: 40, fill: "red" }}
-              lat={hotel?.coordinates.lat}
-              lng={hotel?.coordinates.lng}
-            />
-            {/* );
-            })} */}
+            {getLocation?.map((locationMarkers) => {
+              return (
+                <RoomIcon
+                  fontSize="large"
+                  style={{ fontSize: 40, fill: "red" }}
+                  lat={locationMarkers?.coordinates.lat}
+                  lng={locationMarkers?.coordinates.lng}
+                />
+              );
+            })}
           </GoogleMapReact>
         </div>
       </Dialog>

@@ -19,11 +19,12 @@ export default function Events({ trip }) {
     });
     AOS.refresh();
   }, []);
+  console.log(trip, "trip");
   return (
     <div>
       <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
         <Paper elevation={0} variant="outlined" className={classes.mainPaper}>
-          <Box display="flex" justifyContent="space-between" width="100%" p={3}>
+          <Box display="flex" justifyContent="space-between" width="100%">
             <Box display="flex" justifyContent="space-between">
               <img src={trip?.image} alt="img" className={classes.squreimg} />
               <Box margin="0px 16px" textAlign="left">

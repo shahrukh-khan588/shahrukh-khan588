@@ -13,6 +13,45 @@ import Rating from "@mui/material/Rating";
 import { Typography, Box, styled } from "@mui/material";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 
+const destricts = [
+  {
+    place: "Hunza",
+    image: hunzaimg,
+  },
+  {
+    place: "Gilgit",
+    image:
+      "https://i.pinimg.com/originals/b7/8e/dc/b78edc26da27e3a230600895c010fc8a.jpg",
+  },
+  {
+    place: "Diamer",
+    image: chilas,
+  },
+  {
+    place: "Astore",
+    image: astore,
+  },
+  {
+    place: "Ghanche",
+    image: "https://i.dawn.com/primary/2015/04/55320d3fb86be.jpg?r=377803836",
+  },
+  {
+    place: "Ghizer",
+    image: phunder,
+  },
+  {
+    place: "Kharmang",
+    image: "https://pbs.twimg.com/media/Dj1T6DuXcAAr4Ml.jpg",
+  },
+  {
+    place: "Nagar",
+    image: "https://i.dawn.com/primary/2015/05/555b12dae58fe.jpg",
+  },
+  {
+    place: "Shigar",
+    image: sikardu,
+  },
+];
 const CursorWrapper = styled(Box)({
   "& .react-multi-carousel-item": {
     display: "grid",
@@ -84,91 +123,28 @@ export default function Index() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          <div className={classes.sub_container}>
-            <img src={hunzaimg} alt="hnz" className={classes.img} />
-            <Box className={classes.detail}>
-              <Box
-                display="flex"
-                alignItems="center"
-                padding="30px 17px"
-                justifyContent="space-between"
-              >
-                <Box display='flex' alignItems={'center'}>
-                  <AddLocationIcon sx={{marginRight:'.4rem'}} />
-                  <Typography variant='h6' className={classes.titles}>Hunza</Typography>
+          {destricts.map((item, i) => (
+            <div className={classes.sub_container} key={i}>
+              <img src={item.image} alt="hnz" className={classes.img} />
+              <Box className={classes.detail}>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  padding="30px 17px"
+                  justifyContent="space-between"
+                >
+                  <Box display="flex" alignItems={"center"}>
+                    <AddLocationIcon sx={{ marginRight: ".4rem" }} />
+                    <Typography variant="subtitle1" className={classes.titles}>
+                      {item.place}
+                    </Typography>
+                  </Box>
+                  <Typography>{item.des && item.des}</Typography>
+                  <Rating name="size-small" defaultValue={2} size="small" />
                 </Box>
-                <Rating name="size-small" defaultValue={2} size="small" />
               </Box>
-            </Box>
-          </div>
-          <div data-aos="fade-up" className={classes.sub_container}>
-            <img src={sikardu} alt="hnz" className={classes.img} />
-            <Box className={classes.detail}>
-              <Box
-                display="flex"
-                alignItems="center"
-                padding="30px 17px"
-                justifyContent="space-between"
-              >
-                 <Box display='flex' alignItems={'center'}>
-                  <AddLocationIcon sx={{marginRight:'.4rem'}} />
-                  <Typography variant='h6' className={classes.titles}>Skardu </Typography>
-                </Box>
-                <Rating name="size-small" defaultValue={2} size="small" />
-              </Box>
-            </Box>
-          </div>
-          <div className={classes.sub_container}>
-            <img src={astore} alt="hnz" className={classes.img} />
-            <Box className={classes.detail}>
-              <Box
-                display="flex"
-                alignItems="center"
-                padding="30px 17px"
-                justifyContent="space-between"
-              >
-               <Box display='flex' alignItems={'center'}>
-                  <AddLocationIcon sx={{marginRight:'.4rem'}} />
-                  <Typography variant='h6' className={classes.titles}>Astore </Typography>
-                </Box>
-                <Rating name="size-small" defaultValue={2} size="small" />
-              </Box>
-            </Box>
-          </div>
-          <div className={classes.sub_container}>
-            <img src={chilas} alt="hnz" className={classes.img} />
-            <Box className={classes.detail}>
-              <Box
-                display="flex"
-                alignItems="center"
-                padding="30px 17px"
-                justifyContent="space-between"
-              >
-                <Box display='flex' alignItems={'center'}>
-                  <AddLocationIcon sx={{marginRight:'.4rem'}} />
-                  <Typography variant='h6' className={classes.titles}>Chilas </Typography>
-                </Box>
-                <Rating name="size-small" defaultValue={2} size="small" />
-              </Box>
-            </Box>
-          </div>
-          <div className={classes.sub_container}>
-            <img src={phunder} alt="hnz" className={classes.img} />
-            <Box className={classes.detail}>
-              <Box
-                display="flex"
-                alignItems="center"
-                padding="30px 17px"
-                justifyContent="space-between"
-              >
-                 <Box display='flex' alignItems={'center'}>
-                  <AddLocationIcon sx={{marginRight:'.4rem'}} />
-                  <Typography variant='h6' className={classes.titles}>Phunder </Typography>
-                </Box>
-                <Rating name="size-small" defaultValue={2} size="small" />
-              </Box>
-            </Box>
-          </div>
+            </div>
+          ))}
         </Carousel>
       </CursorWrapper>
     </div>

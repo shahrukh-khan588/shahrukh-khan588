@@ -1,5 +1,5 @@
-import { makeStyles } from "@mui/styles"
-import {themeShadows} from '../../../theme/shadows'
+import { makeStyles } from "@mui/styles";
+import { themeShadows } from "../../../theme/shadows";
 const useStyles = makeStyles((theme) => ({
   main: {
     margin: "50px auto",
@@ -13,19 +13,23 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: themeShadows().z12,
   },
   detail: {
-    maxWidth: "100%",
+    maxWidth: "90%",
     height: "auto",
-    background: "#FFFFF",
-    margin: "-14px 0px 0px 0px",
+    background: "#fff",
+    margin: "0 auto",
     color: "#333",
-    boxShadow: themeShadows().z12,
-    borderRadius: " 0px 0px 24px 24px",
+    boxShadow: themeShadows().primary,
+    borderColor: theme.palette.primary.main,
+    border: "1px solid",
+    borderRadius: "16px",
+    position: "relative",
+    top: "-16%",
   },
   img: {
     maxWidth: "100%",
-    height: "350px",
+    height: "460px",
     objectFit: "cover",
-    borderRadius: "24px 24px 0px 0px ",
+    borderRadius: "16px",
   },
   titles: {
     fontFamily: "Poppins",
@@ -38,5 +42,5 @@ const useStyles = makeStyles((theme) => ({
   Carousel: {
     position: "absolute",
   },
-}))
-export default useStyles
+}));
+export default useStyles;

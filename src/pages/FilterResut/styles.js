@@ -59,8 +59,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "24px 24px 0px 0px",
   },
   squreimg: {
-    height: "100px",
-    width: "100px",
+    height: "150px",
+    width: "150px",
+    objectFit: "cover",
     borderRadius: "24px",
   },
 

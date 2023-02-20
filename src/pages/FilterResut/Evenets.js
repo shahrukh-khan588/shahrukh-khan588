@@ -1,11 +1,11 @@
 import React from "react";
 import { Typography, Box, Divider, Paper } from "@mui/material";
 import useStyles from "./styles";
-import moment from "moment";
+import Map from "../../components/searchResult/map";
 
 function EventList({ event }) {
   const classes = useStyles();
-  console.log(event);
+  console.log(event, "event");
   return (
     <div>
       <Paper
@@ -38,6 +38,7 @@ function EventList({ event }) {
           <img className={classes.eventImg} src={event?.image} alt={"event"} />
         </Box>
       </Paper>
+      <Map />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Dialog, Box } from "@mui/material/";
+import { Dialog, Box, Button } from "@mui/material/";
 import GoogleMapReact from "google-map-react";
 import RoomIcon from "@mui/icons-material/Room";
 import { Typography, Rating } from "@mui/material";
@@ -8,17 +8,24 @@ import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import StarsIcon from "@mui/icons-material/Stars";
-export default function SimpleDialogDemo({ open, hotel, setOpen }) {
-  const handleClose = (value) => {
-    setOpen(false);
-  };
+// import Directions from 'google-map-react-directions'
+import GoogleMaps from "./GoogleMaps";
+
+export default function SimpleDialogDemo({ setOpen, hotel, open }) {
   const defaultProps = {
     center: {
       lat: hotel?.coordinates?.lat,
-      lng: hotel?.coordinates?.lng,
+      // lng: hotel?.coordinates?.lng,
+      lat: 32.234,
+      lng: 75.234,
     },
     zoom: 1,
   };
+
+  const handleClose = (value) => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Dialog
@@ -89,9 +96,10 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
             background: "#eee",
           }}
         >
-          <GoogleMapReact
+          {/* <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyAB_9gv95tthsqqFyrTzsq0ACRnJ2zNlvs",
+              key: "AIzaSyAp2G7uA336mX4dUzmpQ8ImoSSeSFjUZq8",
             }}
             center={defaultProps.center}
             defaultZoom={defaultProps.zoom}
@@ -99,15 +107,18 @@ export default function SimpleDialogDemo({ open, hotel, setOpen }) {
           >
             {/* {getLocation?.map((locationMarkers) => {
               return ( */}
-            <RoomIcon
-              fontSize="large"
-              style={{ fontSize: 40, fill: "red" }}
-              lat={hotel?.coordinates.lat}
-              lng={hotel?.coordinates.lng}
-            />
-            {/* );
-            })} */}
-          </GoogleMapReact>
+          {/* <div */}
+          {/* // fontSize="large"
+              // style={{ fontSize: 40, fill: "red" }}
+              lat={defaultProps.center.lat}
+              lng={defaultProps.center.lng}
+              style={{ backgroundColor:'#0047ab', height: "13px", width: "13px", borderRadius:'10px' }}
+              // lat={hotel?.coordinates.lat}
+              // lng={hotel?.coordinates.lng} */}
+          {/* /> */}
+          {/* ); })} */}
+          {/* </GoogleMapReact> */}
+          <GoogleMaps />
         </div>
       </Dialog>
     </div>

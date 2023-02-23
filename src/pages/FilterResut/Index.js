@@ -51,7 +51,7 @@ function Index() {
   return (
     <Box
       display="flex"
-      sx={{ width: "90%", m: "0 auto", overFlow: "hidden" }}
+      sx={{ width: "90%", m: "4rem auto 0 auto", overFlow: "hidden" }}
       className={classes.Container}
     >
       <Card setDistrict={setDistrict} />

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import {
   Box,
   Rating,
@@ -8,7 +7,6 @@ import {
   Typography,
   useTheme,
 } from "@mui/material/";
-import { themeShadows } from "../../theme/shadows";
 import GoogleMap from "./map";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -20,7 +18,6 @@ export default function Hotels({ hotel }) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const classes = useStyles();
-
   return (
     <>
       <Box className={classes.hotelContainer}>

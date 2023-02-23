@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function BasicSelect({items,handleChange,label,error, value}) {
+export default function BasicSelect({items,handleChange,label,error, value, style}) {
   const classes = useStyles()
 
   return (
@@ -45,6 +45,7 @@ export default function BasicSelect({items,handleChange,label,error, value}) {
           id="demo-simple-select"
           label={label}
           onChange={handleChange}
+          style={style}
         >
           {items?.map((item)=>
             <MenuItem value={item}>{item||''}</MenuItem>

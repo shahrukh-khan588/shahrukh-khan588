@@ -66,6 +66,31 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     margin: " 0px 0px 0px 39px",
   },
+  Header: {
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      flexDirection: "row",
+    },
+    justifyContent: "space-between",
+    width: "90%",
+    margin: "auto",
+  },
+  LinkStack: {
+    display: "flex",
+    flexDirection: "row !important",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "45%",
+    },
+    justifyContent: "space-between",
+    alignItems: "center",
+    spacing: 4,
+  },
 }));
 
 export default useStyles;

@@ -34,7 +34,7 @@ function ServicesGrid() {
 
   const classes = useStyles();
   return (
-    <div style={{ height: "475px" }}>
+    <div style={{ height: "475px", marginTop:'50px'}}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           // variants={svgVarients}

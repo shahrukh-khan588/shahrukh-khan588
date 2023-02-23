@@ -10,6 +10,7 @@ import SignUp from "../pages/Auth/signup";
 import ServiceProvider from "../pages/services/Index";
 import AddTrip from "../components/serviceProvider/AddGroup/Index";
 import Hotels from "../pages/FilterResut/Index";
+
 const Routing = () => {
   return (
     <div>

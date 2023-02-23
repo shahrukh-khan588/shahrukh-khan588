@@ -56,20 +56,12 @@ export default function Searchbar() {
       <Paper
         className={classes.paper}
         sx={{
-          borderRadius: "67px",
+          borderRadius:'50px',
           boxShadow: shadow.success,
         }}
       >
         <Box>
-          <form
-            className={classes.box}
-            onSubmit={formik.handleSubmit}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-around",
-            }}
-          >
+          <form className={classes.Box} onSubmit={formik.handleSubmit}>
             <TextField
               id="Budget"
               name="Budget"
@@ -79,8 +71,8 @@ export default function Searchbar() {
               error={formik.touched.Budget && Boolean(formik.errors.Budget)}
               helperText={formik.touched.Budget && formik.errors.Budget}
               label={"Your Budget"}
+              className={classes.Input}
             />
-
             <TextField
               id="Persons"
               name="Persons"
@@ -98,8 +90,8 @@ export default function Searchbar() {
                 !formik.isValid
               }
               label={"Number Of Persons"}
+              className={classes.Input}
             />
-
             <TextField
               id="Days"
               name="Days"
@@ -109,12 +101,14 @@ export default function Searchbar() {
               error={formik.touched.Days && Boolean(formik.errors.Days)}
               helperText={formik.touched.Days && formik.errors.Days}
               label={"Number Of Days"}
+              className={classes.Input}
             />
             <Select
               value={formik.values.intrest}
               handleChange={(e) =>
                 formik.setFieldValue("intrest", e.target.value)
               }
+              style={{ width: "auto" }}
               label="Select Intrest"
               id="intrest"
               name="intrest"

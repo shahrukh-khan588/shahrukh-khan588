@@ -19,36 +19,19 @@ function Hero_page() {
             autoPlay
             muted
             loop
-            style={{
-              width: "100%",
-              position: "absolute",
-              top: "-90px",
-              zIndex: "-1",
-            }}
+            style={{}}
+            className={classes.Video}
           />
         </Box>
-        <Box
-          sx={{
-            background: "#c8e6c9",
-            position: "absolute",
-            bottom: "-39px",
-            width: "100%",
-            borderRadius: "65px 65px 65px 0",
-          }}
-          pt={5}
-        >
+        <Box className={classes.PaperContainer}>
           <Searchbar />
         </Box>
-        <Box
-          display="flex"
-          alignItems={"center"}
-          sx={{ position: "absolute", left: 27, top: 228 }}
-        >
-          <Typography color="primary" variant="h1">
+        <Box className={classes.TypicalBlock}>
+          <Typography color="primary" className={classes.TypicalStyle}>
             Travel{" "}
           </Typography>
           <Box margin="0px 16px">
-            <Typography variant="h1" color={"#fff"}>
+            <Typography className={classes.TypicalStyle} color={"#fff"}>
               <Typical
                 steps={[
                   " with good Knowledge",

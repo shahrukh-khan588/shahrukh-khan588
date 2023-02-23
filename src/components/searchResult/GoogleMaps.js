@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {
   withScriptjs,
@@ -7,16 +6,15 @@ import {
   DirectionsRenderer,
   Marker,
 } from "react-google-maps";
-import Image from "../../assets/images/bluedot3.png";
+import Image from "../../assets/images/bluedot.png";
 import MapMarker from "./MapMarker";
+
+var hotel;
 
 const Map = withScriptjs(
   withGoogleMap(() => {
     const [currentLocation, setCurrentLocation] = useState(null);
-    const [directions, setDirections] = useState({
-      lat: 36.32013,
-      lng: 74.65072,
-    });
+    const [directions, setDirections] = useState(null);
     const [hotels, setHotels] = useState([]);
 
     useEffect(() => {
@@ -28,8 +26,6 @@ const Map = withScriptjs(
         navigator.geolocation.getCurrentPosition(
           (pos) =>
             setCurrentLocation({
-              // lat: pos.coords.latitude + 2.7745848,
-              // lng: pos.coords.longitude + 0.606056,
               lat: pos.coords.latitude,
               lng: pos.coords.longitude,
             }),
@@ -39,7 +35,6 @@ const Map = withScriptjs(
     };
 
     useEffect(() => {
-      console.log(currentLocation,' = Current Location')
       getRouteDirection();
     }, [currentLocation]);
 
@@ -48,8 +43,10 @@ const Map = withScriptjs(
       directionsService.route(
         {
           origin: currentLocation,
-          // origin:{lat:30.16634, lng:71.53576},
-          destination: { lat: 36.32013, lng: 74.65072 },
+          destination: {
+            lat: hotel?.coordinates?.lat,
+            lng: hotel?.coordinates?.lng,
+          },
           travelMode: window.google.maps.TravelMode.DRIVING,
         },
         (result, status) => {
@@ -64,34 +61,49 @@ const Map = withScriptjs(
 
     useEffect(() => {
       getNearbyHotels();
-    }, [currentLocation])
+    }, [currentLocation]);
 
-    const getNearbyHotels=()=>{
+    const getNearbyHotels = () => {
       const service = new window.google.maps.places.PlacesService(
         document.createElement("div")
       );
       const request = {
-        location: currentLocation,
-        radius: 9000,
+        location: {
+          lat: hotel?.coordinates?.lat,
+          lng: hotel?.coordinates?.lng,
+        },
+        radius: 5000,
         type: "lodging",
       };
-
       service.nearbySearch(request, (results, status) => {
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+          console.log(results, " = Results");
           setHotels(
             results.map((result) => ({
-              name: result.name,
-              lat: result.geometry.location.lat(),
-              lng: result.geometry.location.lng(),
+              name: result?.name,
+              address: result?.vicinity,
+              rating: result?.rating,
+              photo:
+                typeof result.photos !== "undefined"
+                  ? result.photos[0].getUrl({
+                      maxWidth: 100,
+                      maxHeight: 100,
+                    })
+                  : undefined,
+              totalRating: result?.user_ratings_total,
+              lat: result?.geometry?.location?.lat(),
+              lng: result?.geometry?.location?.lng(),
             }))
           );
         }
       });
-    }
+    };
 
     useEffect(() => {
       console.log(hotels, " = Hotels");
     }, [hotels]);
+
+    console.log(hotel, " = Hotel");
 
     return (
       <GoogleMap
@@ -99,15 +111,20 @@ const Map = withScriptjs(
         defaultCenter={{ lat: 37.7749, lng: -122.4194 }}
         center={currentLocation}
       >
-        {hotels && hotels.map((hotel, index) => (
-          <MapMarker
-            key={index}
-            name={hotel.name}
-            lat={hotel.lat}
-            lng={hotel.lng}
-            position={{ lat: hotel.lat, lng: hotel.lng }}
-          />
-        ))}
+        {hotels &&
+          hotels.map((hotel, index) => (
+            <MapMarker
+              key={index}
+              name={hotel?.name}
+              address={hotel?.address}
+              rating={hotel?.rating}
+              photo={hotel?.photo}
+              totalRating={hotel?.totalRating}
+              lat={hotel?.lat}
+              lng={hotel?.lng}
+              position={{ lat: hotel?.lat, lng: hotel?.lng }}
+            />
+          ))}
         {currentLocation && (
           <Marker
             position={currentLocation}
@@ -123,18 +140,13 @@ const Map = withScriptjs(
             }}
           />
         )}
-        <button onClick={getCurrentLocation}>Current Location</button>
-        {currentLocation && (
-          <button onClick={getRouteDirection} disabled={!directions}>
-            Show Route
-          </button>
-        )}
       </GoogleMap>
     );
   })
 );
 
-export default function GoogleMaps() {
+export default function GoogleMaps({ dest }) {
+  hotel = dest;
   return (
     <div style={{ height: "90vh", width: "100%" }}>
       <Map

@@ -34,25 +34,15 @@ function Header() {
   const classes = useStyles();
   return (
     <div>
-      <AppBar elevation={6} className={classes.header} >
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          width="90%"
-          margin="auto"
-        >
+      <AppBar elevation={6} className={classes.header}>
+        <Box className={classes.Header}>
           <Box display="flex" alignItems="center">
             <Typography variant="h4" class="animate__animated animate__flash">
               Mountains Are Calling
             </Typography>
           </Box>
 
-          <Stack
-            direction="row"
-            justifyContent="flex-end"
-            alignItems="center"
-            spacing={4}
-          >
+          <Stack className={classes.LinkStack}>
             {routes.map((item, i) => (
               <Link
                 index={i}

@@ -10,7 +10,10 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import DirectionsCarFilledIcon from "@mui/icons-material/DirectionsCarFilled";
 import { useFormik } from "formik";
-import { useGetHotelsMutation } from "../../../store/services/appServices";
+import {
+  useGetHotelsMutation,
+  useGetTripsMutation,
+} from "../../../store/services/appServices";
 
 const validationSchema = Yup.object({
   Budget: Yup.number("Enter your Budget")
@@ -30,6 +33,7 @@ export default function Searchbar() {
   let history = useHistory();
   const shadow = themeShadows();
   const [handelFilter, result] = useGetHotelsMutation();
+  const [handelGetTrips, data] = useGetTripsMutation();
 
   const formik = useFormik({
     initialValues: {
@@ -43,11 +47,12 @@ export default function Searchbar() {
     validationSchema: validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
       await handelFilter(values);
+      await handelGetTrips(values);
     },
   });
 
   useEffect(() => {
-    if (result?.data?.length) {
+    if (result?.data?.length || data?.data?.length) {
       history.push("/result");
     }
   }, [result]);
@@ -56,7 +61,7 @@ export default function Searchbar() {
       <Paper
         className={classes.paper}
         sx={{
-          borderRadius:'50px',
+          borderRadius: "50px",
           boxShadow: shadow.success,
         }}
       >
@@ -159,7 +164,6 @@ export default function Searchbar() {
               title={<SearchIcon />}
               sx={{ padding: "14px 21px !important" }}
               onClick={formik.handleSubmit}
-              disabled={!formik.isValid}
             />
           </form>
         </Box>

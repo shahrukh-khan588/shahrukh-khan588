@@ -5,14 +5,16 @@ import { firestore } from "../../firebase";
 export const getTrips = (build) => {
   return build.mutation({
     async queryFn(payload, { signal, dispatch, getState }) {
+      console.log(payload?.district, "location");
       try {
         const q = query(
           collection(firestore, "trips"),
-          where("location", "==", payload?.location)
+          where("location", "==", payload?.district)
         );
         const querySnapshot = await getDocs(q);
         let temp = [];
         querySnapshot?.forEach((doc) => {
+          console.log(doc.data(), "data");
           temp.push({ id: doc.id, ...doc.data() });
         });
         dispatch(updateTrips(temp));

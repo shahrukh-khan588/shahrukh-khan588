@@ -18,18 +18,18 @@ function Index() {
   const theme = useTheme();
   let history = useHistory();
   const classes = useStyles();
-  const [handelFilter] = useGetHotelsMutation();
-  const [handelGetTrips] = useGetTripsMutation();
+  // const [handelFilter] = useGetHotelsMutation();
+  // const [handelGetTrips] = useGetTripsMutation();
   const { hotels, filterVal, events, trips } = useSelector(
     (state) => state.filter
   );
   const scrollevents = document.getElementById("events");
   const scrolltrips = document.getElementById("trips");
 
-  useEffect(() => {
-    handelFilter({ ...filterVal, destination: district });
-    handelGetTrips({ location: filterVal.district });
-  }, [district]);
+  // useEffect(() => {
+  //   handelFilter({ ...filterVal, destination: district });
+  //   handelGetTrips({ location: filterVal.district });
+  // }, [district]);
 
   useEffect(() => {
     scrollevents?.scrollIntoView({

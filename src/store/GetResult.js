@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { query, collection, where, onSnapshot } from "firebase/firestore";
-// import { useToastContext, ADD } from "../store/responseMessage";
+import { useToastContext, ADD } from "../store/responseMessage";
 import { firestore } from "../firebase";
 
 const FilterResult = () => {
   const [hotels, setHotels] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const { toastDispatch } = useToastContext();
+  const { toastDispatch } = useToastContext();
   const hotelsQuery = collection(firestore, "hotels");
 
   const HandleGetResult = async (payload) => {
@@ -24,13 +24,13 @@ const FilterResult = () => {
         setHotels(requestRideList);
       });
     } catch (e) {
-      // toastDispatch({
-      //   type: ADD,
-      //   payload: {
-      //     content: { sucess: "FAIL", message: e.message },
-      //     type: "danger",
-      //   },
-      // });
+      toastDispatch({
+        type: ADD,
+        payload: {
+          content: { sucess: "FAIL", message: e.message },
+          type: "error",
+        },
+      });
     }
   };
   return {

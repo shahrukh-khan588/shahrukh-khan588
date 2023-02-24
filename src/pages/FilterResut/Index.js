@@ -23,6 +23,7 @@ function Index() {
   const { hotels, filterVal, events, trips } = useSelector(
     (state) => state.filter
   );
+
   const scrollevents = document.getElementById("events");
   const scrolltrips = document.getElementById("trips");
 

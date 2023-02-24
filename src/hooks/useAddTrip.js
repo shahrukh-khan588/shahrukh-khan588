@@ -13,6 +13,7 @@ export const useAddHotels = () => {
   const hotels = useFirestoreCollectionMutation(firestoreRef);
 
   const handleHotels = async (values, image, multiCordinates) => {
+    console.log(values, "values");
     try {
       const storage = getStorage();
       const imageREf = await ref(storage, `images/${uuidv4()}`);
@@ -24,22 +25,23 @@ export const useAddHotels = () => {
         location: values.location,
         userId: user.data.uid,
         image: url,
-        date: values.date,
-        cordinates: multiCordinates
+        from: values.fromdate,
+        to: values.todate,
+        cordinates: multiCordinates,
       });
       toastDispatch({
         type: ADD,
         payload: {
-          content: { sucess: "PASS", message: "Trip added successfully :)" },
-          type: "danger",
+          content: { message: "Trip added successfully" },
+          type: "success",
         },
       });
     } catch (e) {
       toastDispatch({
         type: ADD,
         payload: {
-          content: { sucess: "FAIL", message: e.message },
-          type: "danger",
+          content: { message: e.message },
+          type: "error",
         },
       });
     }

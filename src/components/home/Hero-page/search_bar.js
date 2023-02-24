@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Paper, Box, Radio, FormControlLabel } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import useStyles from "./styles";
 import Button from "../../Ui_components/Button";
 import TextField from "../../Ui_components/TextField";
@@ -14,7 +15,7 @@ import {
   useGetHotelsMutation,
   useGetTripsMutation,
 } from "../../../store/services/appServices";
-
+import { DISTRICTS, INTRESTIN } from "../../../store/constants";
 const validationSchema = Yup.object({
   Budget: Yup.number("Enter your Budget")
     .required("Budget is required")
@@ -32,22 +33,26 @@ export default function Searchbar() {
   const classes = useStyles();
   let history = useHistory();
   const shadow = themeShadows();
+  const [loader, setloader] = useState(false);
   const [handelFilter, result] = useGetHotelsMutation();
   const [handelGetTrips, data] = useGetTripsMutation();
 
   const formik = useFormik({
     initialValues: {
-      Budget: "",
-      Persons: "",
-      Days: "",
+      Budget: 30000,
+      Persons: 1,
+      Days: 2,
       district: "",
       vachiels: false,
       intrest: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
+      setloader(true);
+      console.log(values, "values");
       await handelFilter(values);
       await handelGetTrips(values);
+      setloader(false);
     },
   });
 
@@ -55,7 +60,7 @@ export default function Searchbar() {
     if (result?.data?.length || data?.data?.length) {
       history.push("/result");
     }
-  }, [result]);
+  }, [result, data]);
   return (
     <>
       <Paper
@@ -117,18 +122,7 @@ export default function Searchbar() {
               label="Select Intrest"
               id="intrest"
               name="intrest"
-              items={[
-                "Hiking",
-                "Road Trip",
-                "Walking",
-                "Camping",
-                "Fishing",
-                "Boating",
-                "Site Seeing",
-                "Ice Climbing",
-                "Sports",
-                "Culture",
-              ]}
+              items={INTRESTIN}
             />
             <Select
               value={formik.values.district}
@@ -139,17 +133,7 @@ export default function Searchbar() {
               label="Select Destination"
               id="district"
               name="district"
-              items={[
-                "Hunza",
-                "Skardu",
-                "Diamer",
-                "Astore",
-                "Ghanche",
-                "Ghizer",
-                "Kharmang",
-                "Nagar",
-                "Shigar",
-              ]}
+              items={DISTRICTS}
             />
             <FormControlLabel
               checked={formik.values.vachiels}
@@ -161,7 +145,9 @@ export default function Searchbar() {
               label="Own vahicles"
             />
             <Button
-              title={<SearchIcon />}
+              title={
+                loader ? <CircularProgress color="secondary" /> : <SearchIcon />
+              }
               sx={{ padding: "14px 21px !important" }}
               onClick={formik.handleSubmit}
             />

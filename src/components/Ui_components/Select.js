@@ -1,7 +1,13 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
-import {InputLabel,FormControl,Select,MenuItem,FormHelperText} from "@mui/material/"
-import { makeStyles } from "@mui/styles"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import {
+  InputLabel,
+  FormControl,
+  Select,
+  MenuItem,
+  FormHelperText,
+} from "@mui/material/";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "34px !important",
     "&:hover": {
       // border: "none",
-          backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.default,
     },
     // "&:focus": {
     //   border: "none",
@@ -27,17 +33,22 @@ const useStyles = makeStyles((theme) => ({
     //   border: "none",
     // },
   },
-}))
+}));
 
-export default function BasicSelect({items,handleChange,label,error, value, style}) {
-  const classes = useStyles()
+export default function BasicSelect({
+  items,
+  handleChange,
+  label,
+  error,
+  value,
+  style,
+}) {
+  const classes = useStyles();
 
   return (
     <Box sx={{ minWidth: 200 }} fullWidth>
       <FormControl fullWidth error={!!error}>
-        <InputLabel>
-          {label}
-        </InputLabel>
+        <InputLabel>{label}</InputLabel>
         <Select
           fullWidth
           className={classes.root}
@@ -47,12 +58,12 @@ export default function BasicSelect({items,handleChange,label,error, value, styl
           onChange={handleChange}
           style={style}
         >
-          {items?.map((item)=>
-            <MenuItem value={item}>{item||''}</MenuItem>
-          )}
+          {items?.map((item) => (
+            <MenuItem value={item.label}>{item.label || ""}</MenuItem>
+          ))}
         </Select>
         <FormHelperText>{error}</FormHelperText>
       </FormControl>
     </Box>
-  )
+  );
 }

@@ -13,7 +13,6 @@ export const useAddHotels = () => {
   const hotels = useFirestoreCollectionMutation(firestoreRef);
 
   const handleHotels = async (values, image, coordinates, address) => {
-    console.log(coordinates, "juuuuuu");
     try {
       const storage = getStorage();
       const imageREf = await ref(storage, `images/${uuidv4()}`);
@@ -24,23 +23,26 @@ export const useAddHotels = () => {
         roomPrice: values.roomPrice,
         address: address,
         coordinates: coordinates,
-        // userId: user.data.uid,
+        userId: user.data.uid,
         image: url,
-        averageRating: 0,
+        district: values.district,
+        averageRating: 3,
       });
+
       toastDispatch({
         type: ADD,
         payload: {
-          content: { sucess: "PASS", message: "Hotel added successfully :)" },
-          type: "danger",
+          content: { message: "Hotel added successfully" },
+          type: "success",
         },
       });
     } catch (e) {
+      console.log(e);
       toastDispatch({
         type: ADD,
         payload: {
-          content: { sucess: "FAIL", message: e.message },
-          type: "danger",
+          content: { message: e.message },
+          type: "error",
         },
       });
     }

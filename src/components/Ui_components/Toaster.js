@@ -1,6 +1,7 @@
 import React from "react";
 import { useToastContext, REMOVE } from "../../store/responseMessage";
-import { makeStyles } from "@mui/styles"
+import { makeStyles } from "@mui/styles";
+import { Alert, Box, Typography } from "@mui/material/";
 
 const useStyles = makeStyles((theme) => ({
   toast: {
@@ -25,13 +26,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.white,
     transition: "0.2s",
     "&:focus": {
-        transform: "translateY(3rem)"
+      transform: "translateY(3rem)",
     },
     "&.info": {
-      backgroundColor: theme.palette.error.main
+      backgroundColor: theme.palette.error.main,
     },
     "&.danger": {
-      backgroundColor: theme.palette.error.main
+      backgroundColor: theme.palette.error.main,
     },
   },
   toastClose: {
@@ -39,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     top: "5px",
     fontSize: "20px",
-    fontWeight: 800
-  }
+    fontWeight: 800,
+  },
 }));
 
 export default function Toast({ toast }) {
@@ -52,7 +53,7 @@ export default function Toast({ toast }) {
     if (typeof content === "function") {
       return content();
     } else {
-      return <pre>{content.message}</pre>
+      return <pre>{}</pre>;
     }
   }
   return (
@@ -60,22 +61,17 @@ export default function Toast({ toast }) {
       <div className={classes.toastContainer}>
         {toast.map((t) => {
           return (
-            <div
-              className={`${classes.toastContainerItem} ${t.type ? t.type : ""}`}
-              key={t.id}
-            >
-              <span
-                role="img"
-                aria-label="close toast"
-                className={classes.toastClose}
-                onClick={() =>
+            <Box>
+              <Alert
+                variant="filled"
+                severity={t.type}
+                onClose={() =>
                   toastDispatch({ type: REMOVE, payload: { id: t.id } })
                 }
               >
-                &times;
-              </span>
-              {renderItem(t.content)}
-            </div>
+                <Typography variant="subtitle1">{t.content.message}</Typography>
+              </Alert>
+            </Box>
           );
         })}
       </div>

@@ -1,20 +1,22 @@
 import React, { useState, useRef } from "react";
 import { useFormik } from "formik";
-import { Paper, Box, styled, useTheme, Grid } from "@mui/material";
+import { Box, useTheme, Grid } from "@mui/material";
 import * as Yup from "yup";
 import Button from "../Ui_components/Button";
 import TextField from "../Ui_components/TextField";
 import Select from "../Ui_components/Select";
 import { useAddHotels } from "../../hooks/useHotel";
 import { grid } from "@mui/system";
+import { DISTRICTS } from "../../store/constants";
 import SearchBox from "./components/SearchBox";
-const ImageSelector = styled(TextField)({
-  "& legend": {
-    display: "none",
-  },
-});
-const FILE_SIZE = 2400 * 1600;
-const SUPPORTED_FORMATS = ["image/jpg", "image/png"];
+
+// const ImageSelector = styled(TextField)({
+//   "& legend": {
+//     display: "none",
+//   },
+// });
+// const FILE_SIZE = 2400 * 1600;
+// const SUPPORTED_FORMATS = ["image/jpg", "image/png"];
 const validationSchema = Yup.object({
   hotelName: Yup.string("Enter your hotelName").required(
     "hotelName is required"
@@ -25,31 +27,31 @@ const validationSchema = Yup.object({
   district: Yup.string("Enter your district").required(
     "Please Select the district"
   ),
-  image: Yup.mixed()
-    .required("Image is Required")
-    .test(
-      "fileSize",
-      "The image is too large, please upload an image below 5MB and below 2400x1600 dimension",
-      (value) => value && value.size <= FILE_SIZE
-    )
-    .test(
-      "fileFormat",
-      "Please upload a JPG or PNG.",
-      (value) => value && SUPPORTED_FORMATS.includes(value.type)
-    ),
+  image: Yup.mixed().required("Image is Required"),
+  // .test(
+  //   "fileSize",
+  //   "The image is too large, please upload an image below 5MB and below 2400x1600 dimension",
+  //   (value) => value && value.size <= FILE_SIZE
+  // )
+  // .test(
+  //   "fileFormat",
+  //   "Please upload a JPG or PNG.",
+  //   (value) => value && SUPPORTED_FORMATS.includes(value.type)
+  // ),
 });
 
 function Register() {
   const theme = useTheme();
   const { handleHotels } = useAddHotels();
   const [image, setImage] = useState("");
-  const hiddenFileInput = useRef(null);
+  // const hiddenFileInput = useRef(null);
   const [coordinates, setCoordinates] = useState();
   const [searchError, setError] = useState("");
   const [address, setAddress] = useState({
     label: "",
     value: "",
   });
+
   const formik = useFormik({
     initialValues: {
       hotelName: "",
@@ -62,9 +64,7 @@ function Register() {
       handleHotels(values, image, coordinates, address.label);
     },
   });
-  const handleClick = () => {
-    hiddenFileInput?.current && hiddenFileInput?.current?.click();
-  };
+
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid
@@ -112,7 +112,7 @@ function Register() {
             helperText={formik.touched.roomPrice && formik.errors.roomPrice}
           />
 
-          <Box sx={{ width: "50%" }} className="input">
+          <Box sx={{ width: "100%" }} className="input">
             <SearchBox
               setCoordinates={setCoordinates}
               coordinates={coordinates}
@@ -122,47 +122,20 @@ function Register() {
               error={searchError}
             />
           </Box>
-          <Box display="grid" m="1rem 0" gridTemplateColumns="1fr 1fr">
-            <ImageSelector
-              fullWidth
-              size="small"
-              value={formik.values.image.name}
-              inputProps={{ readOnly: true }}
-              error={formik.touched.image && Boolean(formik.errors.image)}
-              helperText={formik.touched.image && formik.errors.image}
-            />
-            <input
-              style={{ display: "none" }}
-              accept="image/*"
-              placeholder="Add Image"
-              id="contained-button-file"
-              ref={hiddenFileInput}
-              onChange={(e) => {
-                formik.handleChange(e);
-                setImage(e.target.files[0]);
-              }}
-              type="file"
-            />
-            <Button
-              sx={{ textTransform: "none", width: "auto", marginLeft: "16px" }}
-              title={"Add Image"}
-              variant="outline"
-              component="span"
-              onClick={handleClick}
-            ></Button>
-          </Box>
-          {formik.values.image && (
-            <img
-              alt="img"
-              src={URL.createObjectURL(formik.values.image)}
-              style={{
-                marginBottom: "16px",
-                height: "66pxP",
-                width: "101px",
-                borderRadius: "8px",
-              }}
-            />
-          )}
+          <TextField
+            sx={{ marginTop: "1rem" }}
+            id="image"
+            name="image"
+            label="image"
+            type="file"
+            value={formik.values.image}
+            onChange={(e) => {
+              formik.handleChange(e);
+              setImage(e.target.files[0]);
+            }}
+            error={formik.touched.image && Boolean(formik.errors.image)}
+            helperText={formik.touched.image && formik.errors.image}
+          />
           <Select
             value={formik.values.district}
             error={formik.errors.district}
@@ -174,7 +147,7 @@ function Register() {
             placeholder="Select district"
             name="district"
             id="district"
-            items={["Hunza", "Sikardu", "Gilgit", "Gaizer", "Chilas"]}
+            items={DISTRICTS}
           />
           <Button
             sx={{ marginTop: "1rem", backGroundColor: "#637bfd" }}

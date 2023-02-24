@@ -5,7 +5,6 @@ import { firestore } from "../../firebase";
 export const getTrips = (build) => {
   return build.mutation({
     async queryFn(payload, { signal, dispatch, getState }) {
-      console.log(payload?.district, "location");
       try {
         const q = query(
           collection(firestore, "trips"),

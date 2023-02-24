@@ -53,7 +53,7 @@ function Register() {
   };
 
   return (
-    <Box m="12rem auto" maxWidth="30%">
+    <Box m="12rem auto" maxWidth="600px">
       <Paper elevation={6}>
         <form
           onSubmit={formik.handleSubmit}

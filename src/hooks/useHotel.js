@@ -23,7 +23,7 @@ export const useAddHotels = () => {
         roomPrice: values.roomPrice,
         address: address,
         coordinates: coordinates,
-        userId: user.data.uid,
+        // userId: user.data.uid,
         image: url,
         district: values.district,
         averageRating: 3,

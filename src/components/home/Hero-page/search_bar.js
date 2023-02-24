@@ -14,6 +14,7 @@ import { useFormik } from "formik";
 import {
   useGetHotelsMutation,
   useGetTripsMutation,
+  useGetPlacesMutation,
 } from "../../../store/services/appServices";
 import { DISTRICTS, INTRESTIN } from "../../../store/constants";
 const validationSchema = Yup.object({
@@ -36,6 +37,7 @@ export default function Searchbar() {
   const [loader, setloader] = useState(false);
   const [handelFilter, result] = useGetHotelsMutation();
   const [handelGetTrips, data] = useGetTripsMutation();
+  const [handelGetPlaces, places] = useGetPlacesMutation();
 
   const formik = useFormik({
     initialValues: {
@@ -49,18 +51,18 @@ export default function Searchbar() {
     validationSchema: validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
       setloader(true);
-      console.log(values, "values");
       await handelFilter(values);
       await handelGetTrips(values);
+      await handelGetPlaces(values);
       setloader(false);
     },
   });
 
   useEffect(() => {
-    if (result?.data?.length || data?.data?.length) {
+    if (result?.data?.length || data?.data?.length || places?.data?.length) {
       history.push("/result");
     }
-  }, [result, data]);
+  }, [result, data, places]);
   return (
     <>
       <Paper

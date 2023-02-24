@@ -40,13 +40,13 @@ export default function BasicSelect({
   handleChange,
   label,
   error,
-  value,
-  style,
+  sx,
+  boxSx,
 }) {
   const classes = useStyles();
 
   return (
-    <Box sx={{ minWidth: 200 }} fullWidth>
+    <Box sx={{ minWidth: 200, ...boxSx }} fullWidth>
       <FormControl fullWidth error={!!error}>
         <InputLabel>{label}</InputLabel>
         <Select
@@ -56,7 +56,7 @@ export default function BasicSelect({
           id="demo-simple-select"
           label={label}
           onChange={handleChange}
-          style={style}
+          sx={{ ...sx }}
         >
           {items?.map((item) => (
             <MenuItem value={item.label}>{item.label || ""}</MenuItem>

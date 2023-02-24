@@ -10,13 +10,14 @@ import {
 } from "@mui/material";
 import AddHotels from "../../components/serviceProvider/Form ";
 import AddGroup from "../../components/serviceProvider/AddGroup/Index";
+import AddPlaces from "../../components/serviceProvider/AddPlaces/index";
 const Services = styled(Box)({
   display: "grid",
   gridTemplateColumns: "2fr 10fr",
   borderRadius: "8px 8px 0px 8px ",
 });
 function Index() {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("Add Hotels");
   const theme = useTheme();
   const quickLink = [
     "Add Hotels",
@@ -58,6 +59,7 @@ function Index() {
         {console.log(active)}
         {active === "Add Hotels" ? <AddHotels /> : ""}
         {active === "Add Groups" ? <AddGroup /> : ""}
+        {active === "Add Places" ? <AddPlaces /> : ""}
       </Box>
     </Services>
   );

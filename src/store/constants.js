@@ -21,4 +21,5 @@ export const INTRESTIN = [
   { label: "Ice Climbing" },
   { label: "Sports" },
   { label: "Culture" },
+  { label: "Historical" },
 ];

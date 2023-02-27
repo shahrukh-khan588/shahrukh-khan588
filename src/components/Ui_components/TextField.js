@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { themeShadows } from "../../theme/shadows";
 import { opacityColors } from "../../theme/opacityColors";
+import {
+  IconButton,
+  InputAdornment,
+  styled,
+  TextField as MUITextField,
+} from "@mui/material";
 import {
   IconButton,
   InputAdornment,
@@ -26,10 +31,29 @@ const CustomTextField = styled(MUITextField)((props) => ({
     borderWidth: 0,
     borderBottom: "none",
   },
+
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      border: `1px solid ${opacityColors().borderColor}`,
+      borderRadius: "34px !important",
+      "& legend": {
+        width: props.label ? "auto" : "unset",
+      },
+      "&:hover": {
+        border: `1px solid ${opacityColors().borderColor}`,
+      },
+    },
+  },
+  "& .MuiInput-underline:before": {
+    borderWidth: 0,
+    borderBottom: "none",
+  },
 }));
 
 const TextField = (props) => {
   const [showPassword, setShowPassword] = useState(false);
+ 
+
   const theme = useTheme();
   const type = useMemo(() => {
     if (props.type === "password") {
@@ -47,6 +71,7 @@ const TextField = (props) => {
     event.preventDefault();
   };
 
+
   useEffect(() => {
     props.type === "password" && setShowPassword(false);
   }, [props.type]);
@@ -56,7 +81,7 @@ const TextField = (props) => {
       variant={props.fieldVarient ? props.fieldVarient : "outlined"}
       type={type}
       autoComplete={props.type === "password" ? "password" : undefined}
-      InputProps={{
+      inputProps={{
         startAdornment: props.startIcon,
         endAdornment:
           props.type === "password" ? (
@@ -78,5 +103,6 @@ const TextField = (props) => {
     />
   );
 };
+
 
 export default TextField;

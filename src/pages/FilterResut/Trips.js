@@ -8,9 +8,10 @@ import AOS from "aos";
 
 import "aos/dist/aos.css";
 import useStyles from "./styles";
-import { themeShadows } from "../../theme/shadows";
+import SimpleDialogDemo from "./Map";
 
 export default function Events({ trip }) {
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const theme = useTheme();
   useEffect(() => {
@@ -19,7 +20,6 @@ export default function Events({ trip }) {
     });
     AOS.refresh();
   }, []);
-  console.log(trip, "trip");
   return (
     <div>
       <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
@@ -39,7 +39,14 @@ export default function Events({ trip }) {
                     <LocationOnOutlinedIcon
                       fontSize="small"
                       sx={{ margin: "0px 3px 0px 0px" }}
+                      onClick={() => setOpen(true)}
                     />
+                    <SimpleDialogDemo
+                      open={open}
+                      getLocation={trip.cordinates}
+                      setOpen={setOpen}
+                    />
+
                     <Typography variant="caption"> {trip?.location}</Typography>
                   </Box>
                   <Box display="flex" margin="0px 12px">

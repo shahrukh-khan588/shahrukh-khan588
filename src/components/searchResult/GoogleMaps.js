@@ -72,7 +72,7 @@ const Map = withScriptjs(
           lat: hotel?.coordinates?.lat,
           lng: hotel?.coordinates?.lng,
         },
-        radius: 5000,
+        radius: 9000,
         type: "lodging",
       };
       service.nearbySearch(request, (results, status) => {
@@ -99,11 +99,6 @@ const Map = withScriptjs(
       });
     };
 
-    useEffect(() => {
-      console.log(hotels, " = Hotels");
-    }, [hotels]);
-
-    console.log(hotel, " = Hotel");
 
     return (
       <GoogleMap

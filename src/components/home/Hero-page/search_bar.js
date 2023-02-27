@@ -17,12 +17,13 @@ import {
   useGetPlacesMutation,
 } from "../../../store/services/appServices";
 import { DISTRICTS, INTRESTIN } from "../../../store/constants";
+
 const validationSchema = Yup.object({
   Budget: Yup.number("Enter your Budget")
     .required("Budget is required")
     .min(30000, "Budget must be more than Rs: 30,000"),
   Persons: Yup.number("Enter your Number Of Persons")
-    .required("Please enter the Number Of Persons")
+    .required("Enter Number Of Persons")
     .max(20, "Please Enter Persons less then 20"),
   Days: Yup.number("Enter Visting days").required("Please enter the location"),
   district: Yup.string("Enter your Destination").required(
@@ -48,7 +49,7 @@ export default function Searchbar() {
       vachiels: false,
       intrest: "",
     },
-    validationSchema: validationSchema,
+    validationSchema:validationSchema,
     onSubmit: async (values, { setErrors, resetForm }) => {
       setloader(true);
       await handelFilter(values);
@@ -93,8 +94,8 @@ export default function Searchbar() {
               onChange={formik.handleChange}
               error={
                 formik.touched.Persons &&
-                Boolean(formik.errors.Persons) &&
-                !formik.isValid
+                Boolean(formik.errors.Persons) 
+                // && !formik.isValid
               }
               helperText={
                 formik.touched.Persons &&
@@ -120,6 +121,7 @@ export default function Searchbar() {
               handleChange={(e) =>
                 formik.setFieldValue("intrest", e.target.value)
               }
+              error={formik.touched.interest && Boolean(formik.errors.intrest)}
               style={{ width: "auto" }}
               label="Select Intrest"
               id="intrest"

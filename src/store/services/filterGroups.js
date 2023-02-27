@@ -6,6 +6,7 @@ export const getTrips = (build) => {
   return build.mutation({
     async queryFn(payload, { signal, dispatch, getState }) {
       try {
+        console.log(payload.location)
         const q = query(
           collection(firestore, "trips"),
           where("location", "==", payload?.district)
@@ -13,7 +14,7 @@ export const getTrips = (build) => {
         const querySnapshot = await getDocs(q);
         let temp = [];
         querySnapshot?.forEach((doc) => {
-          console.log(doc.data(), "data");
+          // console.log(doc.data(), "data");
           temp.push({ id: doc.id, ...doc.data() });
         });
         dispatch(updateTrips(temp));

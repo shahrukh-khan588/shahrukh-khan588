@@ -1,24 +1,20 @@
 import * as React from "react";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Dialog, Box } from "@mui/material/";
-import GoogleMapReact from "google-map-react";
-import RoomIcon from "@mui/icons-material/Room";
 import { Typography, Rating } from "@mui/material";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import StarsIcon from "@mui/icons-material/Stars";
+import Googlemaps from "./Googlemaps";
+import New from "./New";
+
 export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
+  console.log(getLocation, ' = getLocation')
   const handleClose = (value) => {
     setOpen(false);
   };
-  const defaultProps = {
-    center: {
-      lat: hotel?.coordinates?.lat,
-      lng: hotel?.coordinates?.lng,
-    },
-    zoom: 1,
-  };
+
   return (
     <div>
       <Dialog
@@ -89,25 +85,8 @@ export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
             background: "#eee",
           }}
         >
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyAB_9gv95tthsqqFyrTzsq0ACRnJ2zNlvs",
-            }}
-            // center={defaultProps.center}
-            defaultZoom={defaultProps.zoom}
-            yesIWantToUseGoogleMapApiInternals
-          >
-            {getLocation?.map((locationMarkers) => {
-              return (
-                <RoomIcon
-                  fontSize="large"
-                  style={{ fontSize: 40, fill: "red" }}
-                  lat={locationMarkers?.coordinates.lat}
-                  lng={locationMarkers?.coordinates.lng}
-                />
-              );
-            })}
-          </GoogleMapReact>
+          <Googlemaps dest={getLocation} />
+          {/* <New /> */}
         </div>
       </Dialog>
     </div>

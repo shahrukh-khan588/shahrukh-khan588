@@ -11,6 +11,7 @@ import {
 import AddHotels from "../../components/serviceProvider/Form ";
 import AddGroup from "../../components/serviceProvider/AddGroup/Index";
 import AddPlaces from "../../components/serviceProvider/AddPlaces/index";
+import AddEvents from "../../components/serviceProvider/AddEvents/index";
 const Services = styled(Box)({
   display: "grid",
   gridTemplateColumns: "2fr 10fr",
@@ -19,12 +20,7 @@ const Services = styled(Box)({
 function Index() {
   const [active, setActive] = useState("Add Hotels");
   const theme = useTheme();
-  const quickLink = [
-    "Add Hotels",
-    "Add Places",
-    "Add Groups",
-    "Add Restaurants",
-  ];
+  const quickLink = ["Add Hotels", "Add Places", "Add Groups", "Add Events"];
   return (
     <Services>
       <Box
@@ -60,6 +56,7 @@ function Index() {
         {active === "Add Hotels" ? <AddHotels /> : ""}
         {active === "Add Groups" ? <AddGroup /> : ""}
         {active === "Add Places" ? <AddPlaces /> : ""}
+        {active === "Add Events" ? <AddEvents /> : ""}
       </Box>
     </Services>
   );

@@ -72,33 +72,33 @@ const itemData = [
   {
     img: "https://www.ispo.com/sites/default/files/styles/content_width_desktop/public/2020-01/000135870.webp?itok=oVOTGXEX",
     title: "Skies",
-    places: "@naltar ",
+    author: "Naltar ",
   },
   {
     img: "https://i1.wp.com/jagsnbrady.com/wp-content/uploads/2021/09/1-1.jpg?w=850&ssl=1",
     title: "Hiking",
-    author: "hiking areas",
+    author: "Gaizer",
   },
   {
     img: "https://cdn.pixabay.com/photo/2016/03/30/02/57/camping-1289930_960_720.jpg",
     title: "Camping",
-    author: "@places where camping",
+    author: "Phunder",
   },
   {
     img: "https://www.travelershorizon.pk/wp-content/uploads/2017/09/unnamed.jpg",
     title: "Boating",
-    author: "@shishkat",
+    author: "Shishkat",
     cols: 2,
   },
   {
     img: "https://static.photocdn.pt/images/articles/2019/04/30/what_is_photography-1.jpg",
     title: "PhotoGraphy",
-    author: "@duikar Hunza",
+    author: "Gilgit Baltistan",
   },
   {
-    img: "https://stablemanagement.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTcyNTIxMjM0NDU2NjUwODM1/trail-ride-pasture-woman-istock-amriphoto-1203381185-2400.webp",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa8xn7_iDcBXAsgbriy58PoqlipsdhGq2wtA&usqp=CAU",
     title: "Horse Riding",
-    author: "@hjrc33",
+    author: "Fairy Medowes",
     cols: 2,
   },
 ];

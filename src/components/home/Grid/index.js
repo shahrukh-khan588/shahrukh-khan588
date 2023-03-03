@@ -88,10 +88,7 @@ function Index() {
                   variant="body2"
                   sx={{ lineHeight: "36px", letterSpacing: "2px" }}
                 >
-                  This is located in sikardu and its famous for highest mountain
-                  in pakistan people from all over the world come to visit. in
-                  pakistan people from all over the world come to visit in
-                  pakistan people from all over the world come to visit
+                  {item?.des}
                 </Typography>
                 <Box mt={"1rem"}>
                   <Button variant="outlined">Explore More</Button>
@@ -110,22 +107,26 @@ export default Index;
 const itemData = [
   {
     img: "https://www.ispo.com/sites/default/files/styles/content_width_desktop/public/2020-01/000135870.webp?itok=oVOTGXEX",
-    location: "hunza",
-    name: "ice hockey",
+    location: "Naltar",
+    name: "Skies",
+    des: "Naltar is a beautiful mountainous area located in the Gilgit-Baltistan region of Pakistan, and it is known for its stunning natural scenery. The skies in Naltar are often breathtakingly beautiful, offering visitors a wide range of colors and textures to enjoy.",
   },
   {
     img: "https://i1.wp.com/jagsnbrady.com/wp-content/uploads/2021/09/1-1.jpg?w=850&ssl=1",
     location: "hunza",
-    name: "K-2",
+    name: "Sites",
+    des: "Gilgit-Baltistan is a region in northern Pakistan that is known for its stunning natural beauty and rich cultural heritage. Here are some of the best sites to visit in Gilgit-Baltistan",
   },
   {
     img: "https://cdn.pixabay.com/photo/2016/03/30/02/57/camping-1289930_960_720.jpg",
-    location: "shandur",
-    name: "polo hockey",
+    location: "phunder",
+    name: "Camping",
+    des: "Camping in Gilgit is a wonderful way to experience the natural beauty and rugged terrain of this stunning region of Pakistan. Surrounded by snow-capped peaks, pristine lakes, and lush valleys, there are plenty of opportunities for outdoor adventure and exploration",
   },
   {
     img: "https://www.travelershorizon.pk/wp-content/uploads/2017/09/unnamed.jpg",
     location: "hunza",
     name: "boating",
+    des: "Boating in Gilgit is a wonderful way to explore the region's stunning lakes and take in the breathtaking mountain scenery. There are several lakes in the region, including Attabad Lake, Naltar Lake, and Satpara Lake, all of which offer unique boating experiences Attabad Lake, located in the Hunza Valley, is known for its turquoise-colored water and dramatic mountain scenery. Visitors can rent a boat and take a leisurely ride across the lake, admiring the towering peaks and the surrounding villages",
   },
 ];

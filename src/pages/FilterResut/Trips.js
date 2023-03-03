@@ -1,11 +1,20 @@
 import React, { useEffect } from "react";
-import { Box, Typography, Button, Paper, useTheme } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Badge,
+  Button,
+  Paper,
+  useTheme,
+  IconButton,
+  Chip,
+  Stack,
+} from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import Avatar from "@mui/material/Avatar";
-import AvatarGroup from "@mui/material/AvatarGroup";
+import HailIcon from "@mui/icons-material/Hail";
 import AOS from "aos";
-
+import DoneIcon from "@mui/icons-material/Done";
+import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
 import "aos/dist/aos.css";
 import useStyles from "./styles";
 import SimpleDialogDemo from "./Map";
@@ -28,51 +37,80 @@ export default function Events({ trip }) {
             <Box display="flex" justifyContent="space-between">
               <img src={trip?.image} alt="img" className={classes.squreimg} />
               <Box margin="0px 16px" textAlign="left">
-                <Typography variant="h6">{trip?.TripName}</Typography>{" "}
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  textTransform={"capitalize"}
+                >
+                  {trip?.TripName}
+                </Typography>
                 <Box
                   display="flex"
                   width="100%"
                   justifyContent="space-between"
                   marginTop="25px"
                 >
-                  <Box display="flex">
-                    <LocationOnOutlinedIcon
-                      fontSize="small"
-                      sx={{ margin: "0px 3px 0px 0px" }}
-                      onClick={() => setOpen(true)}
-                    />
+                  <Box display="flex" alignItems={"center"}>
+                    <IconButton color="primary">
+                      <LocationOnOutlinedIcon
+                        fontSize="medium"
+                        sx={{ margin: "0px 3px 0px 0px" }}
+                        onClick={() => setOpen(true)}
+                      />
+                    </IconButton>
                     <SimpleDialogDemo
+                      trip={trip}
                       open={open}
                       getLocation={trip.cordinates}
                       setOpen={setOpen}
                     />
 
-                    <Typography variant="caption"> {trip?.location}</Typography>
+                    <Stack direction="row" spacing={1}>
+                      {trip?.cordinates.map((item, i) => {
+                        return (
+                          <Chip
+                            key={i}
+                            label={item?.label}
+                            variant="outlined"
+                            deleteIcon={<DoneIcon />}
+                          />
+                        );
+                      })}
+                    </Stack>
                   </Box>
-                  <Box display="flex" margin="0px 12px">
-                    <CalendarTodayIcon
-                      sx={{ margin: "0px 3px 0px 0px", fontSize: 16 }}
-                    />
-                    <Typography variant="caption">Date: 10-Jan-22</Typography>
-                  </Box>
+                </Box>
+                <Box display="flex" margin="1rem 0 0px 1rem">
+                  <Typography variant="subtitle2" color="primary">
+                    From:
+                  </Typography>{" "}
+                  <Typography variant="subtitle2" sx={{ ml: ".5rem" }}>
+                    {trip?.from}
+                  </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    color="primary"
+                    sx={{ ml: "2rem" }}
+                  >
+                    To:
+                  </Typography>{" "}
+                  <Typography variant="subtitle2" sx={{ ml: ".5rem" }}>
+                    {trip?.to}
+                  </Typography>
                 </Box>
               </Box>
             </Box>
-            <Box alignSelf="center" height="103px">
-              <AvatarGroup max={4}>
-                <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }} />
-                <Avatar alt="Travis Howard" sx={{ width: 28, height: 28 }} />
-                <Avatar alt="Cindy Baker" sx={{ width: 32, height: 32 }} />
-                <Avatar alt="Agnes Walker" sx={{ width: 34, height: 34 }} />
-                <Avatar
-                  alt="Trevor Henderson"
-                  src={trip.image}
-                  sx={{ width: 32, height: 32 }}
-                />
-              </AvatarGroup>
+            <Box
+              alignSelf="center"
+              display="flex"
+              flexDirection={"column"}
+              mr="2rem"
+            >
+              <Badge badgeContent={3} color="primary">
+                <AirportShuttleIcon sx={{ fontSize: 60 }} />
+              </Badge>
               <Button
                 variant="outlined"
-                sx={{ margin: "16px 0px 0px 0px", borderRadius: "24px" }}
+                sx={{ borderRadius: "24px" }}
                 size="small"
               >
                 join

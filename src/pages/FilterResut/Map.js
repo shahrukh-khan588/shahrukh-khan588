@@ -1,7 +1,7 @@
 import * as React from "react";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Dialog, Box } from "@mui/material/";
-import { Typography, Rating } from "@mui/material";
+import { Dialog, Box, Rating } from "@mui/material/";
+import { Typography, Stack, Chip } from "@mui/material";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -9,8 +9,8 @@ import StarsIcon from "@mui/icons-material/Stars";
 import Googlemaps from "./Googlemaps";
 import New from "./New";
 
-export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
-  console.log(getLocation, ' = getLocation')
+export default function SimpleDialogDemo({ trip, open, getLocation, setOpen }) {
+  console.log(getLocation, " = getLocation");
   const handleClose = (value) => {
     setOpen(false);
   };
@@ -30,32 +30,36 @@ export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
               <Box display="flex" alignItems={"center"} py="1rem">
                 <ApartmentIcon color="primary" sx={{ mr: "1rem" }} />
                 <Typography variant="h6" color="primary">
-                  Hotel Name
+                  Trip Name
                 </Typography>
                 :
                 <Typography sx={{ ml: "1rem" }} variant="body1">
-                  {/* {hotel?.hotelName} */}
+                  {trip?.TripName}
                 </Typography>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
                 <AddLocationAltIcon color="primary" sx={{ mr: "1rem" }} />
                 <Typography variant="h6" color="primary">
-                  Adress
+                  Destinations
                 </Typography>
                 :
-                <Typography sx={{ ml: "1rem" }} variant="body1">
-                  {/* {hotel?.address} */}
-                </Typography>
+                <Stack direction="row" spacing={1}>
+                  {trip?.cordinates.map((item, i) => {
+                    return (
+                      <Chip key={i} label={item?.label} variant="outlined" />
+                    );
+                  })}
+                </Stack>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
                 <MonetizationOnIcon color="primary" sx={{ mr: "1rem" }} />
                 <Typography variant="h6" color="primary">
-                  Room Price
+                  Charges per Person
                 </Typography>
                 :
                 <Typography sx={{ ml: "1rem" }} variant="body1">
                   <span>PKR</span>
-                  {/* {hotel?.roomPrice} */}
+                  20000
                 </Typography>
               </Box>
               <Box display="flex" alignItems={"center"} py="1rem">
@@ -64,7 +68,25 @@ export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
                   Rating
                 </Typography>
                 :
-                {/* <Rating name="read-only" value={hotel?.Rating} readOnly /> */}
+                <Rating name="read-only" value={3} readOnly />
+              </Box>
+              <Box display="flex" margin="1rem 0 0px 1rem">
+                <Typography variant="subtitle2" color="primary">
+                  From:
+                </Typography>{" "}
+                <Typography variant="subtitle2" sx={{ ml: ".5rem" }}>
+                  {trip?.from}
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  color="primary"
+                  sx={{ ml: "2rem" }}
+                >
+                  To:
+                </Typography>{" "}
+                <Typography variant="subtitle2" sx={{ ml: ".5rem" }}>
+                  {trip?.to}
+                </Typography>
               </Box>
             </Box>
             <img
@@ -73,7 +95,7 @@ export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
                 height: "300px",
                 width: "300px",
               }}
-              //   src={hotel?.image}
+              src={trip?.image}
               alt={"hotels"}
             />
           </Box>
@@ -86,7 +108,6 @@ export default function SimpleDialogDemo({ open, getLocation, setOpen }) {
           }}
         >
           <Googlemaps dest={getLocation} />
-          {/* <New /> */}
         </div>
       </Dialog>
     </div>

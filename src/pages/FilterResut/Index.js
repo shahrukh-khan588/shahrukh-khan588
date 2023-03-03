@@ -24,7 +24,9 @@ function Index() {
   const { hotels, places, events, trips } = useSelector(
     (state) => state.filter
   );
+  const { calculatedBudget } = useSelector((state) => state.user);
 
+  console.log(calculatedBudget);
   // useEffect(() => {
   //   handelFilter({ ...filterVal, destination: district });
   //   handelGetTrips({ location: filterVal.district });
@@ -38,10 +40,10 @@ function Index() {
   return (
     <Box
       display="flex"
-      sx={{ width: "90%", m: "4rem auto 0 auto", overFlow: "hidden" }}
+      sx={{ maxWidth: "1400px", p: "1rem", overFlow: "hidden", mx: "auto" }}
       className={classes.Container}
     >
-      <Card setDistrict={setDistrict} />
+      <Card setDistrict={setDistrict} calculatedBudget={calculatedBudget} />
       <Box className={classes.middleSec}>
         {hotels.map((hotel) => {
           return <Hotels hotel={hotel} />;
@@ -70,14 +72,7 @@ function Index() {
             Places
           </Divider>
         )}
-        <Box
-          width="100%"
-          p="1.5rem"
-          columnGap={"1rem"}
-          overFlow="scroll"
-          display="grid"
-          alignItems={"center"}
-        >
+        <Box width="100%" columnGap={"1rem"} overFlowX="scroll" display="flex">
           {places?.map((place, i) => {
             return !!trips && <Places place={place} key={i} />;
           })}

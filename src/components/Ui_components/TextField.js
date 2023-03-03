@@ -9,6 +9,7 @@ import {
   TextField as MUITextField,
   useTheme,
 } from "@mui/material";
+
 const CustomTextField = styled(MUITextField)((props) => ({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -47,32 +48,36 @@ const TextField = (props) => {
     event.preventDefault();
   };
 
-	useEffect(() => {
-		props.type === 'password' && setShowPassword(false)
-	}, [props.type])
-	return (
-			<CustomTextField
-				{...props}
-				variant={props.fieldVarient ? props.fieldVarient : 'outlined'}
-				type={type}
-				autoComplete={props.type === 'password' ? 'password' : undefined}
-				InputProps={
-					{
-						startAdornment: props.startIcon,
-						endAdornment: props.type === 'password' ? (
-							<InputAdornment position="end">
-								<IconButton
-									aria-label="toggle password visibility"
-									onClick={() => setShowPassword(!showPassword)}
-									onMouseDown={handleMouseDownPassword}
-									edge="end"
-								>
-									{showPassword ? <VisibilityOff /> : <Visibility />}
-								</IconButton>
-							</InputAdornment>
-						) : props.endIcon || null
-					}
-				}
-			/>
-	)
-}
+  useEffect(() => {
+    props.type === "password" && setShowPassword(false);
+  }, [props.type]);
+  return (
+    <CustomTextField
+      {...props}
+      variant={props.fieldVarient ? props.fieldVarient : "outlined"}
+      type={type}
+      autoComplete={props.type === "password" ? "password" : undefined}
+      inputProps={{
+        startAdornment: props.startIcon,
+        endAdornment:
+          props.type === "password" ? (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={() => setShowPassword(!showPassword)}
+                onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ) : (
+            props.endIcon || null
+          ),
+        ...props.inputProps,
+      }}
+    />
+  );
+};
+
+export default TextField;

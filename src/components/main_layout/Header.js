@@ -1,8 +1,10 @@
-import React from "react";
-import { Paper, AppBar, Typography, Stack, Box } from "@mui/material";
+import React, { useState } from "react";
+import { IconButton, AppBar, Typography, Stack, Box } from "@mui/material";
 import useStyles from "./styles";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useAuthUser } from "@react-query-firebase/auth";
+import { auth } from "../../firebase";
 
 const routes = [
   {
@@ -23,15 +25,18 @@ const routes = [
   },
 ];
 function Header() {
-  const staggerContainer = {
-    initial: {},
-    animate: {
-      transition: {
-        staggerChildren: 0.5,
-      },
-    },
-  };
   const classes = useStyles();
+
+  const user = useAuthUser("user", auth);
+
+  const handelSognout = async () => {
+    console.log(user, "userbf");
+    try {
+      await auth.signOut().then(console.log(user, "useraf"));
+    } catch (e) {
+      alert(e.error);
+    }
+  };
   return (
     <div>
       <AppBar elevation={6} className={classes.header}>
@@ -52,6 +57,11 @@ function Header() {
                 {item.Key}
               </Link>
             ))}
+            {!!user.data && (
+              <IconButton onClick={handelSognout}>
+                <LogoutIcon />
+              </IconButton>
+            )}
           </Stack>
         </Box>
       </AppBar>

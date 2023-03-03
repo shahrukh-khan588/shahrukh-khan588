@@ -57,9 +57,7 @@ const Routing = () => {
             </Layout>
           </Route>
           <Route exact path="/result">
-            <Layout>
-              <Hotels />
-            </Layout>
+            <Hotels />
           </Route>
           <Route>
             <h4> Not Found </h4>

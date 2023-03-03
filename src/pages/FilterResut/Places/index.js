@@ -33,7 +33,14 @@ const Index = ({ place }) => {
             </Typography>
           </Box>
 
-          <Stack direction="row" spacing={1} px="1rem" pb="1rem">
+          <Stack
+            direction="row"
+            spacing={1}
+            px="1rem"
+            pb="1rem"
+            display={"flex"}
+            flexWrap="wrap"
+          >
             {place?.placeType.map((label, i) => {
               return (
                 <Chip

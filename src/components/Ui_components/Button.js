@@ -44,7 +44,6 @@ export default function BasicButtons(props) {
     <Button
       sx={{ textTransform: "none", ...sx }}
       variants={buttonVariants}
-      whileHover="hover"
       onClick={onChange}
       className={classes.root}
       variant={variant}

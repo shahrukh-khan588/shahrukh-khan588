@@ -8,8 +8,10 @@ const useStyles = makeStyles((theme) => ({
     margin: " 20px auto",
   },
   mainCard: {
+    marginTop: "2rem",
     maxHeight: "90vh",
-    maxWidth: 345,
+    maxWidth: 500,
+    minWidth: 500,
     border: `1px solid ${theme.palette.grey[300]}`,
     borderRadius: "12px",
     "@media (max-width: 1000px)": {
@@ -43,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
   middleSec: {
     display: "flex",
     flexDirection: "column",
+    height: "95vh",
+    overflowY: "scroll",
     width: "90%",
     "@media (max-width: 1000px)": {
       width: "100%",
@@ -59,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "24px 24px 0px 0px",
   },
   squreimg: {
-    height: "150px",
-    width: "150px",
+    height: "200px",
+    width: "200px",
     objectFit: "cover",
     borderRadius: "24px",
   },

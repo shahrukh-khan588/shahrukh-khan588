@@ -6,7 +6,7 @@ import ThingsToDo from "../../components/home/thingsToDo/index";
 import PopularMountains from "../../components/home/Grid";
 import { Box, Typography } from "@mui/material";
 import Climber from "../../components/home/Climbers";
-import Team from "../../components/home/jion_team";
+// import Team from "../../components/home/jion_team";
 import circle from "../../assets/circle.png";
 
 function Home() {
@@ -23,7 +23,7 @@ function Home() {
       <Cities />
       <ThingsToDo />
       <PopularMountains />
-      <Team />
+      {/* <Team /> */}
       <Climber />
     </div>
   );

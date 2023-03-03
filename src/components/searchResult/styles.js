@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "12px",
     margin: "1rem auto",
     border: `1px solid ${theme.palette.primary.main}`,
-    minHeight: "7vh",
     padding: "20px 10px",
     boxShadow: themeShadows().primary,
     "@media (max-width: 1100px)": {
@@ -76,6 +75,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "24px",
       lineHeight: "124.5%",
       color: "#5E6282",
+    },
+    Video: {
+      widh: "100%",
+      height: "100%",
     },
   },
 }));

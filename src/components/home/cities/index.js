@@ -13,7 +13,7 @@ import Rating from "@mui/material/Rating";
 import { Typography, Box, styled } from "@mui/material";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
 
-const destricts = [
+const districts = [
   {
     place: "Hunza",
     image: hunzaimg,
@@ -123,7 +123,7 @@ export default function Index() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {destricts.map((item, i) => (
+          {districts.map((item, i) => (
             <div className={classes.sub_container} key={i}>
               <img src={item.image} alt="hnz" className={classes.img} />
               <Box className={classes.detail}>

@@ -5,15 +5,15 @@ const useStyles = makeStyles((theme) => ({
   hotelContainer: {
     justifyContent: "space-between",
     display: "flex",
-    width: "80%",
+    width: "95%",
     borderRadius: "12px",
     margin: "1rem auto",
     border: `1px solid ${theme.palette.primary.main}`,
     padding: "20px 10px",
     boxShadow: themeShadows().primary,
-    "@media (max-width: 1100px)": {
-      width: "100%",
-    },
+    // "@media (max-width: 1100px)": {
+    //   width: "100%",
+    // },
 
     svg: {
       width: "36.4%",

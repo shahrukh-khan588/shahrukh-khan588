@@ -45,7 +45,7 @@ export default function RecipeReviewCard({ calculatedBudget, setDistrict }) {
   };
 
   return (
-    <Card className={classes.mainCard}>
+    <Box className={classes.mainCard}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -63,7 +63,7 @@ export default function RecipeReviewCard({ calculatedBudget, setDistrict }) {
       <CardMedia
         component="video"
         // controls
-        autoPlay
+        autoPlay={false}
         loop={true}
         // src="https://example.com/my-video.mp4"
         // height="400"
@@ -132,6 +132,6 @@ export default function RecipeReviewCard({ calculatedBudget, setDistrict }) {
           })}
         </Stack>
       </Collapse>
-    </Card>
+    </Box>
   );
 }

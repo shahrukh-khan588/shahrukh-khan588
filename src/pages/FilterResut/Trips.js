@@ -21,7 +21,9 @@ import SimpleDialogDemo from "./Map";
 
 export default function Events({ trip }) {
   const [open, setOpen] = React.useState(false);
-  const classes = useStyles();
+  const classes = useStyles(); // "@media (max-width: 1100px)": {
+    //   width: "100%",
+    // },
   const theme = useTheme();
   useEffect(() => {
     AOS.init({
@@ -31,26 +33,35 @@ export default function Events({ trip }) {
   }, []);
   return (
     <div>
-      <Box width="100%" margin={"20px 0px"} justifyContent="space-between">
+      <Box className={classes.TripsContainer} margin={"20px 0px"} justifyContent="space-between">
         <Paper elevation={0} variant="outlined" className={classes.mainPaper}>
-          <Box display="flex" justifyContent="space-between" width="100%">
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            width="100%"
+          >
             <Box display="flex" justifyContent="space-between">
               <img src={trip?.image} alt="img" className={classes.squreimg} />
               <Box margin="0px 16px" textAlign="left">
-                <Typography
-                  variant="h6"
-                  color="primary"
-                  textTransform={"capitalize"}
-                >
-                  {trip?.TripName}
-                </Typography>
-                <Box
-                  display="flex"
-                  width="100%"
-                  justifyContent="space-between"
-                  marginTop="25px"
-                >
-                  <Box display="flex" alignItems={"center"}>
+                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                  <Typography
+                    variant="h6"
+                    color="primary"
+                    textTransform={"capitalize"}
+                  >
+                    {trip?.TripName}
+                  </Typography>
+                  <Badge badgeContent={3} color="primary">
+                    <AirportShuttleIcon sx={{ fontSize: 30 }} />
+                  </Badge>
+                </Box>
+                <Box display="flex" width="100%" justifyContent="space-between">
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems={"center"}
+                  >
                     <IconButton color="primary">
                       <LocationOnOutlinedIcon
                         fontSize="medium"
@@ -65,7 +76,7 @@ export default function Events({ trip }) {
                       setOpen={setOpen}
                     />
 
-                    <Stack direction="row" spacing={1}>
+                    <Stack direction="column" spacing={1}>
                       {trip?.cordinates.map((item, i) => {
                         return (
                           <Chip
@@ -105,9 +116,6 @@ export default function Events({ trip }) {
               flexDirection={"column"}
               mr="2rem"
             >
-              <Badge badgeContent={3} color="primary">
-                <AirportShuttleIcon sx={{ fontSize: 60 }} />
-              </Badge>
               <Button
                 variant="outlined"
                 sx={{ borderRadius: "24px" }}

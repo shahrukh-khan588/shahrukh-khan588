@@ -8,13 +8,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.contrastText,
   },
   sub_container: {
-    maxWidth: "424.84px",
-    height: "auto",
+    // maxWidth: "424.84px",
+    width: "90%",
+    height: "40vh",
+    // height: "auto",
     boxShadow: themeShadows().z12,
   },
   detail: {
     maxWidth: "90%",
     height: "auto",
+    marginTop: "20vh",
+    position: "absolute",
     background: "#fff",
     margin: "0 auto",
     color: "#333",
@@ -26,10 +30,11 @@ const useStyles = makeStyles((theme) => ({
     top: "-16%",
   },
   img: {
-    maxWidth: "100%",
-    width: "450px",
-    height: "460px",
-    objectFit: "cover",
+    // maxWidth: "100%",
+    // width: "380px",
+    width: "100%",
+    // height: "460px",
+    // objectFit: "cover",
     borderRadius: "16px",
   },
   titles: {
@@ -42,6 +47,81 @@ const useStyles = makeStyles((theme) => ({
   },
   Carousel: {
     position: "absolute",
+  },
+  Container: {
+    minHeight: "100vh",
+    width: "100%",
+    // backgroundImage: `url(${background})`,
+    position: "static",
+    backgroundSize: "fixed",
+  },
+  AddTask: {
+    minHeight: "30%",
+    position: "sticky",
+    top: 0,
+    zIndex: 1,
+    // backgroundImage: `url(${header})`,
+    // backgroundSize: "cover",
+  },
+  ModalContainer: {
+    // backgroundImage: `url(${modalBackground})`,
+    backgroundSize: "cover",
+    borderRadius: 12,
+    marginTop: "10vh",
+    opacity: "0.9",
+    minWidth: "70vw",
+    maxWidth: "80vw",
+    minHeight: "70vh",
+    maxHeight: "80vh",
+    margin: "auto",
+  },
+  Title: {
+    textAlign: "center",
+    color: "#000050",
+    fontSize: "20px !important",
+    fontWeight: "900 !important",
+    textDecorationLine: "underline",
+  },
+  Input: {
+    width: "40% !important",
+    marginLeft: "30% !important",
+    marginRight: "30% !important",
+    marginTop: "7px !important",
+  },
+  TasksContainer: {
+    minWidth: "80%",
+    marginInline: "10%",
+  },
+  Accordions: {
+    border: "1px solid #09A391",
+    marginInline: "12px",
+    borderRadius: "15px !important",
+  },
+  TaskTitle: {
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      marginInline: "auto",
+    },
+    fontSize: "16px",
+    fontWeight: "600 !important",
+    color: "navy",
+    textDecorationLine: "underline",
+  },
+  DateStyle: {
+    paddingLeft: "12%",
+    minWidth: "20%",
+  },
+  TimeStyle: {
+    paddingLeft: "6%",
+    minWidth: "20%",
+  },
+  EditIconStyle: {
+    paddingLeft: "4%",
+    color: "black",
+  },
+  DeleteIconStyle: {
+    paddingLeft: "11%",
+    paddingTop: "5px",
   },
 }));
 export default useStyles;

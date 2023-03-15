@@ -10,7 +10,7 @@ import Googlemaps from "./Googlemaps";
 import New from "./New";
 
 export default function SimpleDialogDemo({ trip, open, getLocation, setOpen }) {
-  console.log(getLocation, " = getLocation");
+  // console.log(getLocation, " = getLocation");
   const handleClose = (value) => {
     setOpen(false);
   };

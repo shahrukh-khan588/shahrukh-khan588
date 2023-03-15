@@ -1,60 +1,170 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./styles";
-import { Typography, Stack, Chip, Rating, Box } from "@mui/material";
+import {
+  Typography,
+  Stack,
+  Chip,
+  Rating,
+  Box,
+  styled,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Button,
+} from "@mui/material";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
+import Carousel from "react-multi-carousel";
+import hunzaimg from "../../../assets/images/hunza.jpg";
+import sikardu from "../../../assets/images/sikardu.jpg";
+import astore from "../../../assets/images/astore.jpg";
+import chilas from "../../../assets/images/chilas.jpg";
+import phunder from "../../../assets/images/phunder.jpg";
+import { Delete, ExpandMore, Mode } from "@mui/icons-material";
+
+const districts = [
+  {
+    place: "Hunza",
+    image: hunzaimg,
+  },
+  {
+    place: "Gilgit",
+    image:
+      "https://i.pinimg.com/originals/b7/8e/dc/b78edc26da27e3a230600895c010fc8a.jpg",
+  },
+  {
+    place: "Diamer",
+    image: chilas,
+  },
+  {
+    place: "Astore",
+    image: astore,
+  },
+  {
+    place: "Ghanche",
+    image: "https://i.dawn.com/primary/2015/04/55320d3fb86be.jpg?r=377803836",
+  },
+  {
+    place: "Ghizer",
+    image: phunder,
+  },
+  {
+    place: "Kharmang",
+    image: "https://pbs.twimg.com/media/Dj1T6DuXcAAr4Ml.jpg",
+  },
+  {
+    place: "Nagar",
+    image: "https://i.dawn.com/primary/2015/05/555b12dae58fe.jpg",
+  },
+  {
+    place: "Shigar",
+    image: sikardu,
+  },
+];
+
+const CursorWrapper = styled(Box)({
+  "& .react-multi-carousel-item": {
+    display: "grid",
+    justifyContent: "center",
+  },
+  "& .react-multi-carousel-list": {
+    height: "36rem",
+  },
+  "& .react-multi-carousel-track": {
+    margin: "1rem 0",
+  },
+  "& .react-multi-carousel-dot-list": {
+    margin: ".5rem 0",
+  },
+});
 
 const Index = ({ place }) => {
-  console.log(place, "asd");
+  console.log(place, " = places");
   const classes = useStyles();
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1448 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1448, min: 960 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 960, min: 0 },
+      items: 1,
+    },
+  };
+
+  const a = ["1", "13"];
+
   return (
-    <div>
-      <div className={classes.sub_container}>
-        <img src={place.image} alt="hnz" className={classes.img} />
-        <Box className={classes.detail}>
-          <Box
-            display="flex"
-            alignItems="center"
-            padding="1rem"
-            justifyContent="space-between"
+    <Box
+      sx={{
+        width: "100%",
+        height: "50vh",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        overflowX: "hidden",
+      }}
+    >
+      <Carousel
+        swipeable={false}
+        draggable={true}
+        showDots={true}
+        responsive={responsive}
+        infinite={true}
+        //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
+        // autoPlaySpeed={1000}
+        keyBoardControl={true}
+        //   customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        //   deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {/* <Box */}
+          {/* sx={{display:'flex', flexDirection:'row'}} */}
+        {/* > */}
+        {place?.map((item, i) => (
+          <div
+            style={{
+              backgroundImage: `url(${item?.image})`,
+              backgroundPosition: "center",
+              borderRadius: "15px",
+              display: "flex",
+              flexDirection: "column",
+              width: "70%",
+              marginInline: "auto",
+              height: "50vh",
+            }}
           >
-            <Box display="flex" alignItems={"center"}>
-              <AddLocationIcon sx={{ marginRight: ".4rem" }} />
-              <Typography variant="subtitle1" className={classes.titles}>
-                {place.PlaceName}
-              </Typography>
-            </Box>
-            <Rating name="size-small" defaultValue={2} size="small" />
-          </Box>
-
-          <Box display="flex" alignItems="center" padding="1rem">
-            <AddLocationIcon sx={{ marginRight: ".4rem" }} />
-            <Typography variant="subtitle1" className={classes.titles}>
-              {place?.address?.label}
-            </Typography>
-          </Box>
-
-          <Stack
-            direction="row"
-            spacing={1}
-            px="1rem"
-            pb="1rem"
-            display={"flex"}
-            flexWrap="wrap"
-          >
-            {place?.placeType.map((label, i) => {
-              return (
-                <Chip
-                  label={label?.label}
-                  color="primary"
-                  variant="outlined"
-                  key={i}
-                />
-              );
-            })}
-          </Stack>
-        </Box>
-      </div>
-    </div>
+            <div style={{ height: "90%" }} />
+            <div>
+              <Accordion className={classes.Accordions}>
+                <AccordionSummary expandIcon={<ExpandMore />}>
+                  <AddLocationIcon sx={{ marginRight: ".4rem" }} />
+                  <Rating name="size-small" defaultValue={2} size="small" />
+                </AccordionSummary>
+                <AccordionDetails sx={{ marginInline: "auto" }}>
+                  <Typography>{item?.address?.label}</Typography>
+                </AccordionDetails>
+                <Typography />
+                <br></br>
+              </Accordion>
+            </div>
+          </div>
+        ))}
+        {/* </Box> */}
+      </Carousel>
+    </Box>
   );
 };
 

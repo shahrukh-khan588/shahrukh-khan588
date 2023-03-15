@@ -85,7 +85,7 @@ export default function Hotels({ hotel }) {
           orientation="vertical"
           variant="middle"
           flexItem
-          sx={{ margin: "0px .6rem" }}
+          sx={{ margin: "0px .1rem" }}
         />
         <Box
           p="1rem"

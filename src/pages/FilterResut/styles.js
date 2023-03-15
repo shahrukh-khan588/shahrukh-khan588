@@ -7,15 +7,56 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     margin: " 20px auto",
   },
+  Container: {
+    overflowX: "hidden !important",
+    width: "100vw",
+    overflowY: "scroll",
+    marginLeft: "1%",
+    display: "flex",
+    [theme.breakpoints.down("msm")]: {
+      flexDirection: "column",
+    },
+    [theme.breakpoints.up("msm")]: {
+      flexDirection: "row",
+    },
+  },
+  firstBlock: {
+    [theme.breakpoints.down("msm")]: {
+      width: "80%",
+    },
+    [theme.breakpoints.up("msm")]: {
+      width: "100%",
+    },
+  },
+  secondBlock: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("msm")]: {
+      height: "95vh",
+    },
+    overflowY: "scroll",
+    [theme.breakpoints.down("msm")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.up("msm")]: {
+      width: "60%",
+      height: "95vh",
+    },
+  },
   mainCard: {
     marginTop: "2rem",
     maxHeight: "90vh",
-    maxWidth: 500,
-    minWidth: 500,
+    width:'98%',
+    // paddingInline:'2%',
     border: `1px solid ${theme.palette.grey[300]}`,
     borderRadius: "12px",
-    "@media (max-width: 1000px)": {
-      maxWidth: "100%",
+  },
+  TripsContainer: {
+    [theme.breakpoints.down("msm")]: {
+      width: "95%",
+    },
+    [theme.breakpoints.up("msm")]: {
+      width: "100%",
     },
   },
   subheading: {
@@ -35,21 +76,6 @@ const useStyles = makeStyles((theme) => ({
       "@media (max-width: 1000px)": {
         width: "100%",
       },
-    },
-  },
-  Container: {
-    "@media (max-width: 1000px)": {
-      flexDirection: "column",
-    },
-  },
-  middleSec: {
-    display: "flex",
-    flexDirection: "column",
-    height: "95vh",
-    overflowY: "scroll",
-    width: "90%",
-    "@media (max-width: 1000px)": {
-      width: "100%",
     },
   },
   img: {

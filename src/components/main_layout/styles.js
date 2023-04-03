@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   header: {
     color: "#fff",
+    backgroundColor:"#000000 !important",
     justifyContent: " space-between",
   },
   links: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   root: {
-    background: "rgb(18,23,23)",
+    backgroundColor:"#FFD700",
     // eslint-disable-next-line no-dupe-keys
     background:
       "linear-gradient(0deg, rgba(18,23,23,1) 0%, rgba(34,193,195,1) 100%)",
@@ -91,6 +92,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     spacing: 4,
   },
+  logo: {
+    width: "150px",
+    pY:'.5rem', 
+    height: "auto",}
 }));
 
 export default useStyles;

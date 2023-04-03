@@ -80,8 +80,8 @@ export default function Searchbar() {
         })
       );
 
-      finalbudget !== 30000
-        ? setErrormessage(
+      let istemated = 30000 * values.Persons * values.Days;
+      (istemated > values.Budget ) ? setErrormessage(
             `Your budget should be more than ${
               30000 * values.Persons * values.Days
             }`

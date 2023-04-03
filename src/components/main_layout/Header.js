@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuthUser } from "@react-query-firebase/auth";
 import { auth } from "../../firebase";
+import Logo from '../../assets/logo.png'
 
 const routes = [
   {
@@ -39,12 +40,10 @@ function Header() {
   };
   return (
     <div>
-      <AppBar elevation={6} className={classes.header}>
+      <AppBar  className={classes.header}>
         <Box className={classes.Header}>
-          <Box display="flex" alignItems="center">
-            <Typography variant="h4" class="animate__animated animate__flash">
-              Mountains Are Calling
-            </Typography>
+          <Box display="flex" alignItems="center" p={'.5rem'}>
+            <img src={Logo} alt="logo" className={classes.logo} />
           </Box>
 
           <Stack className={classes.LinkStack}>
@@ -58,7 +57,7 @@ function Header() {
               </Link>
             ))}
             {!!user.data && (
-              <IconButton onClick={handelSognout}>
+              <IconButton onClick={handelSognout} sx={{color:"#fff"}}>
                 <LogoutIcon />
               </IconButton>
             )}

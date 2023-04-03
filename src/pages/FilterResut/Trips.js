@@ -44,24 +44,20 @@ export default function Events({ trip }) {
             <Box display="flex" justifyContent="space-between">
               <img src={trip?.image} alt="img" className={classes.squreimg} />
               <Box margin="0px 16px" textAlign="left">
-                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                  <Typography
-                    variant="h6"
-                    color="primary"
-                    textTransform={"capitalize"}
-                  >
-                    {trip?.TripName}
-                  </Typography>
-                  <Badge badgeContent={3} color="primary">
-                    <AirportShuttleIcon sx={{ fontSize: 30 }} />
-                  </Badge>
-                </Box>
-                <Box display="flex" width="100%" justifyContent="space-between">
-                  <Box
-                    display="flex"
-                    flexDirection="column"
-                    alignItems={"center"}
-                  >
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  textTransform={"capitalize"}
+                >
+                  {trip?.TripName}
+                </Typography>
+                <Box
+                  display="flex"
+                  width="100%"
+                  justifyContent="space-between"
+                  marginTop="25px"
+                >
+                  <Box display="flex" alignItems={"center"} maxWidth='200px'>
                     <IconButton color="primary">
                       <LocationOnOutlinedIcon
                         fontSize="medium"

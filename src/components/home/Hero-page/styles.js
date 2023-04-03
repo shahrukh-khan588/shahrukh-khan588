@@ -116,13 +116,18 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     marginLeft: "27px",
     marginTop: "100px",
+    border: 'none',
+    color: '#00000',
+    boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.5)',
   },
   TypicalStyle: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: "55px !important",
+      fontSize: "40px !important",
+      color:'#00000',
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "90px !important",
+      fontSize: "30px !important",
+      color:'#00000',
     },
   },
 }));

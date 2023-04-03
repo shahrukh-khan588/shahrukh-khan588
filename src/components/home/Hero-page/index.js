@@ -27,22 +27,19 @@ function Hero_page() {
           <Searchbar />
         </Box>
         <Box className={classes.TypicalBlock}>
-          <Typography color="primary" className={classes.TypicalStyle}>
-            Travel{" "}
-          </Typography>
           <Box margin="0px 16px">
             <Typography className={classes.TypicalStyle} color={"#fff"}>
               <Typical
                 steps={[
-                  " with good Knowledge",
+                  "Travel makes one modest",
                   1000,
-                  " with  Friends",
+                  "Adventure is worthwhile",
                   1000,
-                  " and Enjoy",
+                  "To travel is to live",
                   1000,
-                  " with  Families",
+                  "Not all those who wander are lost",
                   1000,
-                  " and be happy",
+                  "Travel is fatal to prejudice, bigotry, and narrow-mindedness.",
                   1000,
                 ]}
                 loop={Infinity}

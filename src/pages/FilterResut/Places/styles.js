@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
   },
   Accordions: {
     border: "1px solid #09A391",
-    marginInline: "12px",
+    marginInline: "12px !important",
     borderRadius: "15px !important",
   },
   TaskTitle: {

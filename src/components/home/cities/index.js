@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import useStyles from "./styles";
+
 import hunzaimg from "../../../assets/images/hunza.jpg";
 import sikardu from "../../../assets/images/sikardu.jpg";
 import astore from "../../../assets/images/astore.jpg";

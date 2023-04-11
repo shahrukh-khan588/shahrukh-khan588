@@ -13,7 +13,7 @@ import {
   Button,
 } from "@mui/material";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
-import Carousel from "react-multi-carousel";
+import Carousel from "react-material-ui-carousel";
 import hunzaimg from "../../../assets/images/hunza.jpg";
 import sikardu from "../../../assets/images/sikardu.jpg";
 import astore from "../../../assets/images/astore.jpg";
@@ -106,63 +106,41 @@ const Index = ({ place }) => {
     <Box
       sx={{
         width: "100%",
-        height: "50vh",
+        height: "auto",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-evenly",
         overflowX: "hidden",
       }}
     >
-      <Carousel
-        swipeable={false}
-        draggable={true}
-        showDots={true}
-        responsive={responsive}
-        infinite={true}
-        //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-        // autoPlaySpeed={1000}
-        keyBoardControl={true}
-        //   customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        //   deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {/* <Box */}
-          {/* sx={{display:'flex', flexDirection:'row'}} */}
-        {/* > */}
-        {place?.map((item, i) => (
+      <Carousel autoPlay sx={{ width: "98%", margin: "auto" }}>
+        {place.map((item) => (
           <div
             style={{
               backgroundImage: `url(${item?.image})`,
               backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
               borderRadius: "15px",
               display: "flex",
               flexDirection: "column",
               width: "70%",
               marginInline: "auto",
               height: "50vh",
+              justifyContent: "flex-end",
             }}
           >
-            <div style={{ height: "90%" }} />
-            <div>
-              <Accordion className={classes.Accordions}>
-                <AccordionSummary expandIcon={<ExpandMore />}>
-                  <AddLocationIcon sx={{ marginRight: ".4rem" }} />
-                  <Rating name="size-small" defaultValue={2} size="small" />
-                </AccordionSummary>
-                <AccordionDetails sx={{ marginInline: "auto" }}>
-                  <Typography>{item?.address?.label}</Typography>
-                </AccordionDetails>
-                <Typography />
-                <br></br>
-              </Accordion>
-            </div>
+            <Accordion className={classes.Accordions}>
+              <AccordionSummary expandIcon={<ExpandMore />}>
+                <AddLocationIcon sx={{ marginRight: ".4rem" }} />
+                <Rating name="size-small" defaultValue={2} size="small" />
+              </AccordionSummary>
+              <AccordionDetails sx={{ marginInline: "auto" }}>
+                <Typography>{item?.address?.label}</Typography>
+              </AccordionDetails>
+            </Accordion>
           </div>
         ))}
-        {/* </Box> */}
       </Carousel>
     </Box>
   );

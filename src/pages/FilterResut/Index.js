@@ -26,7 +26,7 @@ function Index() {
   );
   const { calculatedBudget } = useSelector((state) => state.user);
 
-  console.log(places, ' = places')
+  console.log(places, " = places");
 
   // console.log(calculatedBudget, "calculated Budget");
   // useEffect(() => {
@@ -72,12 +72,12 @@ function Index() {
             Places
           </Divider>
         )}
-        {/* <Box width="100%" columnGap={"1rem"} overFlowX="hidden"> */}
-        {/* {places?.map((place, i) => {
+        {/* <Box width="100%" columnGap={"1rem"} overFlowX="hidden">
+          {places?.map((place, i) => {
             return !!trips && <Places place={place} key={i} />;
-          })} */}
-        <Box>
-          {places && <Places place={places} />}</Box>
+          })}
+        </Box> */}
+        <Box>{places && <Places place={places} />}</Box>
       </Box>
     </Box>
   );
